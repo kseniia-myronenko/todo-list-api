@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: todo_list_development
+  database: todo_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -64,7 +64,7 @@ test:
   password: <%= ENV['DB_PASSWORD'] %>
   host: <%= ENV['DB_HOST'] %>
   port: 5432
-  database: todo_list_test
+  database: todo_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -88,6 +88,6 @@ test:
 #
 production:
   <<: *default
-  database: todo_list_production
+  database: todo_production
   username: username
-  password: <%= ENV["EPAMMUSIC_DATABASE_PASSWORD"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
