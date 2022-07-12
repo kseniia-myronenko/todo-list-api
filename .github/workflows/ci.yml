@@ -9,8 +9,8 @@ jobs:
         image: postgres:11
         ports: ["5432:5432"]
         env:
-          DB_USERNAME: postgres
-          DB_PASSWORD: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -29,8 +29,8 @@ jobs:
         env:
           DATABASE_URL: postgres://postgres:@localhost:5432/test
           RAILS_ENV: test
-          DB_USERNAME: postgres
-          DB_PASSWORD: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
         run: |
           sudo apt-get -yqq install libpq-dev
           gem install bundler
