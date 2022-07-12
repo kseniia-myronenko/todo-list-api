@@ -1,19 +1,20 @@
 # Todo List Api
-<p>The idea of the project is a simple tool for productivity improvement. It let the user an ability to easy manage and control his own projects and tasks.</p>
+<p>The idea of the project is a simple tool for productivity improvement. It lets the user an ability to easy manage and control his own projects and tasks.</p>
 
 <h2> Pages, User stories, Use cases.</h2>
-
-  ◦ Sign up
-  ◦ Sign in
-  ◦ Sign out
-  ◦ Add a Project
-  ◦ Edit a Project
-  ◦ Delete a Project
-  ◦ Add a task into a Project
-  ◦ Set up a Deadline
-  ◦ Prioritization
-  ◦ Edit a Task
-  ◦ Task is Done
-  ◦ Delete a Task
-  ◦ Add a comment to a Task
-  ◦ Delete comments
+  <ul>
+    <li>Sign up</li>
+    <li>Sign in</li>
+    <li>Sign out</li>
+    <li>Add a Project</li>
+    <li>Edit a Project</li>
+    <li>Delete a Project</li>
+    <li>Add a task into a Project</li>
+    <li>Set up a Deadline</li>
+    <li>Prioritization</li>
+    <li>Edit a Task</li>
+    <li>Task is Done</li>
+    <li>Delete a Task</li>
+    <li>Add a comment to a Task</li>
+    <li>Delete comments</li>
+  </ul>
