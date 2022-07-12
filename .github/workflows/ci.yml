@@ -54,6 +54,8 @@ jobs:
           RAILS_ENV: test
           PGHOST: localhost
           PGUSER: myapp
+          PASSWORD: password
+          DB: todo_test
         run: |
           bin/rails db:create
           bundle exec rails db:setup
