@@ -15,7 +15,6 @@ jobs:
 
       - name: Run linters
         run: |
-          bin/lefthook install
           bin/lefthook run pre-commit
 
   tests:
