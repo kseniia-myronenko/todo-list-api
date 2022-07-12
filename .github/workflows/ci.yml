@@ -8,10 +8,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup Ruby and install gems
+      - name: Setup Ruby and install dependencies
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+        run: bundle install
 
       - name: Run linters
         run: |
