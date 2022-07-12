@@ -8,13 +8,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup Ruby
+      - name: Setup Ruby and gems dependencies
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-
-      - name: Install dependencies
-        run: bundle install
 
       - name: Run linters
         run: |
@@ -28,9 +25,7 @@ jobs:
       postgres:
         image: postgres:11
         env:
-          POSTGRES_USER: myapp
-          POSTGRES_DB: myapp_test
-          POSTGRES_PASSWORD: ""
+          DATABASE_URL: postgres://postgres:@localhost:5432/test
         ports: ["5432:5432"]
 
     steps:
