@@ -8,10 +8,12 @@ jobs:
     services:
       postgres:
         image: postgres:11.6-alpine
-        env:
-          POSTGRES_PASSWORD: password
         ports:
           - 5432:5432
+        RAILS_ENV: test
+        PGHOST: localhost
+        PGUSER: myapp
+        POSTGRES_PASSWORD: password
         # needed because the postgres container does not provide a healthcheck
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
@@ -50,12 +52,6 @@ jobs:
       - name: Yarn install
         run: yarn --frozen-lockfile
       - name: Rails test
-        env: # Or as an environment variable
-          RAILS_ENV: test
-          PGHOST: localhost
-          PGUSER: myapp
-          PASSWORD: password
-          DB: todo_test
         run: |
           bin/rails db:create
           bundle exec rails db:setup
