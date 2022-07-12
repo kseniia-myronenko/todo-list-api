@@ -32,6 +32,7 @@ jobs:
           cmd: install
       - name: Run linters
         run: |
+          bundle install
           bundle exec lefthook run pre-commit
       - name: Build and run test
         env:
