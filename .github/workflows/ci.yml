@@ -9,40 +9,32 @@ jobs:
         image: postgres:11
         ports: ["5432:5432"]
         env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          DB_USERNAME: postgres
+          DB_PASSWORD: postgres
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-      redis:
-        image: redis
-        ports: ["6379:6379"]
-        options: --entrypoint redis-server
 
     steps:
       - uses: actions/checkout@v1
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: install
       - name: Run linters
         run: |
           bundle install
           bundle exec lefthook run pre-commit
-      - name: Build and run test
+      - name: Build and run tests
         env:
           DATABASE_URL: postgres://postgres:@localhost:5432/test
-          REDIS_URL: redis://localhost:6379/0
           RAILS_ENV: test
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          DB_USERNAME: postgres
+          DB_PASSWORD: postgres
         run: |
           sudo apt-get -yqq install libpq-dev
           gem install bundler
-          bundle install --jobs 4 --retry 3
+          bundle install
           bundle exec rake db:create
           bundle exec rake db:migrate
-          bundle exec rspec .
+          bundle exec rspec
