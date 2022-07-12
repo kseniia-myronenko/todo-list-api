@@ -53,6 +53,7 @@ jobs:
         env: # Or as an environment variable
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         run: |
+          bin/rails db:create
           bundle exec rails db:setup
           bundle exec rspec
       - name: Run linters
