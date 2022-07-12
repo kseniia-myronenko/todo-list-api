@@ -1,5 +1,5 @@
 # Todo List API
-<p>The idea of the project is a simple tool for productivity improvement. It lets the user an ability to easy manage and control his own projects and tasks.</p>
+<p>The idea of the project is a simple tool for productivity improvement. It lets users an ability to easy manage and control their own projects and tasks.</p>
 
 <h2> Pages, User stories, Use cases.</h2>
   <ul>
