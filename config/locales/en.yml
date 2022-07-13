@@ -1,0 +1,7 @@
+en:
+  activerecord:
+    errors:
+      image:
+        too_large: 'This image is too large.'
+        not_image: 'This is not an image.'
+        wrong_extension: 'This file has wrong extension.'
