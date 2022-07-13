@@ -5,17 +5,27 @@ ruby '3.1.2'
 
 gem 'rails', '~> 7.0.3'
 
+gem 'aws-sdk-s3', '~> 1.112'
+
 gem 'bcrypt', '~> 3.1.7'
+
 # Reduces boot times through caching; required in config/boot.rb
+
 gem 'bootsnap', require: false
 
 gem 'lefthook', '~> 0.7.7'
+
+# For secure mime-type determination
+
+gem 'marcel', '~> 1.0.2'
 
 gem 'jwt', '~> 2.3.0'
 
 gem 'puma', '~> 5.0'
 
 gem 'pg', '~> 1.1'
+
+gem 'shrine', '~> 3.4'
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
