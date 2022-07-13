@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_13_121722) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_13_191758) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -18,10 +18,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_13_121722) do
   create_table "comments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "content"
     t.uuid "task_id", null: false
-    t.text "file_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["task_id"], name: "index_comments_on_task_id"
+  end
+
+  create_table "images", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "link"
+    t.uuid "comment_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_images_on_comment_id"
   end
 
   create_table "projects", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -50,6 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_13_121722) do
   end
 
   add_foreign_key "comments", "tasks"
+  add_foreign_key "images", "comments"
   add_foreign_key "projects", "users"
   add_foreign_key "tasks", "projects"
 end
