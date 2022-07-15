@@ -4,4 +4,6 @@ class Image < ApplicationRecord
   MAX_SIZE = 10 * 1024 * 1024
 
   belongs_to :comment
+
+  include ImageUploader::Attachment(:image)
 end

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :project do
-    name { 'MyString' }
-    user { nil }
+    association :user, factory: :user
+    name { FFaker::HipsterIpsum.sentence }
   end
 end

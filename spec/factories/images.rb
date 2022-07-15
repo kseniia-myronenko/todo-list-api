@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :image do
-    link { 'MyString' }
-    comment { nil }
+    association :comment, factory: :comment
+    link { FFaker::Image.url }
   end
 end

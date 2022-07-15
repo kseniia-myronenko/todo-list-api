@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_13_191758) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_15_103841) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -24,10 +24,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_13_191758) do
   end
 
   create_table "images", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "link"
     t.uuid "comment_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "image_data"
     t.index ["comment_id"], name: "index_images_on_comment_id"
   end
 
@@ -36,16 +36,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_13_191758) do
     t.uuid "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_projects_on_name", unique: true
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "tasks", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.uuid "project_id", null: false
-    t.integer "status"
-    t.datetime "deadline"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "priority"
+    t.boolean "done"
+    t.date "deadline"
+    t.index ["name"], name: "index_tasks_on_name", unique: true
     t.index ["project_id"], name: "index_tasks_on_project_id"
   end
 
@@ -54,6 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_13_191758) do
     t.string "hashed_password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "comments", "tasks"

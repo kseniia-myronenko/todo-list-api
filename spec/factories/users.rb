@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user do
-    username { 'MyString' }
-    hashed_password { 'MyString' }
+    username { FFaker::Internet.unique.user_name }
+    hashed_password { FFaker::Internet.password }
   end
 end
