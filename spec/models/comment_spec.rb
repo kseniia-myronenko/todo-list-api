@@ -13,7 +13,7 @@ RSpec.describe Comment, type: :model do
   end
 
   describe 'validations' do
-    it { is_expected.to validate_presence_of :content }
+    it { is_expected.to validate_presence_of(:content) }
 
     context 'when valid content presents' do
       subject(:comment) { build(:comment) }

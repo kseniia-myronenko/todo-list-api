@@ -9,13 +9,13 @@ en:
         user:
           attributes:
             username:
-              too_short: 'Username must be at least 3 characters long.'
-              too_long: 'Username must be no longer than 50 characters.'
-              blank: "Name can't be blank."
+              too_short: 'Username is too short. Minimum 3 characters.'
+              too_long: 'Username is too long. Maximum 50 characters.'
+              blank: 'The field is required.'
             hashed_password:
               too_short: 'Password must be at least 8 characters long.'
-              invalid: 'English letters and numbers are allowed.'
-              blank: "Password can't be blank."
+              invalid: 'Password does not meet minimal requirements. The length should be 8 characters, alphanumeric.'
+              blank: 'The field is required.'
         project:
           attributes:
             name:
@@ -25,7 +25,7 @@ en:
             name:
               blank: "Name can't be blank."
             deadline:
-              invalid: 'Deadline must be set in valid datetime type.'
+              invalid: 'Deadline must be set in valid date type.'
         comment:
           attributes:
             content:

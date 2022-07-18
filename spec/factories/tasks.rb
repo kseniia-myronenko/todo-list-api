@@ -3,7 +3,7 @@ FactoryBot.define do
     association :project, factory: :project
     name { FFaker::HipsterIpsum.phrase }
     priority { nil }
-    deadline { '2022-07-13 15:17:14' }
+    deadline { '2027-07-13' }
     done { FFaker::Boolean.random }
 
     trait :empty_name do
