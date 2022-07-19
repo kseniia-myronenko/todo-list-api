@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-07-19T14:32:54+03:00">2022-07-19T14:32:54+03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-07-19T16:59:26+03:00">2022-07-19T16:59:26+03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -39,12 +39,12 @@
   <a name="AllFiles"></a>
 
   <div>
-    <b>13</b> files in total.
+    <b>14</b> files in total.
   </div>
 
   <div class="t-line-summary">
-    <b>274</b> relevant lines,
-    <span class="green"><b>274</b> lines covered</span> and
+    <b>285</b> relevant lines,
+    <span class="green"><b>285</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -168,9 +168,9 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#968a7ae3eac5bc36c38d3fd0927ebfae148b935d" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">14</td>
-            <td class="cell--number">11</td>
-            <td class="cell--number">11</td>
+            <td class="cell--number">16</td>
+            <td class="cell--number">12</td>
+            <td class="cell--number">12</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -264,11 +264,27 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#d9e3e377dd707682f00cbc31ad73d3771a5bf9c1" class="src_link" title="spec/models/user_spec.rb">spec/models/user_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">76</td>
-            <td class="cell--number">42</td>
-            <td class="cell--number">42</td>
+            <td class="cell--number">95</td>
+            <td class="cell--number">52</td>
+            <td class="cell--number">52</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.57</td>
+            <td class="cell--number">1.60</td>
+            
+              <td class="green strong cell--number t-file__branch-coverage">100.00 %</td>
+              <td class="cell--number">0</td>
+              <td class="cell--number">0</td>
+              <td class="cell--number">0</td>
+            
+          </tr>
+        
+          <tr class="t-file">
+            <td class="strong t-file__name"><a href="#a077222a80628f0952f0b621aad6da03c7c597b8" class="src_link" title="spec/requests/users_spec.rb">spec/requests/users_spec.rb</a></td>
+            <td class="green strong cell--number t-file__coverage">100.00 %</td>
+            <td class="cell--number">17</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">0.00</td>
             
               <td class="green strong cell--number t-file__branch-coverage">100.00 %</td>
               <td class="cell--number">0</td>
@@ -280,7 +296,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#c4381a0191419ab8c8e123ae7e75445b1ee1ad7a" class="src_link" title="spec/uploaders/image_uploader_spec.rb">spec/uploaders/image_uploader_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">63</td>
+            <td class="cell--number">64</td>
             <td class="cell--number">33</td>
             <td class="cell--number">33</td>
             <td class="cell--number">0</td>
@@ -1059,8 +1075,8 @@
     
 
     <div class="t-line-summary">
-      <b>11</b> relevant lines.
-      <span class="green"><b>11</b> lines covered</span> and
+      <b>12</b> relevant lines.
+      <span class="green"><b>12</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -1099,51 +1115,12 @@
               
             
 
-            <code class="ruby">  USERNAME_MIN_LENGTH = 3</code>
+            <code class="ruby">  has_secure_password</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="3">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">  USERNAME_MAX_LENGTH = 50</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="4">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">  PASSWORD_MIN_LENGTH = 8</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="5">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">  PASSWORD_REGEXP = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}\z/</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="6">
+          <li class="never" data-hits="" data-linenumber="3">
             
             
 
@@ -1156,6 +1133,45 @@
         </div>
       
         <div>
+          <li class="covered" data-hits="1" data-linenumber="4">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">  USERNAME_MIN_LENGTH = 3</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="5">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">  USERNAME_MAX_LENGTH = 50</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="6">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">  PASSWORD_MIN_LENGTH = 8</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="covered" data-hits="1" data-linenumber="7">
             <span class="hits">1</span>
             
@@ -1164,7 +1180,7 @@
               
             
 
-            <code class="ruby">  has_many :projects, dependent: :destroy</code>
+            <code class="ruby">  PASSWORD_REGEXP = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}\z/</code>
           </li>
         </div>
       
@@ -1190,20 +1206,20 @@
               
             
 
-            <code class="ruby">  validates :username, :hashed_password, presence: true</code>
+            <code class="ruby">  has_many :projects, dependent: :destroy</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="10">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="10">
+            
             
 
             
               
             
 
-            <code class="ruby">  validates :username, uniqueness: { case_sensitive: false }</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1216,7 +1232,7 @@
               
             
 
-            <code class="ruby">  validates :username, length: { in: USERNAME_MIN_LENGTH..USERNAME_MAX_LENGTH }</code>
+            <code class="ruby">  validates :username, :password_digest, presence: true</code>
           </li>
         </div>
       
@@ -1229,7 +1245,7 @@
               
             
 
-            <code class="ruby">  validates :hashed_password, length: { minimum: PASSWORD_MIN_LENGTH }</code>
+            <code class="ruby">  validates :username, uniqueness: { case_sensitive: false }</code>
           </li>
         </div>
       
@@ -1242,12 +1258,38 @@
               
             
 
-            <code class="ruby">  validates :hashed_password, format: { with: PASSWORD_REGEXP }</code>
+            <code class="ruby">  validates :username, length: { in: USERNAME_MIN_LENGTH..USERNAME_MAX_LENGTH }</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="14">
+          <li class="covered" data-hits="1" data-linenumber="14">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">  validates :password_digest, length: { minimum: PASSWORD_MIN_LENGTH }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="15">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">  validates :password_digest, format: { with: PASSWORD_REGEXP }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="16">
             
             
 
@@ -5164,8 +5206,8 @@
     
 
     <div class="t-line-summary">
-      <b>42</b> relevant lines.
-      <span class="green"><b>42</b> lines covered</span> and
+      <b>52</b> relevant lines.
+      <span class="green"><b>52</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -5295,7 +5337,7 @@
               
             
 
-            <code class="ruby">    it { is_expected.to have_db_column(:hashed_password).of_type(:string) }</code>
+            <code class="ruby">    it { is_expected.to have_db_column(:password_digest).of_type(:string) }</code>
           </li>
         </div>
       
@@ -5425,7 +5467,7 @@
               
             
 
-            <code class="ruby">    it { is_expected.to validate_presence_of(:hashed_password) }</code>
+            <code class="ruby">    it { is_expected.to validate_presence_of(:password_digest) }</code>
           </li>
         </div>
       
@@ -5529,7 +5571,7 @@
               
             
 
-            <code class="ruby">      expect(user).to validate_length_of(:hashed_password)</code>
+            <code class="ruby">      expect(user).to validate_length_of(:password_digest)</code>
           </li>
         </div>
       
@@ -5945,7 +5987,7 @@
               
             
 
-            <code class="ruby">    context &#39;when password is empty&#39; do</code>
+            <code class="ruby">    context &#39;when username is duplicated&#39; do</code>
           </li>
         </div>
       
@@ -5958,7 +6000,7 @@
               
             
 
-            <code class="ruby">      subject(:user) { build(:user, :with_empty_password) }</code>
+            <code class="ruby">      subject(:user) { create(:user) }</code>
           </li>
         </div>
       
@@ -5976,7 +6018,33 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="62">
+          <li class="covered" data-hits="4" data-linenumber="62">
+            <span class="hits">4</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      let(:duplicated_user) { build(:user, username: user.username) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="63">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="64">
             <span class="hits">1</span>
             
 
@@ -5989,7 +6057,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="63">
+          <li class="covered" data-hits="1" data-linenumber="65">
             <span class="hits">1</span>
             
 
@@ -5997,12 +6065,12 @@
               
             
 
-            <code class="ruby">        expect(user).not_to be_valid</code>
+            <code class="ruby">        expect(duplicated_user).not_to be_valid</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="64">
+          <li class="never" data-hits="" data-linenumber="66">
             
             
 
@@ -6015,7 +6083,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="65">
+          <li class="never" data-hits="" data-linenumber="67">
             
             
 
@@ -6024,32 +6092,6 @@
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="66">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      it &#39;does not save user into database&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="67">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        user.save</code>
           </li>
         </div>
       
@@ -6062,12 +6104,38 @@
               
             
 
-            <code class="ruby">        expect(described_class.count).to eq(0)</code>
+            <code class="ruby">      it &#39;does not save second user into database&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="69">
+          <li class="covered" data-hits="1" data-linenumber="69">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        duplicated_user.save</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="70">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        expect(described_class.count).to eq(1)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="71">
             
             
 
@@ -6080,7 +6148,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="70">
+          <li class="never" data-hits="" data-linenumber="72">
             
             
 
@@ -6093,7 +6161,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="71">
+          <li class="covered" data-hits="1" data-linenumber="73">
             <span class="hits">1</span>
             
 
@@ -6106,7 +6174,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="72">
+          <li class="covered" data-hits="2" data-linenumber="74">
             <span class="hits">2</span>
             
 
@@ -6114,33 +6182,7 @@
               
             
 
-            <code class="ruby">        expect { user.save! }.to raise_error(ActiveRecord::RecordInvalid)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="73">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="74">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby">    end</code>
+            <code class="ruby">        expect { duplicated_user.save! }.to raise_error(ActiveRecord::RecordInvalid)</code>
           </li>
         </div>
       
@@ -6153,7 +6195,7 @@
               
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -6166,7 +6208,520 @@
               
             
 
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="77">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="78">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">    context &#39;when password is empty&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="4" data-linenumber="79">
+            <span class="hits">4</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      subject(:user) { build(:user, :with_empty_password) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="80">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="81">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      it &#39;is invalid user&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="82">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        expect(user).not_to be_valid</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="83">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="84">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="85">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      it &#39;does not save user into database&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="86">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        user.save</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="87">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        expect(described_class.count).to eq(0)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="88">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="89">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="90">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      it &#39;raises an error&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="91">
+            <span class="hits">2</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        expect { user.save! }.to raise_error(ActiveRecord::RecordInvalid)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="92">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="93">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="94">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="95">
+            
+            
+
+            
+              
+            
+
             <code class="ruby">end</code>
+          </li>
+        </div>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="a077222a80628f0952f0b621aad6da03c7c597b8">
+  <div class="header">
+    <h3>spec/requests/users_spec.rb</h3>
+    <h4>
+      <span class="green">
+  100.0%
+</span>
+
+      lines covered
+    </h4>
+
+    
+      <h4>
+        <span class="green">
+  100.0%
+</span>
+
+        branches covered
+      </h4>
+    
+
+    <div class="t-line-summary">
+      <b>0</b> relevant lines.
+      <span class="green"><b>0</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+
+    
+      <div class="t-branch-summary">
+          <span><b>0</b> total branches, </span>
+          <span class="green"><b>0</b> branches covered</span> and
+          <span class="red"><b>0</b> branches missed.</span>
+      </div>
+    
+
+  </div>
+
+  <pre>
+    <ol>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="1">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"># require &#39;rails_helper&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="2">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="3">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"># RSpec.describe &#39;Users&#39;, type: :request do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="4">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">#   describe &#39;GET /new&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="5">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">#     it &#39;returns http success&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="6">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">#       get &#39;/users/new&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="7">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">#       expect(response).to have_http_status(:success)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="8">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">#     end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="9">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">#   end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="10">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="11">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">#   describe &#39;GET /create&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="12">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">#     it &#39;returns http success&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="13">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">#       get &#39;/users/create&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="14">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">#       expect(response).to have_http_status(:success)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="15">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">#     end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="16">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">#   end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="17">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"># end</code>
           </li>
         </div>
       
@@ -6705,7 +7260,7 @@
               
             
 
-            <code class="ruby">        expect(image_file.errors[:image]).to include(I18n.t(&#39;activerecord.errors.models.image.too_large&#39;, max_size: Image::MAX_SIZE))</code>
+            <code class="ruby">        expect(image_file.errors[:image]).to include(I18n.t(&#39;activerecord.errors.models.image.too_large&#39;,</code>
           </li>
         </div>
       
@@ -6718,7 +7273,7 @@
               
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby">                                                            max_size: Image::MAX_SIZE))</code>
           </li>
         </div>
       
@@ -6731,7 +7286,7 @@
               
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -6744,12 +7299,25 @@
               
             
 
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="42">
+            
+            
+
+            
+              
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="42">
+          <li class="covered" data-hits="1" data-linenumber="43">
             <span class="hits">1</span>
             
 
@@ -6762,7 +7330,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="43">
+          <li class="covered" data-hits="3" data-linenumber="44">
             <span class="hits">3</span>
             
 
@@ -6775,7 +7343,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="44">
+          <li class="covered" data-hits="3" data-linenumber="45">
             <span class="hits">3</span>
             
 
@@ -6788,7 +7356,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="45">
+          <li class="never" data-hits="" data-linenumber="46">
             
             
 
@@ -6801,7 +7369,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="46">
+          <li class="covered" data-hits="1" data-linenumber="47">
             <span class="hits">1</span>
             
 
@@ -6814,7 +7382,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="47">
+          <li class="covered" data-hits="2" data-linenumber="48">
             <span class="hits">2</span>
             
 
@@ -6827,7 +7395,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="48">
+          <li class="never" data-hits="" data-linenumber="49">
             
             
 
@@ -6840,7 +7408,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="49">
+          <li class="never" data-hits="" data-linenumber="50">
             
             
 
@@ -6849,19 +7417,6 @@
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="50">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      it &#39;doc is wrong type&#39; do</code>
           </li>
         </div>
       
@@ -6874,20 +7429,20 @@
               
             
 
-            <code class="ruby">        expect(doc_file).not_to be_valid</code>
+            <code class="ruby">      it &#39;doc is wrong type&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="52">
-            
+          <li class="covered" data-hits="1" data-linenumber="52">
+            <span class="hits">1</span>
             
 
             
               
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby">        expect(doc_file).not_to be_valid</code>
           </li>
         </div>
       
@@ -6900,12 +7455,25 @@
               
             
 
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="54">
+            
+            
+
+            
+              
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="54">
+          <li class="covered" data-hits="1" data-linenumber="55">
             <span class="hits">1</span>
             
 
@@ -6918,7 +7486,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="55">
+          <li class="covered" data-hits="2" data-linenumber="56">
             <span class="hits">2</span>
             
 
@@ -6931,7 +7499,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="56">
+          <li class="never" data-hits="" data-linenumber="57">
             
             
 
@@ -6944,7 +7512,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="57">
+          <li class="never" data-hits="" data-linenumber="58">
             
             
 
@@ -6957,7 +7525,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="58">
+          <li class="covered" data-hits="1" data-linenumber="59">
             <span class="hits">1</span>
             
 
@@ -6970,7 +7538,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="59">
+          <li class="covered" data-hits="1" data-linenumber="60">
             <span class="hits">1</span>
             
 
@@ -6983,7 +7551,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="60">
+          <li class="never" data-hits="" data-linenumber="61">
             
             
 
@@ -6996,7 +7564,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="61">
+          <li class="never" data-hits="" data-linenumber="62">
             
             
 
@@ -7009,7 +7577,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="62">
+          <li class="never" data-hits="" data-linenumber="63">
             
             
 
@@ -7022,7 +7590,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="63">
+          <li class="never" data-hits="" data-linenumber="64">
             
             
 

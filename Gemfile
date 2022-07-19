@@ -13,6 +13,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootsnap', require: false
 
+gem 'fast_jsonapi', '~> 1.1', '>= 1.1.1'
+
 gem 'lefthook', '~> 0.7.7'
 
 # For secure mime-type determination

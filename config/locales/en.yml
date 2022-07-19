@@ -1,6 +1,8 @@
 en:
   activerecord:
     errors:
+      authorization:
+        not_authorized: 'You are not authorized. Please, log in.'
       models:
         image:
           too_large: 'This image is too large. File max size allowed: %{max_size}.'
@@ -9,10 +11,10 @@ en:
         user:
           attributes:
             username:
-              too_short: 'Username is too short. Minimum 3 characters.'
-              too_long: 'Username is too long. Maximum 50 characters.'
+              too_short: 'Username is too short. Minimum 3 characters are required.'
+              too_long: 'Username is too long. Maximum 50 characters are required.'
               blank: 'The field is required.'
-            hashed_password:
+            password_digest:
               too_short: 'Password must be at least 8 characters long.'
               invalid: 'Password does not meet minimal requirements. The length should be 8 characters, alphanumeric.'
               blank: 'The field is required.'
