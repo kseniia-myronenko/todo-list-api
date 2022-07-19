@@ -1,7 +1,33 @@
 en:
   activerecord:
     errors:
-      image:
-        too_large: 'This image is too large.'
-        not_image: 'This is not an image.'
-        wrong_extension: 'This file has wrong extension.'
+      models:
+        image:
+          too_large: 'This image is too large. File max size allowed: %{max_size}.'
+          not_image: 'This is not an image.'
+          wrong_extension: 'This file has wrong extension.'
+        user:
+          attributes:
+            username:
+              too_short: 'Username is too short. Minimum 3 characters.'
+              too_long: 'Username is too long. Maximum 50 characters.'
+              blank: 'The field is required.'
+            hashed_password:
+              too_short: 'Password must be at least 8 characters long.'
+              invalid: 'Password does not meet minimal requirements. The length should be 8 characters, alphanumeric.'
+              blank: 'The field is required.'
+        project:
+          attributes:
+            name:
+              blank: "Name can't be blank."
+        task:
+          attributes:
+            name:
+              blank: "Name can't be blank."
+            deadline:
+              invalid: 'Deadline must be set in valid date type.'
+        comment:
+          attributes:
+            content:
+              blank: "Content can't be blank."
+

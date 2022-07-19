@@ -37,7 +37,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'dry-schema', '~> 1.9.1'
   gem 'factory_bot_rails', '~> 6.2'
-  gem 'ffaker', '~> 2.20'
+  gem 'ffaker', '~> 2.21'
   gem 'rspec-rails', '~> 6.0.0.rc1'
   gem 'rswag', '~> 2.5'
   gem 'rswag-specs', '~> 2.5', '>= 2.5.1'
@@ -58,5 +58,6 @@ end
 group :test do
   gem 'json_matchers', '~> 0.11.1'
   gem 'rails-controller-testing', '~> 1.0.1'
+  gem 'shoulda-matchers', '~> 5.1'
   gem 'simplecov', '~> 0.21.2', require: false
 end

@@ -35,7 +35,7 @@ Shrine.plugin :cached_attachment_data # enables retaining cached file across for
 Shrine.plugin :restore_cached_data    # extracts metadata for assigned cached files
 Shrine.plugin :determine_mime_type, analyzer: :marcel
 Shrine.plugin :validation_helpers, default_messages: {
-  max_size: ->(max) { I18n.t('activerecord.errors.image.too_large', max_size: max) },
-  mime_types: ->(list) { I18n.t('activerecord.errors.image.not_image', allowed_types: list) },
-  extensions: ->(list) { I18n.t('activerecord.errors.image.wrong_extension', allowed_types: list) }
+  max_size: ->(max) { I18n.t('activerecord.errors.models.image.too_large', max_size: max) },
+  mime_types: ->(list) { I18n.t('activerecord.errors.models.image.not_image', allowed_types: list) },
+  extensions: ->(list) { I18n.t('activerecord.errors.models.image.wrong_extension', allowed_types: list) }
 }
