@@ -1,67 +1,64 @@
-# RSpec.describe ImageUploader, type: :uploader do
-#   describe 'image downloading' do
-#     context 'when checks mime type' do
-#       subject(:image) { create(:image, link: ) }
+RSpec.describe ImageUploader, type: :uploader do
+  describe 'valid files validation check' do
+    context 'when checks jpg format' do
+      subject(:image_file) { create(:image, image: file_fixture('acceptable_size_image-1.jpg').open) }
 
-#       let!(:comment) { create(:comment, task: create(:task)) }
+      it 'extracts mime_type' do
+        expect(image_file.image.mime_type).to eq('image/jpeg')
+      end
 
-#       before do
-#         create(:playlist, title: 'Concentration', logo: file_fixture('test_logo.png').open)
-#       end
+      it 'extracts size' do
+        expect(image_file.image.size).to be <= Image::MAX_SIZE
+      end
+    end
 
-#       let(:derivatives) { playlist.logo_derivatives }
-#       let(:playlist) { Playlist.last }
+    context 'when checks png format' do
+      subject(:image_file) { create(:image, image: file_fixture('acceptable_size_image-2.png').open) }
 
-#       it 'destroying logo' do
-#         playlist.remove_logo = 'true'
-#         playlist.save
-#         expect(logo).to be_nil
-#       end
+      it 'extracts mime_type' do
+        expect(image_file.image.mime_type).to eq('image/png')
+      end
 
-#       it 'extracts mime_type' do
-#         expect(logo.mime_type).to eq('image/png')
-#       end
+      it 'extracts size' do
+        expect(image_file.image.size).to be <= Image::MAX_SIZE
+      end
+    end
+  end
 
-#       it 'extracts size' do
-#         expect(logo.size).to be <= LogoUploader::MAX_SIZE
-#       end
+  describe 'invalid files validation check' do
+    context 'when size is too large' do
+      subject(:image_file) { build(:image, image: file_fixture('big_size_image.jpg').open) }
 
-#       it 'have small derivative' do
-#         expect(derivatives[:small].dimensions).to  match_array(LogoUploader::THUMBNAILS_SIZES[:small])
-#       end
+      it 'is too big file' do
+        expect(image_file).not_to be_valid
+      end
 
-#       it 'have large derivative' do
-#         expect(derivatives[:large].dimensions).to  match_array(LogoUploader::THUMBNAILS_SIZES[:large])
-#       end
-#     end
-#   end
+      it 'raises an error' do
+        image_file.valid?
+        expect(image_file.errors[:image]).to include(I18n.t('activerecord.errors.models.image.too_large',
+                                                            max_size: Image::MAX_SIZE))
+      end
+    end
 
-#   describe 'validations' do
-#     let(:playlist) { build(:playlist) }
+    context 'when wrong mime-type' do
+      let(:doc_file) { build(:image, image: file_fixture('not_image.doc').open) }
+      let(:pdf_file) { build(:image, image: file_fixture('not_image.pdf').open) }
 
-#     it 'is not of allowed type' do
-#       playlist.logo = File.open('spec/fixtures/logo/favicon.ico', 'rb')
-#       playlist.valid?
-#       expect(playlist.errors[:logo])
-#         .to include(I18n.t('activerecord.errors.image.not_image', allowed_types: LogoUploader::ALLOWED_MIME_TYPES))
-#     end
+      it 'raises an error when uploading doc file' do
+        expect { doc_file.save! }.to raise_error(ActiveRecord::RecordInvalid)
+      end
 
-#     context 'with too big logo' do
-#       before do
-#         playlist.logo = File.open('spec/fixtures/avatar/to_big_size.jpg', 'rb')
-#       end
+      it 'doc is wrong type' do
+        expect(doc_file).not_to be_valid
+      end
 
-#       it 'is not within upload limits' do
-#         playlist.valid?
-#         expect(playlist.errors[:logo])
-#           .to include(I18n.t('activerecord.errors.image.too_big_size', max_size: LogoUploader::MAX_SIZE))
-#       end
+      it 'raises an error when uploading pdf file' do
+        expect { pdf_file.save! }.to raise_error(ActiveRecord::RecordInvalid)
+      end
 
-#       it 'is not within dimensions limits' do
-#         playlist.valid?
-#         expect(playlist.errors[:logo])
-#           .to include(I18n.t('activerecord.errors.image.too_big_dim', dim: [LogoUploader::MAX_DIM_SIZE] * 2))
-#       end
-#     end
-#   end
-# end
+      it 'pdf is wrong type' do
+        expect(pdf_file).not_to be_valid
+      end
+    end
+  end
+end
