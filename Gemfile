@@ -21,11 +21,11 @@ gem 'lefthook', '~> 0.7.7'
 
 gem 'marcel', '~> 1.0.2'
 
-gem 'jwt', '~> 2.3.0'
-
 gem 'puma', '~> 5.0'
 
 gem 'pg', '~> 1.1'
+
+gem 'rack-cors', '~> 1.1', '>= 1.1.1'
 
 gem 'shrine', '~> 3.4'
 

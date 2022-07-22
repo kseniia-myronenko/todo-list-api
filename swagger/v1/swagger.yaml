@@ -1,6 +1,23 @@
 ---
 openapi: 3.0.1
 info:
-  title: Todo List API V1
+  title: API V1
   version: v1
-paths: {}
+paths:
+  "/api/v1":
+    get:
+      summary: projects
+      tags:
+      - projects
+      security:
+      - basicAuth: []
+      responses:
+        '200':
+          description: successful
+        '401':
+          description: unauthorized
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com

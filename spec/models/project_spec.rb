@@ -16,7 +16,6 @@ RSpec.describe Project, type: :model do
     subject(:project) { create(:project) }
 
     it { is_expected.to validate_presence_of(:name) }
-    it { is_expected.to validate_uniqueness_of(:name) }
 
     context 'when valid name presents' do
       it 'is validate project' do
@@ -66,7 +65,7 @@ RSpec.describe Project, type: :model do
     context 'when duplicate project name' do
       before { project.save }
 
-      let(:project_with_duplicated_name) { build(:project, name: project.name) }
+      let(:project_with_duplicated_name) { build(:project, name: project.name, user: project.user) }
 
       it 'is invalid project' do
         expect(project_with_duplicated_name).not_to be_valid
