@@ -37,7 +37,7 @@ group :development, :test do
   gem 'bundler-audit', '~> 0.9.0'
   gem 'bundler-leak', '~> 0.2.0'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'dry-schema', '~> 1.9.1'
+  gem 'dry-schema', '~> 1.9', '>= 1.9.3'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'ffaker', '~> 2.21'
   gem 'rspec-rails', '~> 6.0.0.rc1'
