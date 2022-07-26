@@ -9,7 +9,7 @@ module Api
       end
 
       def show
-        render json: Api::V1::ProjectSerializer.new(@project), status: :ok
+        render json: Api::V1::ProjectSerializer.new(@project, include: [:tasks]), status: :ok
       end
 
       def create
@@ -26,7 +26,7 @@ module Api
 
       def update
         response = if @project.update(project_params)
-                     { json: Api::V1::ProjectSerializer.new(@project), status: :ok }
+                     { json: Api::V1::ProjectSerializer.new(@project, include: [:tasks]), status: :ok }
                    else
                      { json: { errors: @project.errors }, status: :unprocessable_entity }
                    end
@@ -36,6 +36,7 @@ module Api
 
       def destroy
         @project.destroy
+        render status: :no_content
       end
 
       private

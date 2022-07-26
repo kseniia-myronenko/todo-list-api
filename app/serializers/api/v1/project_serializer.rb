@@ -4,6 +4,7 @@ module Api
       set_type :project
       attributes :name
       belongs_to :user, serializer: Api::V1::UserSerializer
+      has_many :tasks, serializer: Api::V1::TaskSerializer
     end
   end
 end

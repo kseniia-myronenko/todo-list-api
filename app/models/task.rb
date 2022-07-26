@@ -4,10 +4,9 @@ class Task < ApplicationRecord
 
   validate :deadline_is_a_date?
   validates :name, presence: true
-  validates :name, uniqueness: true
 
   def deadline_is_a_date?
-    return if deadline.is_a?(Date)
+    return if deadline.is_a?(Date) || deadline.nil?
 
     errors.add(:deadline, :invalid)
   end

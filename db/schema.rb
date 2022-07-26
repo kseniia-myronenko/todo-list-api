@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_21_180801) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_26_142205) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -47,7 +47,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_21_180801) do
     t.integer "priority"
     t.boolean "done"
     t.date "deadline"
-    t.index ["name"], name: "index_tasks_on_name", unique: true
     t.index ["project_id"], name: "index_tasks_on_project_id"
   end
 
