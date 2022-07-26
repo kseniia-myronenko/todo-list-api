@@ -23,16 +23,15 @@ RSpec.configure do |config|
       },
       definitions: {
         sign_up: Api::Schemas::Registration::MAIN.json_schema.except(:$schema),
+        log_in: Api::Schemas::Session::MAIN.json_schema.except(:$schema),
         all_projects: Api::Schemas::Project::MANY_SCHEMA.json_schema.except(:$schema),
         single_project: Api::Schemas::Project::SINGLE_SCHEMA.json_schema.except(:$schema)
       },
 
       securityDefinitions: {
-        Authentication: {
-          description: 'Authentication with session',
-          type: :apiKey,
-          name: 'Basic auth',
-          in: :header
+        basic_auth: {
+          type: :http,
+          scheme: :basic
         }
       }
     }

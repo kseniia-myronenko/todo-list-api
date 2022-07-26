@@ -10,12 +10,4 @@ class BaseController < ActionController::API
   def render_not_found
     head :not_found
   end
-
-  def forbid_authenticated
-    render json: { message: I18n.t('authentication.errors.logged_in') }, status: :forbidden if logged_in?
-  end
-
-  def logged_in?
-    !!current_user
-  end
 end

@@ -1,8 +1,6 @@
 module Api
   module V1
     class SessionsController < BaseController
-      # before_action :forbid_authenticated
-
       def create
         if set_user&.authenticate(params[:password])
           session[:user_id] = set_user.id
@@ -16,7 +14,7 @@ module Api
 
       def destroy
         reset_session
-        render json: { message: 'You have successfully logged out.' }, status: :ok
+        render json: { message: I18n.t('authentication.success.logged_out') }, status: :ok
       end
 
       private

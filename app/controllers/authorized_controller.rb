@@ -1,7 +1,9 @@
 class AuthorizedController < BaseController
-  before_action :unauthorized_request
+  before_action :check_authorization
 
-  def unauthorized_request
-    render json: { message: I18n.t('authentication.errors.not_logged_in') }, status: :unauthorized unless current_user
+  private
+
+  def check_authorization
+    render status: :unauthorized unless current_user
   end
 end

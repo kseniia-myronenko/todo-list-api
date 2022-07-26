@@ -1,8 +1,8 @@
 require 'swagger_helper'
 
 RSpec.describe 'api/v1/registrations', type: :request do
-  path '/api/v1/registrations' do
-    post('create registration') do
+  path '/api/v1/signup' do
+    post('create account') do
       consumes 'multipart/form-data'
       produces 'application/json'
       tags :registration
@@ -13,8 +13,8 @@ RSpec.describe 'api/v1/registrations', type: :request do
 
       context 'when with valid params' do
         let(:username) { 'Jennyfer' }
-        let(:password) { 'Securepassword' }
-        let(:password_confirmation) { 'Securepassword' }
+        let(:password) { Helpers::UserAuthHelper::PASSWORD }
+        let(:password_confirmation) { Helpers::UserAuthHelper::PASSWORD }
 
         response(201, 'successful') do
           schema type: :object, '$ref': '#/definitions/sign_up'
@@ -31,6 +31,11 @@ RSpec.describe 'api/v1/registrations', type: :request do
         let(:password_confirmation) { nil }
 
         response(422, 'unprocessable_entity') do
+          schema type: :object,
+                 properties: {
+                   errors: { type: :object }
+                 }
+
           run_test!
         end
       end

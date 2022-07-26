@@ -16,6 +16,23 @@ definitions:
     required:
     - user
     - message
+  log_in:
+    type: object
+    properties:
+      user:
+        type: string
+        minLength: 1
+      logged_in:
+        type: boolean
+        not:
+          type: 'null'
+      message:
+        type: string
+        minLength: 1
+    required:
+    - user
+    - logged_in
+    - message
   all_projects:
     type: object
     properties:
@@ -125,11 +142,9 @@ definitions:
     required:
     - data
 securityDefinitions:
-  Authentication:
-    description: Authentication with session
-    type: apiKey
-    name: Basic auth
-    in: header
+  basic_auth:
+    type: http
+    scheme: basic
 paths:
   "/api/v1":
     get:
@@ -167,7 +182,10 @@ paths:
         required: true
       responses:
         '201':
-          description: successful
+          description: created
+          schema:
+            type: object
+            "$ref": "#/definitions/single_project"
         '422':
           description: unprocessable_entity
         '401':
@@ -193,6 +211,8 @@ paths:
           schema:
             type: object
             "$ref": "#/definitions/single_project"
+        '404':
+          description: not_found
         '401':
           description: unauthorized
     put:
@@ -218,6 +238,9 @@ paths:
       responses:
         '200':
           description: successful
+          schema:
+            type: object
+            "$ref": "#/definitions/single_project"
         '422':
           description: unprocessable_entity
         '401':
@@ -239,9 +262,9 @@ paths:
           description: no_content
         '401':
           description: unauthorized
-  "/api/v1/registrations":
+  "/api/v1/signup":
     post:
-      summary: create registration
+      summary: create account
       consumes:
       - multipart/form-data
       produces:
@@ -269,3 +292,52 @@ paths:
             "$ref": "#/definitions/sign_up"
         '422':
           description: unprocessable_entity
+          schema:
+            type: object
+            properties:
+              errors:
+                type: object
+  "/api/v1/login":
+    post:
+      summary: create session
+      consumes:
+      - multipart/form-data
+      produces:
+      - application/json
+      tags:
+      - session
+      parameters:
+      - name: username
+        in: formData
+        type: string
+        required: true
+      - name: password
+        in: formData
+        type: string
+        required: true
+      responses:
+        '201':
+          description: created
+          schema:
+            type: object
+            "$ref": "#/definitions/log_in"
+        '401':
+          description: unprocessable_entity
+          schema:
+            type: object
+            properties:
+              errors:
+                type: object
+  "/api/v1/logout":
+    delete:
+      summary: delete session
+      tags:
+      - session
+      responses:
+        '200':
+          description: successfull
+          schema:
+            type: object
+            properties:
+              message:
+                type: string

@@ -1,7 +1,7 @@
 require 'swagger_helper'
 
 RSpec.describe 'projects', type: :request do
-  let(:user) { create(:user, password: Helpers::UserAuthHelper::PASSWORD) }
+  let!(:user) { create(:user, password: Helpers::UserAuthHelper::PASSWORD) }
 
   path '/api/v1' do
     get('show projects') do
@@ -22,16 +22,19 @@ RSpec.describe 'projects', type: :request do
       end
 
       context 'when with projects' do
-        before do
-          authenticate(user)
-          create_list(:project, 3, user:)
-        end
+        let!(:projects) { create_list(:project, 3, user:) }
+
+        before { authenticate(user) }
 
         response(200, 'successful') do
           schema anyOf: [{ '$ref': '#/definitions/all_projects' }, {}]
 
           run_test! do
+            parsed_body = JSON.parse(response.body)
+
             expect(response.body).to match_response_schema(Api::Schemas::Project::MANY_SCHEMA)
+            expect(parsed_body['data'].length).to eq 3
+            expect(parsed_body['data'].first['id']).to eq(projects[0].id)
           end
         end
       end
@@ -58,8 +61,15 @@ RSpec.describe 'projects', type: :request do
 
         let(:name) { 'Project name' }
 
-        response(201, 'successful') do
-          run_test!
+        response(201, 'created') do
+          schema type: :object, '$ref': '#/definitions/single_project'
+
+          run_test! do
+            parsed_body = JSON.parse(response.body)
+
+            expect(response.body).to match_response_schema(Api::Schemas::Project::SINGLE_SCHEMA)
+            expect(parsed_body['data']['attributes']['name']).to eq('Project name')
+          end
         end
       end
 
@@ -69,6 +79,11 @@ RSpec.describe 'projects', type: :request do
         let(:name) { nil }
 
         response(422, 'unprocessable_entity') do
+          schema type: :object,
+                 properties: {
+                   errors: { type: :object }
+                 }
+
           run_test!
         end
       end
@@ -80,6 +95,11 @@ RSpec.describe 'projects', type: :request do
         before { authenticate(user) }
 
         response(422, 'unprocessable_entity') do
+          schema type: :object,
+                 properties: {
+                   errors: { type: :object }
+                 }
+
           run_test!
         end
       end
@@ -103,18 +123,25 @@ RSpec.describe 'projects', type: :request do
       parameter name: :id, in: :path, type: :string, description: 'id'
 
       context 'when authenticated' do
-        let(:id) { create(:project, user:).id }
-
-        before do
-          authenticate(user)
-        end
+        before { authenticate(user) }
 
         response(200, 'successful') do
+          let(:id) { create(:project, user:).id }
+
           schema type: :object, '$ref': '#/definitions/single_project'
 
           run_test! do
+            parsed_body = JSON.parse(response.body)
+
+            expect(parsed_body['data']['id']).to eq(id)
             expect(response.body).to match_response_schema(Api::Schemas::Project::SINGLE_SCHEMA)
           end
+        end
+
+        response(404, 'not_found') do
+          let(:id) { create(:project, user: create(:user)).id }
+
+          run_test!
         end
       end
 
@@ -145,7 +172,14 @@ RSpec.describe 'projects', type: :request do
         before { authenticate(user) }
 
         response(200, 'successful') do
-          run_test!
+          schema type: :object, '$ref': '#/definitions/single_project'
+
+          run_test! do
+            parsed_body = JSON.parse(response.body)
+
+            expect(parsed_body['data']['attributes']['name']).to eq('Work stuff')
+            expect(response.body).to match_response_schema(Api::Schemas::Project::SINGLE_SCHEMA)
+          end
         end
       end
 
@@ -156,6 +190,11 @@ RSpec.describe 'projects', type: :request do
         before { authenticate(user) }
 
         response(422, 'unprocessable_entity') do
+          schema type: :object,
+                 properties: {
+                   errors: { type: :object }
+                 }
+
           run_test!
         end
       end
@@ -168,6 +207,11 @@ RSpec.describe 'projects', type: :request do
         before { authenticate(user) }
 
         response(422, 'unprocessable_entity') do
+          schema type: :object,
+                 properties: {
+                   errors: { type: :object }
+                 }
+
           run_test!
         end
       end
