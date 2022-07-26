@@ -16,22 +16,24 @@ RSpec.configure do |config|
   # the root example_group in your specs, e.g. describe '...', swagger_doc: 'v2/swagger.json'
   config.swagger_docs = {
     'v1/swagger.yaml' => {
-      openapi: '3.0.1',
+      swagger: '2.0',
       info: {
         title: 'API V1',
         version: 'v1'
       },
-      paths: {},
-      servers: [
-        {
-          url: 'https://{defaultHost}',
-          variables: {
-            defaultHost: {
-              default: 'www.example.com'
-            }
-          }
+      definitions: {
+        sign_up: Api::Schemas::Registration::MAIN.json_schema.except(:$schema),
+        log_in: Api::Schemas::Session::MAIN.json_schema.except(:$schema),
+        all_projects: Api::Schemas::Project::MANY_SCHEMA.json_schema.except(:$schema),
+        single_project: Api::Schemas::Project::SINGLE_SCHEMA.json_schema.except(:$schema)
+      },
+
+      securityDefinitions: {
+        basic_auth: {
+          type: :http,
+          scheme: :basic
         }
-      ]
+      }
     }
   }
 

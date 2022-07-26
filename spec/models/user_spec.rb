@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
   describe 'fields' do
     it { is_expected.to have_db_column(:id).of_type(:uuid) }
     it { is_expected.to have_db_column(:username).of_type(:string) }
-    it { is_expected.to have_db_column(:hashed_password).of_type(:string) }
+    it { is_expected.to have_db_column(:password_digest).of_type(:string) }
     it { is_expected.to have_db_column(:created_at).of_type(:datetime) }
     it { is_expected.to have_db_column(:updated_at).of_type(:datetime) }
   end
@@ -16,7 +16,7 @@ RSpec.describe User, type: :model do
 
     it { is_expected.to validate_presence_of(:username) }
     it { is_expected.to validate_uniqueness_of(:username).case_insensitive }
-    it { is_expected.to validate_presence_of(:hashed_password) }
+    it { is_expected.to validate_presence_of(:password_digest) }
 
     it do
       expect(user).to validate_length_of(:username)
@@ -24,7 +24,7 @@ RSpec.describe User, type: :model do
     end
 
     it do
-      expect(user).to validate_length_of(:hashed_password)
+      expect(user).to validate_length_of(:password_digest)
         .is_at_least(User::PASSWORD_MIN_LENGTH)
     end
 
@@ -53,6 +53,25 @@ RSpec.describe User, type: :model do
 
       it 'raises an error' do
         expect { user.save! }.to raise_error(ActiveRecord::RecordInvalid)
+      end
+    end
+
+    context 'when username is duplicated' do
+      subject(:user) { create(:user) }
+
+      let(:duplicated_user) { build(:user, username: user.username) }
+
+      it 'is invalid user' do
+        expect(duplicated_user).not_to be_valid
+      end
+
+      it 'does not save second user into database' do
+        duplicated_user.save
+        expect(described_class.count).to eq(1)
+      end
+
+      it 'raises an error' do
+        expect { duplicated_user.save! }.to raise_error(ActiveRecord::RecordInvalid)
       end
     end
 

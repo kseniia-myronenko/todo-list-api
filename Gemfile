@@ -13,17 +13,19 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootsnap', require: false
 
+gem 'fast_jsonapi', '~> 1.1', '>= 1.1.1'
+
 gem 'lefthook', '~> 0.7.7'
 
 # For secure mime-type determination
 
 gem 'marcel', '~> 1.0.2'
 
-gem 'jwt', '~> 2.3.0'
-
 gem 'puma', '~> 5.0'
 
 gem 'pg', '~> 1.1'
+
+gem 'rack-cors', '~> 1.1', '>= 1.1.1'
 
 gem 'shrine', '~> 3.4'
 
@@ -35,7 +37,7 @@ group :development, :test do
   gem 'bundler-audit', '~> 0.9.0'
   gem 'bundler-leak', '~> 0.2.0'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'dry-schema', '~> 1.9.1'
+  gem 'dry-schema', '~> 1.9', '>= 1.9.3'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'ffaker', '~> 2.21'
   gem 'rspec-rails', '~> 6.0.0.rc1'

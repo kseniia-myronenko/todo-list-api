@@ -9,17 +9,19 @@ en:
         user:
           attributes:
             username:
-              too_short: 'Username is too short. Minimum 3 characters.'
-              too_long: 'Username is too long. Maximum 50 characters.'
+              too_short: 'Username is too short. Minimum 3 characters are required.'
+              too_long: 'Username is too long. Maximum 50 characters are required.'
               blank: 'The field is required.'
-            hashed_password:
-              too_short: 'Password must be at least 8 characters long.'
+              already_exists: 'This login is already registered. Please, log in.'
+            password_digest:
               invalid: 'Password does not meet minimal requirements. The length should be 8 characters, alphanumeric.'
               blank: 'The field is required.'
+            password_confirmation: "Password and Confirm password fields doesn't match."
         project:
           attributes:
-            name:
+            base:
               blank: "Name can't be blank."
+              already_exists: 'Project with the same name already exists.'
         task:
           attributes:
             name:
@@ -30,4 +32,15 @@ en:
           attributes:
             content:
               blank: "Content can't be blank."
+  authentication:
+    errors:
+      not_logged_in: 'Please, log in or sign up.'
+      logged_in: 'You are already logged in.'
+      wrong_data: 'Incorrect login or(and) password.'
+    success:
+      logged_in: 'Successfully logged in.'
+      sig_up: 'You are successfully registered.'
+      logged_out: 'You have successfully logged out.'
+    info:
+      sign_up_invitation: 'Not registered yet? Create an account!'
 
