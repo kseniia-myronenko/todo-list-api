@@ -9,7 +9,7 @@
 
 <ol>
 <li><b>Ruby:</b> 3.1.2</li>
-<li><b>Rails:</b> '~> 7.0.3'</li>
+<li><b>Rails:</b> ~> 7.0.3</li>
 <li><b>Database:</b> PostgreSQL</li>
 </ol>
 
