@@ -2,6 +2,7 @@
 <p>The idea of the project is a simple tool for productivity improvement. It lets users an ability to easy manage and control their own projects and tasks.</p>
 <div style="display: flex;">
 <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/kseniia-myronenko/todo-list-api?logoColor=orange&style=for-the-badge">
-<img alt="Lines of code" src="https://img.shields.io/tokei/lines/github.com/kseniia-myronenko/todo-list-api?style=for-the-badge">
+  
 <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/kseniia-myronenko/todo-list-api/total">
+<title xmlns="http://www.w3.org/2000/svg">Simplecov: 100%</title><linearGradient xmlns="http://www.w3.org/2000/svg" id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath xmlns="http://www.w3.org/2000/svg" id="r"><rect width="110" height="20" rx="3" fill="#fff"/></clipPath><g xmlns="http://www.w3.org/2000/svg" clip-path="url(#r)"><rect width="67" height="20" fill="#555"/><rect x="67" width="43" height="20" fill="#4c1"/><rect width="110" height="20" fill="url(#s)"/></g><g xmlns="http://www.w3.org/2000/svg" fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><text aria-hidden="true" x="345" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="570">Simplecov</text><text x="345" y="140" transform="scale(.1)" fill="#fff" textLength="570">Simplecov</text><text aria-hidden="true" x="875" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="330">100%</text><text x="875" y="140" transform="scale(.1)" fill="#fff" textLength="330">100%</text></g>
 </div>
