@@ -5,6 +5,8 @@ ruby '3.1.2'
 
 gem 'rails', '~> 7.0.3'
 
+gem 'acts_as_list', '~> 1.0', '>= 1.0.4'
+
 gem 'aws-sdk-s3', '~> 1.112'
 
 gem 'bcrypt', '~> 3.1.7'

@@ -13,7 +13,14 @@ RSpec.describe Comment, type: :model do
   end
 
   describe 'validations' do
+    subject(:comment) { build(:comment) }
+
     it { is_expected.to validate_presence_of(:content) }
+
+    it do
+      expect(comment).to validate_length_of(:content)
+        .is_at_least(Comment::COMMENT_MIN_LENGTH).is_at_most(Comment::COMMENT_MAX_LENGTH)
+    end
 
     context 'when valid content presents' do
       subject(:comment) { build(:comment) }
@@ -38,6 +45,40 @@ RSpec.describe Comment, type: :model do
       it 'does not save comment into database' do
         comment.save
         expect(described_class.count).to eq(0)
+      end
+    end
+
+    context 'when content is too long' do
+      subject(:comment) { build(:comment, content: 'a' * (Comment::COMMENT_MAX_LENGTH + 1)) }
+
+      it 'is invalid comment' do
+        expect(comment).not_to be_valid
+      end
+
+      it 'does not save comment into database' do
+        comment.save
+        expect(described_class.count).to eq(0)
+      end
+
+      it 'raises an error' do
+        expect { comment.save! }.to raise_error(ActiveRecord::RecordInvalid)
+      end
+    end
+
+    context 'when content is too short' do
+      subject(:comment) { build(:comment, content: 'short') }
+
+      it 'is invalid comment' do
+        expect(comment).not_to be_valid
+      end
+
+      it 'does not save comment into database' do
+        comment.save
+        expect(described_class.count).to eq(0)
+      end
+
+      it 'raises an error' do
+        expect { comment.save! }.to raise_error(ActiveRecord::RecordInvalid)
       end
     end
 

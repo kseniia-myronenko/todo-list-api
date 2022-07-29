@@ -1,7 +1,7 @@
 ---
 swagger: '2.0'
 info:
-  title: API V1
+  title: Todo-List API V1
   version: v1
 definitions:
   sign_up:
@@ -90,6 +90,10 @@ definitions:
           - type
           - attributes
           - relationships
+      included:
+        type: array
+        items:
+          type: object
     required:
     - data
   single_project:
@@ -110,8 +114,50 @@ definitions:
               name:
                 type: string
                 minLength: 1
+              tasks:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      minLength: 1
+                    name:
+                      type: string
+                      minLength: 1
+                    project_id:
+                      type: string
+                      minLength: 1
+                    created_at:
+                      type: string
+                      minLength: 1
+                    updated_at:
+                      type: string
+                      minLength: 1
+                    done:
+                      type: boolean
+                      not:
+                        type: 'null'
+                    deadline:
+                      type:
+                      - 'null'
+                      - string
+                    position:
+                      type: integer
+                      not:
+                        type: 'null'
+                  required:
+                  - id
+                  - name
+                  - project_id
+                  - created_at
+                  - updated_at
+                  - done
+                  - deadline
+                  - position
             required:
             - name
+            - tasks
           relationships:
             type: object
             properties:
@@ -134,6 +180,144 @@ definitions:
                 - data
             required:
             - user
+        required:
+        - id
+        - type
+        - attributes
+        - relationships
+    required:
+    - data
+  all_tasks:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+              minLength: 1
+            type:
+              type: string
+              minLength: 1
+            attributes:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    minLength: 1
+                  done:
+                    type: boolean
+                    not:
+                      type: 'null'
+                  deadline:
+                    type:
+                    - 'null'
+                    - string
+                  position:
+                    type: integer
+                    not:
+                      type: 'null'
+                required:
+                - name
+                - done
+                - deadline
+                - position
+            relationships:
+              type: array
+              items:
+                type: object
+                properties:
+                  project:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        data:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                minLength: 1
+                              type:
+                                type: string
+                                minLength: 1
+                            required:
+                            - id
+                            - type
+                      required:
+                      - data
+                required:
+                - project
+          required:
+          - id
+          - type
+          - attributes
+          - relationships
+    required:
+    - data
+  single_task:
+    type: object
+    properties:
+      data:
+        type: object
+        properties:
+          id:
+            type: string
+            minLength: 1
+          type:
+            type: string
+            minLength: 1
+          attributes:
+            type: object
+            properties:
+              name:
+                type: string
+                minLength: 1
+              done:
+                type: boolean
+                not:
+                  type: 'null'
+              deadline:
+                type:
+                - 'null'
+                - string
+              position:
+                type: integer
+                not:
+                  type: 'null'
+            required:
+            - name
+            - done
+            - deadline
+            - position
+          relationships:
+            type: object
+            properties:
+              project:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        minLength: 1
+                      type:
+                        type: string
+                        minLength: 1
+                    required:
+                    - id
+                    - type
+                required:
+                - data
+            required:
+            - project
         required:
         - id
         - type
@@ -188,6 +372,11 @@ paths:
             "$ref": "#/definitions/single_project"
         '422':
           description: unprocessable_entity
+          schema:
+            type: object
+            properties:
+              errors:
+                type: object
         '401':
           description: unauthorized
   "/api/v1/projects/{id}":
@@ -205,6 +394,22 @@ paths:
         type: string
         description: id
         required: true
+      - name: position
+        in: query
+        type: string
+        enum:
+        - asc
+        - desc
+        required: false
+        description: Sorting current project's tasks by position asc or desc.
+      - name: created_at
+        in: query
+        type: string
+        enum:
+        - asc
+        - desc
+        required: false
+        description: Sorting current project's tasks by created_at asc or desc.
       responses:
         '200':
           description: successful
@@ -243,6 +448,11 @@ paths:
             "$ref": "#/definitions/single_project"
         '422':
           description: unprocessable_entity
+          schema:
+            type: object
+            properties:
+              errors:
+                type: object
         '401':
           description: unauthorized
     delete:
@@ -309,12 +519,17 @@ paths:
       parameters:
       - name: username
         in: formData
-        type: string
         required: true
+        schema:
+          type: string
+          minimum: 3
+          maximum: 50
       - name: password
         in: formData
-        type: string
         required: true
+        schema:
+          type: string
+          minimum: 8
       responses:
         '201':
           description: created
@@ -341,3 +556,135 @@ paths:
             properties:
               message:
                 type: string
+  "/api/v1/projects/{project_id}/tasks":
+    post:
+      summary: create task
+      parameters:
+      - name: project_id
+        in: path
+        type: string
+        description: project_id
+        required: true
+      - name: name
+        in: formData
+        type: string
+        required: true
+      consumes:
+      - multipart/form-data
+      produces:
+      - application/json
+      security:
+      - basicAuth: []
+      tags:
+      - tasks
+      responses:
+        '201':
+          description: created
+          schema:
+            type: object
+            "$ref": "#/definitions/single_task"
+        '422':
+          description: unprocessable_entity
+          schema:
+            type: object
+            properties:
+              errors:
+                type: object
+        '401':
+          description: unauthorized
+  "/api/v1/projects/{project_id}/tasks/{id}":
+    get:
+      summary: show task
+      produces:
+      - application/json
+      security:
+      - basicAuth: []
+      tags:
+      - tasks
+      parameters:
+      - name: project_id
+        in: path
+        type: string
+        description: project_id
+        required: true
+      - name: id
+        in: path
+        type: string
+        description: id
+        required: true
+      responses:
+        '200':
+          description: successful
+          schema:
+            type: object
+            "$ref": "#/definitions/single_task"
+        '404':
+          description: not_found
+        '401':
+          description: unauthorized
+    put:
+      summary: update task
+      parameters:
+      - name: project_id
+        in: path
+        type: string
+        description: project_id
+        required: true
+      - name: id
+        in: path
+        type: string
+        description: id
+        required: true
+      - name: name
+        in: formData
+        type: string
+        required: true
+      consumes:
+      - multipart/form-data
+      produces:
+      - application/json
+      security:
+      - basicAuth: []
+      tags:
+      - tasks
+      responses:
+        '200':
+          description: successfull
+          schema:
+            type: object
+            "$ref": "#/definitions/single_task"
+        '422':
+          description: unprocessable_entity
+          schema:
+            type: object
+            properties:
+              errors:
+                type: object
+        '401':
+          description: unauthorized
+    delete:
+      summary: delete task
+      parameters:
+      - name: project_id
+        in: path
+        type: string
+        description: project_id
+        required: true
+      - name: id
+        in: path
+        type: string
+        description: id
+        required: true
+      produces:
+      - application/json
+      security:
+      - basicAuth: []
+      tags:
+      - tasks
+      responses:
+        '204':
+          description: no_content
+        '404':
+          description: not_found
+        '401':
+          description: unauthorized

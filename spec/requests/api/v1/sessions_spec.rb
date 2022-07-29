@@ -7,8 +7,13 @@ RSpec.describe 'api/v1/sessions', type: :request do
       produces 'application/json'
       tags :session
 
-      parameter name: :username, in: :formData, type: :string, required: true
-      parameter name: :password, in: :formData, type: :string, required: true
+      parameter name: :username, in: :formData, required: true, schema: {
+        type: :string, minimum: 3, maximum: 50
+      }
+
+      parameter name: :password, in: :formData, required: true, schema: {
+        type: :string, minimum: 8
+      }
 
       context 'when valid params' do
         let(:user) { create(:user, password: Helpers::UserAuthHelper::PASSWORD) }
