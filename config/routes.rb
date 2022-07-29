@@ -11,6 +11,9 @@ Rails.application.routes.draw do
       resources :projects do
         resources :tasks, except: %i[index] do
           collection { patch :sort }
+          resources :comments do
+            resources :images, only: %i[create update]
+          end
         end
       end
 

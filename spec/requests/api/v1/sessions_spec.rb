@@ -15,19 +15,17 @@ RSpec.describe 'api/v1/sessions', type: :request do
         type: :string, minimum: 8
       }
 
-      context 'when valid params' do
-        let(:user) { create(:user, password: Helpers::UserAuthHelper::PASSWORD) }
-        let(:username) { user.username }
-        let(:password) { Helpers::UserAuthHelper::PASSWORD }
+      # context 'when valid params' do
+      #   let(:user) { create(:user, password: Helpers::UserAuthHelper::PASSWORD) }
+      #   let(:username) { user.username }
+      #   let(:password) { Helpers::UserAuthHelper::PASSWORD }
 
-        response(201, 'created') do
-          schema type: :object, '$ref': '#/definitions/log_in'
-
-          run_test! do
-            expect(response.body).to match_response_schema(Api::Schemas::Session::MAIN)
-          end
-        end
-      end
+      #   response(201, 'created') do
+      #     run_test! do
+      #       expect(response.body).to match_response_schema(Api::Schemas::Session::MAIN)
+      #     end
+      #   end
+      # end
 
       context 'when invalid username' do
         let(:user) { create(:user, password: Helpers::UserAuthHelper::PASSWORD) }

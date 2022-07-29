@@ -4,35 +4,6 @@ info:
   title: Todo-List API V1
   version: v1
 definitions:
-  sign_up:
-    type: object
-    properties:
-      user:
-        type: string
-        minLength: 1
-      message:
-        type: string
-        minLength: 1
-    required:
-    - user
-    - message
-  log_in:
-    type: object
-    properties:
-      user:
-        type: string
-        minLength: 1
-      logged_in:
-        type: boolean
-        not:
-          type: 'null'
-      message:
-        type: string
-        minLength: 1
-    required:
-    - user
-    - logged_in
-    - message
   all_projects:
     type: object
     properties:
@@ -327,8 +298,7 @@ definitions:
     - data
 securityDefinitions:
   basic_auth:
-    type: http
-    scheme: basic
+    type: basic
 paths:
   "/api/v1":
     get:
@@ -495,11 +465,6 @@ paths:
         type: string
         required: true
       responses:
-        '201':
-          description: successful
-          schema:
-            type: object
-            "$ref": "#/definitions/sign_up"
         '422':
           description: unprocessable_entity
           schema:
@@ -531,11 +496,6 @@ paths:
           type: string
           minimum: 8
       responses:
-        '201':
-          description: created
-          schema:
-            type: object
-            "$ref": "#/definitions/log_in"
         '401':
           description: unprocessable_entity
           schema:
