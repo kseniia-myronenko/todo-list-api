@@ -9,7 +9,9 @@ Rails.application.routes.draw do
       delete :logout, to: 'sessions#destroy'
 
       resources :projects do
-        resources :tasks
+        resources :tasks, except: %i[index] do
+          collection { patch :sort }
+        end
       end
 
       root 'projects#index'

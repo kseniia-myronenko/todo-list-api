@@ -121,6 +121,19 @@ RSpec.describe 'projects', type: :request do
 
       security [basicAuth: []]
       parameter name: :id, in: :path, type: :string, description: 'id'
+      parameter name: :position,
+                in: :query,
+                type: :string,
+                enum: %w[asc desc],
+                required: false,
+                description: "Sorting current project's tasks by position asc or desc."
+
+      parameter name: :created_at,
+                in: :query,
+                type: :string,
+                enum: %w[asc desc],
+                required: false,
+                description: "Sorting current project's tasks by created_at asc or desc."
 
       context 'when authenticated' do
         before { authenticate(user) }
@@ -142,6 +155,76 @@ RSpec.describe 'projects', type: :request do
           let(:id) { create(:project, user: create(:user)).id }
 
           run_test!
+        end
+      end
+
+      context 'when sorting tasks with position asc/desc' do
+        let(:id) { create(:project, user:).id }
+        let!(:task_list) { create_list(:task, 3, project_id: id) }
+
+        before { authenticate(user) }
+
+        response(200, 'successful') do
+          let(:position) { 'asc' }
+
+          schema type: :object, '$ref': '#/definitions/single_project'
+
+          run_test! do
+            parsed_body = JSON.parse(response.body)
+            expect(parsed_body['data']['attributes']['tasks'].first['id']).to eq(task_list[0].id)
+            expect(parsed_body['data']['attributes']['tasks'].second['id']).to eq(task_list[1].id)
+            expect(parsed_body['data']['attributes']['tasks'].third['id']).to eq(task_list[2].id)
+            expect(response.body).to match_response_schema(Api::Schemas::Project::SINGLE_SCHEMA)
+          end
+        end
+
+        response(200, 'successful') do
+          let(:position) { 'desc' }
+
+          schema type: :object, '$ref': '#/definitions/single_project'
+
+          run_test! do
+            parsed_body = JSON.parse(response.body)
+            expect(parsed_body['data']['attributes']['tasks'].first['id']).to eq(task_list[2].id)
+            expect(parsed_body['data']['attributes']['tasks'].second['id']).to eq(task_list[1].id)
+            expect(parsed_body['data']['attributes']['tasks'].third['id']).to eq(task_list[0].id)
+            expect(response.body).to match_response_schema(Api::Schemas::Project::SINGLE_SCHEMA)
+          end
+        end
+      end
+
+      context 'when sorting tasks with created_at' do
+        let(:id) { create(:project, user:).id }
+        let!(:task_list) { create_list(:task, 3, project_id: id) }
+
+        before { authenticate(user) }
+
+        response(200, 'successful') do
+          let(:created_at) { 'asc' }
+
+          schema type: :object, '$ref': '#/definitions/single_project'
+
+          run_test! do
+            parsed_body = JSON.parse(response.body)
+            expect(parsed_body['data']['attributes']['tasks'].first['id']).to eq(task_list[0].id)
+            expect(parsed_body['data']['attributes']['tasks'].second['id']).to eq(task_list[1].id)
+            expect(parsed_body['data']['attributes']['tasks'].third['id']).to eq(task_list[2].id)
+            expect(response.body).to match_response_schema(Api::Schemas::Project::SINGLE_SCHEMA)
+          end
+        end
+
+        response(200, 'successful') do
+          let(:created_at) { 'desc' }
+
+          schema type: :object, '$ref': '#/definitions/single_project'
+
+          run_test! do
+            parsed_body = JSON.parse(response.body)
+            expect(parsed_body['data']['attributes']['tasks'].first['id']).to eq(task_list[2].id)
+            expect(parsed_body['data']['attributes']['tasks'].second['id']).to eq(task_list[1].id)
+            expect(parsed_body['data']['attributes']['tasks'].third['id']).to eq(task_list[0].id)
+            expect(response.body).to match_response_schema(Api::Schemas::Project::SINGLE_SCHEMA)
+          end
         end
       end
 

@@ -10,4 +10,8 @@ class Project < ApplicationRecord
 
     errors.add(:base, :already_exists) if unique_project.exists?
   end
+
+  def completed_project?
+    !tasks.where(done: false).exists?
+  end
 end

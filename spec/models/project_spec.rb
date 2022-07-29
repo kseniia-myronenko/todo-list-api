@@ -81,4 +81,27 @@ RSpec.describe Project, type: :model do
       end
     end
   end
+
+  describe '#completed_project?' do
+    subject(:project) { build(:project) }
+
+    context 'when there are undone tasks' do
+      before do
+        create_list(:task, 5, :done, project:)
+        create_list(:task, 5, :undone, project:)
+      end
+
+      it 'is expected to be not completed project' do
+        expect(project.completed_project?).to be(false)
+      end
+    end
+
+    context 'when all tasks are completed' do
+      before { create_list(:task, 5, :done, project:) }
+
+      it 'is expected to be completed project' do
+        expect(project.completed_project?).to be(true)
+      end
+    end
+  end
 end

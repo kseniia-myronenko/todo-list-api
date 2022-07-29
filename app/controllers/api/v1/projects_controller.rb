@@ -5,18 +5,20 @@ module Api
 
       def index
         @projects = current_user.projects
-        render json: Api::V1::ProjectSerializer.new(@projects), status: :ok
+        render json: Api::V1::ProjectsSerializer.new(@projects), status: :ok
       end
 
       def show
-        render json: Api::V1::ProjectSerializer.new(@project, include: [:tasks]), status: :ok
+        render json: Api::V1::SingleProjectSerializer.new(@project,
+                                                          { params: { order: TasksSortService.call(params) } }),
+               status: :ok
       end
 
       def create
         @project = current_user.projects.create(project_params)
 
         response = if @project.valid?
-                     { json: Api::V1::ProjectSerializer.new(@project), status: :created }
+                     { json: Api::V1::SingleProjectSerializer.new(@project), status: :created }
                    else
                      { json: { errors: @project.errors }, status: :unprocessable_entity }
                    end
@@ -26,7 +28,7 @@ module Api
 
       def update
         response = if @project.update(project_params)
-                     { json: Api::V1::ProjectSerializer.new(@project, include: [:tasks]), status: :ok }
+                     { json: Api::V1::SingleProjectSerializer.new(@project), status: :ok }
                    else
                      { json: { errors: @project.errors }, status: :unprocessable_entity }
                    end
@@ -36,7 +38,7 @@ module Api
 
       def destroy
         @project.destroy
-        render status: :no_content
+        head :no_content
       end
 
       private

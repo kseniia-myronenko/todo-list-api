@@ -28,6 +28,7 @@ en:
               blank: "Name can't be blank."
             deadline:
               invalid: 'Deadline must be set in valid date type.'
+              past: "The deadline can't be set in the past"
         comment:
           attributes:
             content:

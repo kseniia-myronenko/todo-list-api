@@ -56,6 +56,40 @@ RSpec.describe User, type: :model do
       end
     end
 
+    context 'when username is too long' do
+      subject(:user) { build(:user, username: 'n' * (User::USERNAME_MAX_LENGTH + 1)) }
+
+      it 'is invalid user' do
+        expect(user).not_to be_valid
+      end
+
+      it 'does not save user into database' do
+        user.save
+        expect(described_class.count).to eq(0)
+      end
+
+      it 'raises an error' do
+        expect { user.save! }.to raise_error(ActiveRecord::RecordInvalid)
+      end
+    end
+
+    context 'when username is too short' do
+      subject(:user) { build(:user, username: 'na') }
+
+      it 'is invalid user' do
+        expect(user).not_to be_valid
+      end
+
+      it 'does not save user into database' do
+        user.save
+        expect(described_class.count).to eq(0)
+      end
+
+      it 'raises an error' do
+        expect { user.save! }.to raise_error(ActiveRecord::RecordInvalid)
+      end
+    end
+
     context 'when username is duplicated' do
       subject(:user) { create(:user) }
 
