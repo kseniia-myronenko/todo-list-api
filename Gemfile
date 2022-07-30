@@ -25,6 +25,8 @@ gem 'puma', '~> 5.0'
 
 gem 'pg', '~> 1.1'
 
+gem 'rspec-rails', '~> 6.0.0.rc1'
+
 gem 'rswag', '~> 2.5'
 
 gem 'shrine', '~> 3.4'
@@ -40,7 +42,6 @@ group :development, :test do
   gem 'dry-schema', '~> 1.9.1'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'ffaker', '~> 2.20'
-  gem 'rspec-rails', '~> 6.0.0.rc1'
   gem 'rswag-specs', '~> 2.5', '>= 2.5.1'
   gem 'rubocop', '~> 1.25'
   gem 'rubocop-performance', '~> 1.13'
