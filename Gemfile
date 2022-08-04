@@ -29,6 +29,12 @@ gem 'pg', '~> 1.1'
 
 gem 'rack-cors', '~> 1.1', '>= 1.1.1'
 
+gem 'rspec-rails', '~> 6.0.0.rc1'
+
+gem 'rswag', '~> 2.5'
+
+gem 'strong_migrations', '~> 0.8.0'
+
 gem 'shrine', '~> 3.4'
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
@@ -42,15 +48,12 @@ group :development, :test do
   gem 'dry-schema', '~> 1.9', '>= 1.9.3'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'ffaker', '~> 2.21'
-  gem 'rspec-rails', '~> 6.0.0.rc1'
-  gem 'rswag', '~> 2.5'
   gem 'rswag-specs', '~> 2.5', '>= 2.5.1'
   gem 'rubocop', '~> 1.25'
   gem 'rubocop-performance', '~> 1.13'
   gem 'rubocop-rails', '~> 2.13'
   gem 'rubocop-rspec', '~> 2.8'
   gem 'seedbank', '~> 0.5.0'
-  gem 'strong_migrations', '~> 0.8.0'
   gem 'traceroute', '~> 0.8.1'
 end
 
