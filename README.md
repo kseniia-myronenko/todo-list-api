@@ -1,14 +1,17 @@
 # Todo List API
 <div style="display: flex;">
 <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/kseniia-myronenko/todo-list-api">
-<img alt="Lines of code" src="https://img.shields.io/tokei/lines/github.com/kseniia-myronenko/todo-list-api">
 <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/kseniia-myronenko/todo-list-api/total">
+</div>
+<div style="display: flex;">
+<img src="https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white" />
+<img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" />
 </div><br>
 <p>This is API for simple productivity improvement tool. It lets users an ability to easy manage and control their own projects and tasks.</p>
 <h2>Configuration</h2>
 
 <ol>
-<li><b>Ruby:</b> 3.1.2</li>
+<li><b>Ruby:</b> 3.1.0</li>
 <li><b>Rails:</b> ~> 7.0.3</li>
 <li><b>Database:</b> PostgreSQL</li>
 </ol>
