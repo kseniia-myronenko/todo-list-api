@@ -4,6 +4,35 @@ info:
   title: Todo-List API V1
   version: v1
 definitions:
+  session:
+    type: object
+    properties:
+      user:
+        type: string
+        minLength: 1
+      logged_in:
+        type: boolean
+        not:
+          type: 'null'
+      message:
+        type: string
+        minLength: 1
+    required:
+    - user
+    - logged_in
+    - message
+  registration:
+    type: object
+    properties:
+      user:
+        type: string
+        minLength: 1
+      message:
+        type: string
+        minLength: 1
+    required:
+    - user
+    - message
   all_projects:
     type: object
     properties:
@@ -883,6 +912,11 @@ paths:
         type: string
         required: true
       responses:
+        '201':
+          description: successful
+          schema:
+            type: object
+            "$ref": "#/definitions/registration"
         '422':
           description: unprocessable_entity
           schema:
@@ -901,26 +935,25 @@ paths:
       - session
       parameters:
       - name: username
+        type: string
         in: formData
         required: true
         schema:
-          type: string
+          type: object
           minimum: 3
           maximum: 50
       - name: password
         in: formData
+        type: string
         required: true
         schema:
-          type: string
+          type: object
           minimum: 8
       responses:
+        '201':
+          description: created
         '401':
-          description: unprocessable_entity
-          schema:
-            type: object
-            properties:
-              errors:
-                type: object
+          description: unauthorized
   "/api/v1/logout":
     delete:
       summary: delete session
@@ -929,11 +962,6 @@ paths:
       responses:
         '200':
           description: successfull
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
   "/api/v1/projects/{project_id}/tasks":
     post:
       summary: create task

@@ -1,6 +1,5 @@
 module Helpers
   module UserAuthHelper
-    USERNAME = 'username'.freeze
     PASSWORD = 'securepassword'.freeze
 
     def authenticate(user)

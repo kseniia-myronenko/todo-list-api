@@ -16,13 +16,13 @@ RSpec.describe 'api/v1/registrations', type: :request do
         let(:password) { Helpers::UserAuthHelper::PASSWORD }
         let(:password_confirmation) { Helpers::UserAuthHelper::PASSWORD }
 
-        # response(201, 'successful') do
-        #   schema type: :object, '$ref': '#/definitions/sign_up'
+        response(201, 'successful') do
+          schema type: :object, '$ref': '#/definitions/registration'
 
-        #   run_test! do
-        #     expect(response.body).to match_response_schema(Api::Schemas::Registration::MAIN)
-        #   end
-        # end
+          run_test! do
+            expect(response.body).to match_response_schema(Api::Schemas::Registration::MAIN)
+          end
+        end
       end
 
       context 'when with invalid params' do
