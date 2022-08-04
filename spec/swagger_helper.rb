@@ -25,7 +25,9 @@ RSpec.configure do |config|
         all_projects: Api::Schemas::Project::MANY_SCHEMA.json_schema.except(:$schema),
         single_project: Api::Schemas::Project::SINGLE_SCHEMA.json_schema.except(:$schema),
         all_tasks: Api::Schemas::Task::MANY_SCHEMA.json_schema.except(:$schema),
-        single_task: Api::Schemas::Task::SINGLE_SCHEMA.json_schema.except(:$schema)
+        single_task: Api::Schemas::Task::SINGLE_SCHEMA.json_schema.except(:$schema),
+        image: Api::Schemas::Image::SINGLE_SCHEMA.json_schema.except(:$schema),
+        comment: Api::Schemas::Comment::SINGLE_SCHEMA.json_schema.except(:$schema)
       },
 
       securityDefinitions: {

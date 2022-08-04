@@ -3,9 +3,9 @@ module Api
     class CommentSerializer < ApplicationSerializer
       set_type :comment
       attributes :content
+      attribute :images
 
       belongs_to :task, serializer: Api::V1::TaskSerializer
-      has_many :images, serializer: Api::V1::ImageSerializer
     end
   end
 end

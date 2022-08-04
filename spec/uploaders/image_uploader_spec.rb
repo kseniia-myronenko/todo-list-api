@@ -1,3 +1,7 @@
+require 'sidekiq/testing'
+
+Sidekiq::Testing.inline!
+
 RSpec.describe ImageUploader, type: :uploader do
   describe 'valid files validation check' do
     context 'when checks jpg format' do
@@ -21,6 +25,37 @@ RSpec.describe ImageUploader, type: :uploader do
 
       it 'extracts size' do
         expect(image_file.image.size).to be <= Image::MAX_SIZE
+      end
+    end
+
+    context 'when checks thumb size' do
+      subject(:image_file) { create(:image, image: file_fixture('acceptable_size_image-2.png').open) }
+
+      let(:value) { JSON.parse(image_file.image_data) }
+
+      before do
+        image_file.image_derivatives!
+        image_file.save
+      end
+
+      it 'have expected width' do
+        expect(value['derivatives']['thumb']['metadata']['width']).to match(Image::THUMBNAIL_SIZE[:thumb][0])
+      end
+
+      it 'have expected height' do
+        expect(value['derivatives']['thumb']['metadata']['height']).to match(Image::THUMBNAIL_SIZE[:thumb][1])
+      end
+    end
+
+    context 'when remove image' do
+      subject!(:image_file) { create(:image, image: file_fixture('acceptable_size_image-2.png').open) }
+
+      before do
+        image_file.destroy
+      end
+
+      it 'expects image not to be existed' do
+        expect(Image.count).to be(0)
       end
     end
   end

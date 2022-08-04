@@ -16,6 +16,7 @@ module Api
       end
 
       def update
+        @image = @comment.images.find(params[:id])
         response = if @image.update(image_params)
                      { json: Api::V1::ImageSerializer.new(@image), status: :ok }
                    else
@@ -28,7 +29,7 @@ module Api
       private
 
       def image_params
-        params.permit(:image)
+        params.permit(:image, :remove_image)
       end
 
       def project

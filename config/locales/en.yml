@@ -6,6 +6,7 @@ en:
           too_large: 'This image is too large. File max size allowed: %{max_size}.'
           not_image: 'This is not an image.'
           wrong_extension: 'This file has wrong extension.'
+          nil: "Image can't be nil."
         user:
           attributes:
             username:

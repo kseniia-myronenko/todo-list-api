@@ -4,6 +4,8 @@ class Comment < ApplicationRecord
 
   belongs_to :task
   has_many :images, dependent: :destroy
+  accepts_nested_attributes_for :images, allow_destroy: true
+
   validates :content, presence: true
   validates :content, length: { in: COMMENT_MIN_LENGTH..COMMENT_MAX_LENGTH }
 end

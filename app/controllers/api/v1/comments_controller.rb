@@ -4,6 +4,10 @@ module Api
       before_action :set_task
       before_action :set_comment, except: %i[create]
 
+      def show
+        render json: Api::V1::CommentSerializer.new(@comment), status: :ok
+      end
+
       def create
         @comment = @task.comments.create(comment_params)
 
