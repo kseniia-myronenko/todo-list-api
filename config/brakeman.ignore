@@ -3,11 +3,31 @@
     {
       "warning_type": "Dynamic Render Path",
       "warning_code": 15,
+      "fingerprint": "67a3377fc85a04ef0176ac2542cd0fa3a0f75305fcc8af0c72d77949527a6903",
+      "check_name": "Render",
+      "message": "Render path contains parameter value",
+      "file": "app/controllers/api/v1/images_controller.rb",
+      "line": 15,
+      "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => ({ :json => Api::V1::ImageSerializer.new(task.comments.find(params[:comment_id]).images.create(image_params)), :status => :created } or { :json => ({ :errors => task.comments.find(params[:comment_id]).images.create(image_params).errors }), :status => :unprocessable_entity }), {})",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Api::V1::ImagesController",
+        "method": "create"
+      },
+      "user_input": "params[:comment_id]",
+      "confidence": "Weak",
+      "note": ""
+    },
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
       "fingerprint": "85d3fe74be9d0667eadb698a18e59a9a93e8fffbf94a924c6817e55ed40ab8cf",
       "check_name": "Render",
       "message": "Render path contains parameter value",
       "file": "app/controllers/api/v1/tasks_controller.rb",
-      "line": 35,
+      "line": 30,
       "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
       "code": "render(action => ({ :json => Api::V1::TaskSerializer.new(current_user.projects.find(params[:project_id]).tasks.find(params[:id])), :status => :ok } or { :json => ({ :errors => current_user.projects.find(params[:project_id]).tasks.find(params[:id]).errors }), :status => :unprocessable_entity }), {})",
       "render_path": null,
@@ -19,8 +39,68 @@
       "user_input": "params[:id]",
       "confidence": "Weak",
       "note": ""
+    },
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "ad160d7cd98302f2d0144c6dbc869de006400c1c2f63c8e048d6c05b957d9ea8",
+      "check_name": "Render",
+      "message": "Render path contains parameter value",
+      "file": "app/controllers/api/v1/comments_controller.rb",
+      "line": 30,
+      "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => ({ :json => Api::V1::CommentSerializer.new(project.tasks.find(params[:task_id]).comments.find(params[:id])), :status => :ok } or { :json => ({ :errors => project.tasks.find(params[:task_id]).comments.find(params[:id]).errors }), :status => :unprocessable_entity }), {})",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Api::V1::CommentsController",
+        "method": "update"
+      },
+      "user_input": "params[:id]",
+      "confidence": "Weak",
+      "note": ""
+    },
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "af70e10c6e5d5153bc4433dffa4df0b1401666cd9d8a4d56b630bdf20c4ccc5f",
+      "check_name": "Render",
+      "message": "Render path contains parameter value",
+      "file": "app/controllers/api/v1/images_controller.rb",
+      "line": 26,
+      "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => ({ :json => Api::V1::ImageSerializer.new(task.comments.find(params[:comment_id]).images.find(params[:id])), :status => :ok } or { :json => ({ :errors => task.comments.find(params[:comment_id]).images.find(params[:id]).errors }), :status => :unprocessable_entity }), {})",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Api::V1::ImagesController",
+        "method": "update"
+      },
+      "user_input": "params[:id]",
+      "confidence": "Weak",
+      "note": ""
+    },
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "c752d50f9581cf3e451ff9cb7be0447c2bafad6e0e01e37e2a74abbef3bea567",
+      "check_name": "Render",
+      "message": "Render path contains parameter value",
+      "file": "app/controllers/api/v1/comments_controller.rb",
+      "line": 20,
+      "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => ({ :json => Api::V1::CommentSerializer.new(project.tasks.find(params[:task_id]).comments.create(comment_params)), :status => :created } or { :json => ({ :errors => project.tasks.find(params[:task_id]).comments.create(comment_params).errors }), :status => :unprocessable_entity }), {})",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Api::V1::CommentsController",
+        "method": "create"
+      },
+      "user_input": "params[:task_id]",
+      "confidence": "Weak",
+      "note": ""
     }
   ],
-  "updated": "2022-07-26 18:09:14 +0300",
+  "updated": "2022-08-04 12:13:24 +0300",
   "brakeman_version": "5.2.3"
 }

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
+ruby '3.1.0'
 
 gem 'rails', '~> 7.0.3'
 
@@ -14,6 +14,10 @@ gem 'bcrypt', '~> 3.1.7'
 # Reduces boot times through caching; required in config/boot.rb
 
 gem 'bootsnap', require: false
+
+gem 'image_processing', '~> 1.12', '>= 1.12.2'
+
+gem 'mini_magick', '~> 4.11'
 
 gem 'fast_jsonapi', '~> 1.1', '>= 1.1.1'
 
@@ -33,6 +37,8 @@ gem 'rspec-rails', '~> 6.0.0.rc1'
 
 gem 'rswag', '~> 2.5'
 
+gem 'sidekiq', '~> 6.5', '>= 6.5.1'
+
 gem 'strong_migrations', '~> 0.8.0'
 
 gem 'shrine', '~> 3.4'
@@ -43,7 +49,7 @@ group :development, :test do
   gem 'brakeman', '~> 5.2'
   gem 'bullet', '~> 7.0'
   gem 'bundler-audit', '~> 0.9.0'
-  gem 'bundler-leak', '~> 0.2.0'
+  gem 'bundler-leak', '~> 0.3.0'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'dry-schema', '~> 1.9', '>= 1.9.3'
   gem 'factory_bot_rails', '~> 6.2'

@@ -4,35 +4,6 @@ info:
   title: Todo-List API V1
   version: v1
 definitions:
-  sign_up:
-    type: object
-    properties:
-      user:
-        type: string
-        minLength: 1
-      message:
-        type: string
-        minLength: 1
-    required:
-    - user
-    - message
-  log_in:
-    type: object
-    properties:
-      user:
-        type: string
-        minLength: 1
-      logged_in:
-        type: boolean
-        not:
-          type: 'null'
-      message:
-        type: string
-        minLength: 1
-    required:
-    - user
-    - logged_in
-    - message
   all_projects:
     type: object
     properties:
@@ -325,11 +296,428 @@ definitions:
         - relationships
     required:
     - data
+  image:
+    type: object
+    properties:
+      data:
+        type: object
+        properties:
+          id:
+            type: string
+            minLength: 1
+          type:
+            type: string
+            minLength: 1
+          attributes:
+            type: object
+            properties:
+              image:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    minLength: 1
+                  storage:
+                    type: string
+                    minLength: 1
+                  metadata:
+                    type: object
+                    properties:
+                      filename:
+                        type: string
+                        minLength: 1
+                      size:
+                        type: integer
+                        not:
+                          type: 'null'
+                      mime_type:
+                        type: string
+                        minLength: 1
+                      width:
+                        type: integer
+                        not:
+                          type: 'null'
+                      height:
+                        type: integer
+                        not:
+                          type: 'null'
+                    required:
+                    - filename
+                    - size
+                    - mime_type
+                    - width
+                    - height
+                required:
+                - id
+                - storage
+                - metadata
+            required:
+            - image
+          relationships:
+            type: object
+            properties:
+              comment:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        minLength: 1
+                      type:
+                        type: string
+                        minLength: 1
+                    required:
+                    - id
+                    - type
+                required:
+                - data
+            required:
+            - comment
+        required:
+        - id
+        - type
+        - attributes
+        - relationships
+    required:
+    - data
+  comment:
+    type: object
+    properties:
+      data:
+        type: object
+        properties:
+          id:
+            type: string
+            minLength: 1
+          type:
+            type: string
+            minLength: 1
+          attributes:
+            type: object
+            properties:
+              content:
+                type: string
+                minLength: 1
+              images:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      minLength: 1
+                    comment_id:
+                      type: string
+                      minLength: 1
+                    created_at:
+                      type: string
+                      minLength: 1
+                    updated_at:
+                      type: string
+                      minLength: 1
+                    image_data:
+                      type: string
+                      minLength: 1
+                  required:
+                  - id
+                  - comment_id
+                  - created_at
+                  - updated_at
+                  - image_data
+            required:
+            - content
+            - images
+          relationships:
+            type: object
+            properties:
+              task:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        minLength: 1
+                      type:
+                        type: string
+                        minLength: 1
+                    required:
+                    - id
+                    - type
+                required:
+                - data
+            required:
+            - task
+        required:
+        - id
+        - type
+        - attributes
+        - relationships
+    required:
+    - data
 securityDefinitions:
   basic_auth:
     type: http
     scheme: basic
 paths:
+  "/api/v1/projects/{project_id}/tasks/{task_id}/comments":
+    post:
+      summary: create comment
+      parameters:
+      - name: project_id
+        in: path
+        type: string
+        description: project_id
+        required: true
+      - name: task_id
+        in: path
+        type: string
+        description: task_id
+        required: true
+      - name: content
+        in: formData
+        required: true
+        description: text of the comment
+      tags:
+      - comments
+      consumes:
+      - multipart/form-data
+      produces:
+      - application/json
+      security:
+      - basicAuth: []
+      responses:
+        '201':
+          description: created
+          schema:
+            type: object
+            "$ref": "#/definitions/comment"
+        '422':
+          description: unprocessable_entity
+          schema:
+            type: object
+            properties:
+              errors:
+                type: object
+        '404':
+          description: not_found
+        '401':
+          description: unauthorised
+  "/api/v1/projects/{project_id}/tasks/{task_id}/comments/{id}":
+    get:
+      summary: show comment
+      parameters:
+      - name: project_id
+        in: path
+        type: string
+        description: project_id
+        required: true
+      - name: task_id
+        in: path
+        type: string
+        description: task_id
+        required: true
+      - name: id
+        in: path
+        type: string
+        description: id
+        required: true
+      tags:
+      - comments
+      produces:
+      - application/json
+      security:
+      - basicAuth: []
+      responses:
+        '200':
+          description: successful
+          schema:
+            type: object
+            "$ref": "#/definitions/comment"
+        '404':
+          description: not_found
+        '401':
+          description: unauthorised
+    put:
+      summary: update comment
+      parameters:
+      - name: project_id
+        in: path
+        type: string
+        description: project_id
+        required: true
+      - name: task_id
+        in: path
+        type: string
+        description: task_id
+        required: true
+      - name: content
+        in: formData
+        required: true
+        description: text of the comment
+      - name: id
+        in: path
+        type: string
+        description: id
+        required: true
+      tags:
+      - comments
+      consumes:
+      - multipart/form-data
+      produces:
+      - application/json
+      security:
+      - basicAuth: []
+      responses:
+        '200':
+          description: successful
+          schema:
+            type: object
+            "$ref": "#/definitions/comment"
+        '404':
+          description: not_found
+        '422':
+          description: unprocessable_entity
+          schema:
+            type: object
+            properties:
+              errors:
+                type: object
+        '401':
+          description: unauthorised
+    delete:
+      summary: delete comment
+      parameters:
+      - name: project_id
+        in: path
+        type: string
+        description: project_id
+        required: true
+      - name: task_id
+        in: path
+        type: string
+        description: task_id
+        required: true
+      - name: id
+        in: path
+        type: string
+        description: id
+        required: true
+      tags:
+      - comments
+      produces:
+      - application/json
+      security:
+      - basicAuth: []
+      responses:
+        '204':
+          description: no_content
+        '401':
+          description: unauthorised
+  "/api/v1/projects/{project_id}/tasks/{task_id}/comments/{comment_id}/images":
+    post:
+      summary: create image
+      parameters:
+      - name: project_id
+        in: path
+        type: string
+        description: project_id
+        required: true
+      - name: task_id
+        in: path
+        type: string
+        description: task_id
+        required: true
+      - name: comment_id
+        in: path
+        type: string
+        description: comment_id
+        required: true
+      - name: image
+        in: formData
+        required: true
+        description: image
+      tags:
+      - images
+      consumes:
+      - multipart/form-data
+      produces:
+      - application/json
+      security:
+      - basicAuth: []
+      responses:
+        '201':
+          description: created
+          schema:
+            type: object
+            "$ref": "#/definitions/image"
+        '422':
+          description: unprocessable_entity
+          schema:
+            type: object
+            properties:
+              errors:
+                type: object
+        '404':
+          description: not_found
+        '401':
+          description: unauthorised
+  "/api/v1/projects/{project_id}/tasks/{task_id}/comments/{comment_id}/images/{id}":
+    put:
+      summary: update image
+      parameters:
+      - name: project_id
+        in: path
+        type: string
+        description: project_id
+        required: true
+      - name: task_id
+        in: path
+        type: string
+        description: task_id
+        required: true
+      - name: comment_id
+        in: path
+        type: string
+        description: comment_id
+        required: true
+      - name: image
+        in: formData
+        required: true
+        description: image
+      - name: id
+        in: path
+        type: string
+        description: id
+        required: true
+      tags:
+      - images
+      consumes:
+      - multipart/form-data
+      produces:
+      - application/json
+      security:
+      - basicAuth: []
+      responses:
+        '200':
+          description: successful
+          schema:
+            type: object
+            "$ref": "#/definitions/image"
+        '404':
+          description: not_found
+        '422':
+          description: unprocessable_entity
+          schema:
+            type: object
+            properties:
+              errors:
+                type: object
+        '401':
+          description: unauthorised
   "/api/v1":
     get:
       summary: show projects
@@ -495,11 +883,6 @@ paths:
         type: string
         required: true
       responses:
-        '201':
-          description: successful
-          schema:
-            type: object
-            "$ref": "#/definitions/sign_up"
         '422':
           description: unprocessable_entity
           schema:
@@ -531,11 +914,6 @@ paths:
           type: string
           minimum: 8
       responses:
-        '201':
-          description: created
-          schema:
-            type: object
-            "$ref": "#/definitions/log_in"
         '401':
           description: unprocessable_entity
           schema:

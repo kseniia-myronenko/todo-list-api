@@ -30,12 +30,24 @@ else
   }
 end
 
+Shrine.plugin :derivatives, create_on_promote: true
+Shrine.plugin :backgrounding
+Shrine.plugin :remove_attachment
 Shrine.plugin :activerecord           # loads Active Record integration
 Shrine.plugin :cached_attachment_data # enables retaining cached file across form redisplays
 Shrine.plugin :restore_cached_data    # extracts metadata for assigned cached files
 Shrine.plugin :determine_mime_type, analyzer: :marcel
+Shrine.plugin :store_dimensions, analyzer: :mini_magick
 Shrine.plugin :validation_helpers, default_messages: {
   max_size: ->(max) { I18n.t('activerecord.errors.models.image.too_large', max_size: max) },
   mime_types: ->(list) { I18n.t('activerecord.errors.models.image.not_image', allowed_types: list) },
   extensions: ->(list) { I18n.t('activerecord.errors.models.image.wrong_extension', allowed_types: list) }
 }
+
+Shrine::Attacher.promote_block do
+  ShrineJobs::PromoteWorker.perform_async(self.class.name, record.class.name, record.id, name.to_s, file_data)
+end
+
+Shrine::Attacher.destroy_block do
+  ShrineJobs::DestroyWorker.perform_async(self.class.name, data)
+end
