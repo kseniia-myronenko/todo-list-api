@@ -4,7 +4,7 @@
      vulnerability:
        run: bundle exec brakeman --no-pager
      memory-leak:
-       run: bundle exec bundler-leak
+       run: bundle leak check --update
      gems-check:
        run: bundle exec bundler-audit check --update
      unused-routes:
