@@ -7,13 +7,9 @@ RSpec.describe 'api/v1/sessions', type: :request do
       produces 'application/json'
       tags :session
 
-      parameter name: :username, type: :string, in: :formData, required: true, schema: {
-        type: :object, minimum: 3, maximum: 50
-      }
-
-      parameter name: :password, in: :formData, type: :string, required: true, schema: {
-        type: :object, minimum: 8
-      }
+      parameter name: :username, in: :formData, type: :string, required: true, example: 'Username', minimum: 3,
+                maximum: 50
+      parameter name: :password, in: :formData, type: :string, required: true, example: 'Password7', minimum: 8
 
       context 'when valid params' do
         let(:user) { create(:user, password: Helpers::UserAuthHelper::PASSWORD) }
@@ -21,8 +17,13 @@ RSpec.describe 'api/v1/sessions', type: :request do
         let(:password) { Helpers::UserAuthHelper::PASSWORD }
 
         response(201, 'created') do
+          schema type: :object, '$ref': '#/definitions/session_response'
+
           run_test! do
-            expect(response.body).to match_response_schema(Api::Schemas::Session::MAIN)
+            parsed_body = JSON.parse(response.body)
+            expect(parsed_body['user']).to eq(username)
+            expect(parsed_body['logged_in']).to be(true)
+            expect(parsed_body['message']).to eq(I18n.t('authentication.success.logged_in'))
           end
         end
       end
@@ -54,7 +55,10 @@ RSpec.describe 'api/v1/sessions', type: :request do
       tags :session
 
       response(200, 'successfull') do
-        run_test!
+        run_test! do
+          parsed_body = JSON.parse(response.body)
+          expect(parsed_body['message']).to eq(I18n.t('authentication.success.logged_out'))
+        end
       end
     end
   end

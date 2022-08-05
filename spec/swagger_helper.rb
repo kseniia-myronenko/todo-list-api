@@ -22,8 +22,21 @@ RSpec.configure do |config|
         version: 'v1'
       },
       definitions: {
-        session: Api::Schemas::Session::MAIN.json_schema.except(:$schema),
-        registration: Api::Schemas::Registration::MAIN.json_schema.except(:$schema),
+        registration_response: {
+          type: :object,
+          properties: {
+            user: { type: :string, example: 'Username' },
+            message: { type: :string, example: 'You are successfully registered.' }
+          }
+        },
+        session_response: {
+          type: :object,
+          properties: {
+            user: { type: :string, example: 'Username' },
+            logged_in: { type: :boolean, example: true },
+            message: { type: :string, example: 'Successfully logged in.' }
+          }
+        },
         all_projects: Api::Schemas::Project::MANY_SCHEMA.json_schema.except(:$schema),
         single_project: Api::Schemas::Project::SINGLE_SCHEMA.json_schema.except(:$schema),
         all_tasks: Api::Schemas::Task::MANY_SCHEMA.json_schema.except(:$schema),
@@ -34,8 +47,10 @@ RSpec.configure do |config|
 
       securityDefinitions: {
         basic_auth: {
-          type: :http,
-          scheme: :basic
+          type: :basic,
+          description: 'Session authorization',
+          name: 'Authorization',
+          in: :header
         }
       }
     }

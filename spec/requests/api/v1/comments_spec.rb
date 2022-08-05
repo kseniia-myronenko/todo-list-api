@@ -7,7 +7,7 @@ RSpec.describe 'api/v1/comments', type: :request do
     post('create comment') do
       parameter name: 'project_id', in: :path, type: :string, description: 'project_id'
       parameter name: 'task_id', in: :path, type: :string, description: 'task_id'
-      parameter name: :content, in: :formData, required: true, description: 'text of the comment'
+      parameter name: :content, type: :text, in: :formData, required: true, description: 'text of the comment'
 
       tags :comments
       consumes 'multipart/form-data'
@@ -155,7 +155,7 @@ RSpec.describe 'api/v1/comments', type: :request do
     put('update comment') do
       parameter name: 'project_id', in: :path, type: :string, description: 'project_id'
       parameter name: 'task_id', in: :path, type: :string, description: 'task_id'
-      parameter name: :content, in: :formData, required: true, description: 'text of the comment'
+      parameter name: :content, type: :text, in: :formData, required: true, description: 'text of the comment'
       parameter name: 'id', in: :path, type: :string, description: 'id'
 
       tags :comments
