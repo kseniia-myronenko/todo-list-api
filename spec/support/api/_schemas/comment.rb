@@ -9,8 +9,8 @@ module Api
           required(:images).array(:hash) do
             required(:id).filled(:string)
             required(:comment_id).filled(:string)
-            required(:created_at).filled(:string)
-            required(:updated_at).filled(:string)
+            required(:created_at).filled(:date_time)
+            required(:updated_at).filled(:date_time)
             required(:image_data).filled(:string)
           end
         end

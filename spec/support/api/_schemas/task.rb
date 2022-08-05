@@ -13,8 +13,8 @@ module Api
             required(:id).filled(:string)
             required(:content).filled(:string)
             required(:task_id).filled(:string)
-            required(:created_at).filled(:string)
-            required(:updated_at).filled(:string)
+            required(:created_at).filled(:date_time)
+            required(:updated_at).filled(:date_time)
           end
         end
         required(:relationships).hash do

@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-08-05T10:35:07+03:00">2022-08-05T10:35:07+03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-08-05T10:57:26+03:00">2022-08-05T10:57:26+03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,7 +23,7 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="yellow">
-  88.92%
+  88.96%
 </span>
 
      </span>
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>641</b> relevant lines,
-    <span class="green"><b>570</b> lines covered</span> and
+    <b>643</b> relevant lines,
+    <span class="green"><b>572</b> lines covered</span> and
     <span class="red"><b>71</b> lines missed. </span>
     (<span class="yellow">
-  88.92%
+  88.96%
 </span>
 )
   </div>
@@ -167,10 +167,10 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#48516aca707d28e61458ae4ef97d3e1f7106449d" class="src_link" title="spec/requests/api/v1/tasks_spec.rb">spec/requests/api/v1/tasks_spec.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">92.04 %</td>
-            <td class="cell--number">198</td>
-            <td class="cell--number">113</td>
-            <td class="cell--number">104</td>
+            <td class="green strong cell--number t-file__coverage">92.17 %</td>
+            <td class="cell--number">200</td>
+            <td class="cell--number">115</td>
+            <td class="cell--number">106</td>
             <td class="cell--number">9</td>
             <td class="cell--number">0.92</td>
             
@@ -12251,7 +12251,7 @@
     <h3>spec/requests/api/v1/tasks_spec.rb</h3>
     <h4>
       <span class="green">
-  92.04%
+  92.17%
 </span>
 
       lines covered
@@ -12268,8 +12268,8 @@
     
 
     <div class="t-line-summary">
-      <b>113</b> relevant lines.
-      <span class="green"><b>104</b> lines covered</span> and
+      <b>115</b> relevant lines.
+      <span class="green"><b>106</b> lines covered</span> and
       <span class="red"><b>9</b> lines missed.</span>
     </div>
 
@@ -12404,15 +12404,15 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="10">
-            
+          <li class="covered" data-hits="1" data-linenumber="10">
+            <span class="hits">1</span>
             
 
             
               
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      parameter name: :done, in: :formData, type: :boolean, required: false</code>
           </li>
         </div>
       
@@ -12425,20 +12425,20 @@
               
             
 
-            <code class="ruby">      consumes &#39;multipart/form-data&#39;</code>
+            <code class="ruby">      parameter name: :deadline, in: :formData, type: :date, required: false</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="12">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="12">
+            
             
 
             
               
             
 
-            <code class="ruby">      produces &#39;application/json&#39;</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -12451,7 +12451,7 @@
               
             
 
-            <code class="ruby">      security [basicAuth: []]</code>
+            <code class="ruby">      consumes &#39;multipart/form-data&#39;</code>
           </li>
         </div>
       
@@ -12464,20 +12464,20 @@
               
             
 
-            <code class="ruby">      tags :tasks</code>
+            <code class="ruby">      produces &#39;application/json&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="15">
-            
+          <li class="covered" data-hits="1" data-linenumber="15">
+            <span class="hits">1</span>
             
 
             
               
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      security [basicAuth: []]</code>
           </li>
         </div>
       
@@ -12490,38 +12490,12 @@
               
             
 
-            <code class="ruby">      context &#39;when valid params&#39; do</code>
+            <code class="ruby">      tags :tasks</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="17">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        let(:project_id) { create(:project, user:).id }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="18">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        let(:name) { &#39;Task name&#39; }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="19">
+          <li class="never" data-hits="" data-linenumber="17">
             
             
 
@@ -12534,6 +12508,32 @@
         </div>
       
         <div>
+          <li class="covered" data-hits="1" data-linenumber="18">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      context &#39;when valid params&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="19">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        let(:project_id) { create(:project, user:).id }</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="covered" data-hits="1" data-linenumber="20">
             <span class="hits">1</span>
             
@@ -12542,7 +12542,7 @@
               
             
 
-            <code class="ruby">        before { authenticate(user) }</code>
+            <code class="ruby">        let(:name) { &#39;Task name&#39; }</code>
           </li>
         </div>
       
@@ -12568,25 +12568,12 @@
               
             
 
-            <code class="ruby">        response(201, &#39;created&#39;) do</code>
+            <code class="ruby">        before { authenticate(user) }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="23">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">          schema type: :object, &#39;$ref&#39;: &#39;#/definitions/single_task&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="24">
+          <li class="never" data-hits="" data-linenumber="23">
             
             
 
@@ -12595,6 +12582,19 @@
             
 
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="24">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        response(201, &#39;created&#39;) do</code>
           </li>
         </div>
       
@@ -12607,25 +12607,12 @@
               
             
 
-            <code class="ruby">          run_test! do</code>
+            <code class="ruby">          schema type: :object, &#39;$ref&#39;: &#39;#/definitions/single_task&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="26">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby">            parsed_body = JSON.parse(response.body)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="27">
+          <li class="never" data-hits="" data-linenumber="26">
             
             
 
@@ -12634,6 +12621,19 @@
             
 
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="27">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">          run_test! do</code>
           </li>
         </div>
       
@@ -12646,12 +12646,38 @@
               
             
 
+            <code class="ruby">            parsed_body = JSON.parse(response.body)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="29">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="30">
+            
+            
+
+            
+              
+            
+
             <code class="ruby">            expect(response.body).to match_response_schema(Api::Schemas::Task::SINGLE_SCHEMA)</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="29">
+          <li class="missed" data-hits="0" data-linenumber="31">
             
             
 
@@ -12664,7 +12690,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="30">
+          <li class="never" data-hits="" data-linenumber="32">
             
             
 
@@ -12677,7 +12703,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="31">
+          <li class="never" data-hits="" data-linenumber="33">
             
             
 
@@ -12690,7 +12716,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="32">
+          <li class="never" data-hits="" data-linenumber="34">
             
             
 
@@ -12703,7 +12729,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="33">
+          <li class="never" data-hits="" data-linenumber="35">
             
             
 
@@ -12712,32 +12738,6 @@
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="34">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      context &#39;when empty name&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="35">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        let(:project_id) { create(:project, user:).id }</code>
           </li>
         </div>
       
@@ -12750,20 +12750,20 @@
               
             
 
-            <code class="ruby">        let(:name) { nil }</code>
+            <code class="ruby">      context &#39;when empty name&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="37">
-            
+          <li class="covered" data-hits="1" data-linenumber="37">
+            <span class="hits">1</span>
             
 
             
               
             
 
-            <code class="ruby"></code>
+            <code class="ruby">        let(:project_id) { create(:project, user:).id }</code>
           </li>
         </div>
       
@@ -12776,7 +12776,7 @@
               
             
 
-            <code class="ruby">        before { authenticate(user) }</code>
+            <code class="ruby">        let(:name) { nil }</code>
           </li>
         </div>
       
@@ -12802,12 +12802,38 @@
               
             
 
+            <code class="ruby">        before { authenticate(user) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="41">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="42">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
             <code class="ruby">        response(422, &#39;unprocessable_entity&#39;) do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="41">
+          <li class="covered" data-hits="1" data-linenumber="43">
             <span class="hits">1</span>
             
 
@@ -12820,7 +12846,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="42">
+          <li class="never" data-hits="" data-linenumber="44">
             
             
 
@@ -12833,7 +12859,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="43">
+          <li class="never" data-hits="" data-linenumber="45">
             
             
 
@@ -12846,7 +12872,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="44">
+          <li class="never" data-hits="" data-linenumber="46">
             
             
 
@@ -12859,7 +12885,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="45">
+          <li class="never" data-hits="" data-linenumber="47">
             
             
 
@@ -12872,7 +12898,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="46">
+          <li class="covered" data-hits="1" data-linenumber="48">
             <span class="hits">1</span>
             
 
@@ -12881,32 +12907,6 @@
             
 
             <code class="ruby">          run_test!</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="47">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby">        end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="48">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -12919,103 +12919,12 @@
               
             
 
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="50">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      context &#39;when unauthorized&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="51">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        let(:project_id) { create(:project, user:).id }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="52">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        let(:name) { &#39;Task name&#39; }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="53">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="54">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        response(401, &#39;unauthorized&#39;) do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="55">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">          run_test!</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="56">
-            
-            
-
-            
-              
-            
-
             <code class="ruby">        end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="57">
+          <li class="never" data-hits="" data-linenumber="50">
             
             
 
@@ -13028,6 +12937,97 @@
         </div>
       
         <div>
+          <li class="never" data-hits="" data-linenumber="51">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="52">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      context &#39;when unauthorized&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="53">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        let(:project_id) { create(:project, user:).id }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="54">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        let(:name) { &#39;Task name&#39; }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="55">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="56">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        response(401, &#39;unauthorized&#39;) do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="57">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">          run_test!</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="never" data-hits="" data-linenumber="58">
             
             
@@ -13036,7 +13036,7 @@
               
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">        end</code>
           </li>
         </div>
       
@@ -13049,7 +13049,7 @@
               
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -13062,33 +13062,33 @@
               
             
 
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="61">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="62">
+            
+            
+
+            
+              
+            
+
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="61">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">  path &#39;/api/v1/projects/{project_id}/tasks/{id}&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="62">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">    get(&#39;show task&#39;) do</code>
           </li>
         </div>
       
@@ -13101,7 +13101,7 @@
               
             
 
-            <code class="ruby">      produces &#39;application/json&#39;</code>
+            <code class="ruby">  path &#39;/api/v1/projects/{project_id}/tasks/{id}&#39; do</code>
           </li>
         </div>
       
@@ -13114,7 +13114,7 @@
               
             
 
-            <code class="ruby">      security [basicAuth: []]</code>
+            <code class="ruby">    get(&#39;show task&#39;) do</code>
           </li>
         </div>
       
@@ -13127,20 +13127,20 @@
               
             
 
-            <code class="ruby">      tags :tasks</code>
+            <code class="ruby">      produces &#39;application/json&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="66">
-            
+          <li class="covered" data-hits="1" data-linenumber="66">
+            <span class="hits">1</span>
             
 
             
               
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      security [basicAuth: []]</code>
           </li>
         </div>
       
@@ -13153,25 +13153,12 @@
               
             
 
-            <code class="ruby">      parameter name: &#39;project_id&#39;, in: :path, type: :string, description: &#39;project_id&#39;</code>
+            <code class="ruby">      tags :tasks</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="68">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      parameter name: &#39;id&#39;, in: :path, type: :string, description: &#39;id&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="69">
+          <li class="never" data-hits="" data-linenumber="68">
             
             
 
@@ -13180,6 +13167,19 @@
             
 
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="69">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      parameter name: &#39;project_id&#39;, in: :path, type: :string, description: &#39;project_id&#39;</code>
           </li>
         </div>
       
@@ -13192,25 +13192,12 @@
               
             
 
-            <code class="ruby">      context &#39;when authenticated&#39; do</code>
+            <code class="ruby">      parameter name: &#39;id&#39;, in: :path, type: :string, description: &#39;id&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="71">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        before { authenticate(user) }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="72">
+          <li class="never" data-hits="" data-linenumber="71">
             
             
 
@@ -13219,6 +13206,19 @@
             
 
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="72">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      context &#39;when authenticated&#39; do</code>
           </li>
         </div>
       
@@ -13231,38 +13231,12 @@
               
             
 
-            <code class="ruby">        response(200, &#39;successful&#39;) do</code>
+            <code class="ruby">        before { authenticate(user) }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="74">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">          let(:project_id) { create(:project, user:).id }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="75">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">          let(:id) { create(:task, project_id:).id }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="76">
+          <li class="never" data-hits="" data-linenumber="74">
             
             
 
@@ -13275,6 +13249,32 @@
         </div>
       
         <div>
+          <li class="covered" data-hits="1" data-linenumber="75">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        response(200, &#39;successful&#39;) do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="76">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">          let(:project_id) { create(:project, user:).id }</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="covered" data-hits="1" data-linenumber="77">
             <span class="hits">1</span>
             
@@ -13283,7 +13283,7 @@
               
             
 
-            <code class="ruby">          schema type: :object, &#39;$ref&#39;: &#39;#/definitions/single_task&#39;</code>
+            <code class="ruby">          let(:id) { create(:task, project_id:).id }</code>
           </li>
         </div>
       
@@ -13309,25 +13309,12 @@
               
             
 
-            <code class="ruby">          run_test! do</code>
+            <code class="ruby">          schema type: :object, &#39;$ref&#39;: &#39;#/definitions/single_task&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="80">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby">            parsed_body = JSON.parse(response.body)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="81">
+          <li class="never" data-hits="" data-linenumber="80">
             
             
 
@@ -13336,6 +13323,19 @@
             
 
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="81">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">          run_test! do</code>
           </li>
         </div>
       
@@ -13348,12 +13348,38 @@
               
             
 
+            <code class="ruby">            parsed_body = JSON.parse(response.body)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="83">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="84">
+            
+            
+
+            
+              
+            
+
             <code class="ruby">            expect(parsed_body[&#39;data&#39;][&#39;id&#39;]).to eq(id)</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="83">
+          <li class="missed" data-hits="0" data-linenumber="85">
             
             
 
@@ -13366,7 +13392,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="84">
+          <li class="never" data-hits="" data-linenumber="86">
             
             
 
@@ -13379,7 +13405,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="85">
+          <li class="never" data-hits="" data-linenumber="87">
             
             
 
@@ -13392,7 +13418,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="86">
+          <li class="never" data-hits="" data-linenumber="88">
             
             
 
@@ -13401,32 +13427,6 @@
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="87">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        response(404, &#39;not_found&#39;) do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="88">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">          let(:project_id) { create(:project, user:).id }</code>
           </li>
         </div>
       
@@ -13439,20 +13439,20 @@
               
             
 
-            <code class="ruby">          let(:id) { &quot;#{create(:task, project_id:).id}id&quot; }</code>
+            <code class="ruby">        response(404, &#39;not_found&#39;) do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="90">
-            
+          <li class="covered" data-hits="1" data-linenumber="90">
+            <span class="hits">1</span>
             
 
             
               
             
 
-            <code class="ruby"></code>
+            <code class="ruby">          let(:project_id) { create(:project, user:).id }</code>
           </li>
         </div>
       
@@ -13465,7 +13465,7 @@
               
             
 
-            <code class="ruby">          run_test!</code>
+            <code class="ruby">          let(:id) { &quot;#{create(:task, project_id:).id}id&quot; }</code>
           </li>
         </div>
       
@@ -13478,103 +13478,12 @@
               
             
 
-            <code class="ruby">        end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="93">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="94">
-            
-            
-
-            
-              
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="95">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      context &#39;when unauthorized&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="96">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        let(:project_id) { create(:project, user:).id }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="97">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        let(:id) { create(:task, project_id:).id }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="98">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="99">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        response(401, &#39;unauthorized&#39;) do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="100">
+          <li class="covered" data-hits="1" data-linenumber="93">
             <span class="hits">1</span>
             
 
@@ -13587,7 +13496,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="101">
+          <li class="never" data-hits="" data-linenumber="94">
             
             
 
@@ -13600,7 +13509,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="102">
+          <li class="never" data-hits="" data-linenumber="95">
             
             
 
@@ -13613,20 +13522,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="103">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="104">
+          <li class="never" data-hits="" data-linenumber="96">
             
             
 
@@ -13639,7 +13535,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="105">
+          <li class="covered" data-hits="1" data-linenumber="97">
             <span class="hits">1</span>
             
 
@@ -13647,142 +13543,12 @@
               
             
 
-            <code class="ruby">    put(&#39;update task&#39;) do</code>
+            <code class="ruby">      context &#39;when unauthorized&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="106">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      parameter name: &#39;project_id&#39;, in: :path, type: :string, description: &#39;project_id&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="107">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      parameter name: &#39;id&#39;, in: :path, type: :string, description: &#39;id&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="108">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      parameter name: :name, in: :formData, type: :string, required: true</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="109">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="110">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      consumes &#39;multipart/form-data&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="111">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      produces &#39;application/json&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="112">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      security [basicAuth: []]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="113">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      tags :tasks</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="114">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="115">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      context &#39;when valid params&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="116">
+          <li class="covered" data-hits="1" data-linenumber="98">
             <span class="hits">1</span>
             
 
@@ -13795,7 +13561,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="117">
+          <li class="covered" data-hits="1" data-linenumber="99">
             <span class="hits">1</span>
             
 
@@ -13808,20 +13574,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="118">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        let(:name) { &#39;Updated task name&#39; }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="119">
+          <li class="never" data-hits="" data-linenumber="100">
             
             
 
@@ -13834,6 +13587,253 @@
         </div>
       
         <div>
+          <li class="covered" data-hits="1" data-linenumber="101">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        response(401, &#39;unauthorized&#39;) do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="102">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">          run_test!</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="103">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">        end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="104">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="105">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="106">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="107">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">    put(&#39;update task&#39;) do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="108">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      parameter name: &#39;project_id&#39;, in: :path, type: :string, description: &#39;project_id&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="109">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      parameter name: &#39;id&#39;, in: :path, type: :string, description: &#39;id&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="110">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      parameter name: :name, in: :formData, type: :string, required: true</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="111">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="112">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      consumes &#39;multipart/form-data&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="113">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      produces &#39;application/json&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="114">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      security [basicAuth: []]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="115">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      tags :tasks</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="116">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="117">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      context &#39;when valid params&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="118">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        let(:project_id) { create(:project, user:).id }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="119">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        let(:id) { create(:task, project_id:).id }</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="covered" data-hits="1" data-linenumber="120">
             <span class="hits">1</span>
             
@@ -13842,7 +13842,7 @@
               
             
 
-            <code class="ruby">        before { authenticate(user) }</code>
+            <code class="ruby">        let(:name) { &#39;Updated task name&#39; }</code>
           </li>
         </div>
       
@@ -13868,25 +13868,12 @@
               
             
 
-            <code class="ruby">        response(200, &#39;successfull&#39;) do</code>
+            <code class="ruby">        before { authenticate(user) }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="123">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">          schema type: :object, &#39;$ref&#39;: &#39;#/definitions/single_task&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="124">
+          <li class="never" data-hits="" data-linenumber="123">
             
             
 
@@ -13895,6 +13882,19 @@
             
 
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="124">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        response(200, &#39;successfull&#39;) do</code>
           </li>
         </div>
       
@@ -13907,25 +13907,12 @@
               
             
 
-            <code class="ruby">          run_test! do</code>
+            <code class="ruby">          schema type: :object, &#39;$ref&#39;: &#39;#/definitions/single_task&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="126">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby">            parsed_body = JSON.parse(response.body)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="127">
+          <li class="never" data-hits="" data-linenumber="126">
             
             
 
@@ -13934,6 +13921,19 @@
             
 
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="127">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">          run_test! do</code>
           </li>
         </div>
       
@@ -13946,12 +13946,38 @@
               
             
 
+            <code class="ruby">            parsed_body = JSON.parse(response.body)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="129">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="130">
+            
+            
+
+            
+              
+            
+
             <code class="ruby">            expect(response.body).to match_response_schema(Api::Schemas::Task::SINGLE_SCHEMA)</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="129">
+          <li class="missed" data-hits="0" data-linenumber="131">
             
             
 
@@ -13964,7 +13990,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="130">
+          <li class="never" data-hits="" data-linenumber="132">
             
             
 
@@ -13977,7 +14003,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="131">
+          <li class="never" data-hits="" data-linenumber="133">
             
             
 
@@ -13990,7 +14016,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="132">
+          <li class="never" data-hits="" data-linenumber="134">
             
             
 
@@ -14003,7 +14029,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="133">
+          <li class="never" data-hits="" data-linenumber="135">
             
             
 
@@ -14012,32 +14038,6 @@
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="134">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      context &#39;when empty name&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="135">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        let(:project_id) { create(:project, user:).id }</code>
           </li>
         </div>
       
@@ -14050,7 +14050,7 @@
               
             
 
-            <code class="ruby">        let(:id) { create(:task, project_id:).id }</code>
+            <code class="ruby">      context &#39;when empty name&#39; do</code>
           </li>
         </div>
       
@@ -14063,20 +14063,20 @@
               
             
 
-            <code class="ruby">        let(:name) { nil }</code>
+            <code class="ruby">        let(:project_id) { create(:project, user:).id }</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="138">
-            
+          <li class="covered" data-hits="1" data-linenumber="138">
+            <span class="hits">1</span>
             
 
             
               
             
 
-            <code class="ruby"></code>
+            <code class="ruby">        let(:id) { create(:task, project_id:).id }</code>
           </li>
         </div>
       
@@ -14089,7 +14089,7 @@
               
             
 
-            <code class="ruby">        before { authenticate(user) }</code>
+            <code class="ruby">        let(:name) { nil }</code>
           </li>
         </div>
       
@@ -14115,12 +14115,38 @@
               
             
 
+            <code class="ruby">        before { authenticate(user) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="142">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="143">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
             <code class="ruby">        response(422, &#39;unprocessable_entity&#39;) do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="142">
+          <li class="covered" data-hits="1" data-linenumber="144">
             <span class="hits">1</span>
             
 
@@ -14133,7 +14159,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="143">
+          <li class="never" data-hits="" data-linenumber="145">
             
             
 
@@ -14146,7 +14172,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="144">
+          <li class="never" data-hits="" data-linenumber="146">
             
             
 
@@ -14159,7 +14185,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="145">
+          <li class="never" data-hits="" data-linenumber="147">
             
             
 
@@ -14172,7 +14198,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="146">
+          <li class="never" data-hits="" data-linenumber="148">
             
             
 
@@ -14185,7 +14211,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="147">
+          <li class="covered" data-hits="1" data-linenumber="149">
             <span class="hits">1</span>
             
 
@@ -14194,32 +14220,6 @@
             
 
             <code class="ruby">          run_test!</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="148">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby">        end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="149">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -14232,33 +14232,33 @@
               
             
 
+            <code class="ruby">        end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="151">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="152">
+            
+            
+
+            
+              
+            
+
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="151">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      context &#39;when unauthorized&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="152">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        let(:project_id) { create(:project, user:).id }</code>
           </li>
         </div>
       
@@ -14271,7 +14271,7 @@
               
             
 
-            <code class="ruby">        let(:id) { create(:task, project_id:).id }</code>
+            <code class="ruby">      context &#39;when unauthorized&#39; do</code>
           </li>
         </div>
       
@@ -14284,467 +14284,12 @@
               
             
 
-            <code class="ruby">        let(:name) { &#39;Task name&#39; }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="155">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="156">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        response(401, &#39;unauthorized&#39;) do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="157">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">          run_test!</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="158">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby">        end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="159">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="160">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="161">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="162">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">    delete(&#39;delete task&#39;) do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="163">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      parameter name: &#39;project_id&#39;, in: :path, type: :string, description: &#39;project_id&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="164">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      parameter name: &#39;id&#39;, in: :path, type: :string, description: &#39;id&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="165">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="166">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      produces &#39;application/json&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="167">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      security [basicAuth: []]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="168">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      tags :tasks</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="169">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="170">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      context &#39;when authenticated&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="171">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        before { authenticate(user) }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="172">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="173">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        response(204, &#39;no_content&#39;) do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="174">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">          let(:project_id) { create(:project, user:).id }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="175">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">          let(:id) { create(:task, project_id:).id }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="176">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="177">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">          run_test!</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="178">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby">        end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="179">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="180">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        response(404, &#39;not_found&#39;) do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="181">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">          let(:project_id) { create(:project, user:).id }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="182">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">          let(:id) { &quot;#{create(:task, project_id:).id}id&quot; }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="183">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="184">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">          run_test!</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="185">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby">        end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="186">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="187">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="188">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      context &#39;when unauthorized&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="189">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
             <code class="ruby">        let(:project_id) { create(:project, user:).id }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="190">
+          <li class="covered" data-hits="1" data-linenumber="155">
             <span class="hits">1</span>
             
 
@@ -14757,7 +14302,20 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="191">
+          <li class="covered" data-hits="1" data-linenumber="156">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        let(:name) { &#39;Task name&#39; }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="157">
             
             
 
@@ -14770,7 +14328,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="192">
+          <li class="covered" data-hits="1" data-linenumber="158">
             <span class="hits">1</span>
             
 
@@ -14783,7 +14341,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="193">
+          <li class="covered" data-hits="1" data-linenumber="159">
             <span class="hits">1</span>
             
 
@@ -14796,7 +14354,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="194">
+          <li class="never" data-hits="" data-linenumber="160">
             
             
 
@@ -14809,7 +14367,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="195">
+          <li class="never" data-hits="" data-linenumber="161">
             
             
 
@@ -14822,7 +14380,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="196">
+          <li class="never" data-hits="" data-linenumber="162">
             
             
 
@@ -14835,7 +14393,475 @@
         </div>
       
         <div>
+          <li class="never" data-hits="" data-linenumber="163">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="164">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">    delete(&#39;delete task&#39;) do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="165">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      parameter name: &#39;project_id&#39;, in: :path, type: :string, description: &#39;project_id&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="166">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      parameter name: &#39;id&#39;, in: :path, type: :string, description: &#39;id&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="167">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="168">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      produces &#39;application/json&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="169">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      security [basicAuth: []]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="170">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      tags :tasks</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="171">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="172">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      context &#39;when authenticated&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="173">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        before { authenticate(user) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="174">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="175">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        response(204, &#39;no_content&#39;) do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="176">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">          let(:project_id) { create(:project, user:).id }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="177">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">          let(:id) { create(:task, project_id:).id }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="178">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="179">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">          run_test!</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="180">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">        end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="181">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="182">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        response(404, &#39;not_found&#39;) do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="183">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">          let(:project_id) { create(:project, user:).id }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="184">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">          let(:id) { &quot;#{create(:task, project_id:).id}id&quot; }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="185">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="186">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">          run_test!</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="187">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">        end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="188">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="189">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="190">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      context &#39;when unauthorized&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="191">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        let(:project_id) { create(:project, user:).id }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="192">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        let(:id) { create(:task, project_id:).id }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="193">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="194">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        response(401, &#39;unauthorized&#39;) do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="195">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">          run_test!</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="196">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">        end</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="never" data-hits="" data-linenumber="197">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="198">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="199">
             
             
 
@@ -14848,7 +14874,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="198">
+          <li class="never" data-hits="" data-linenumber="200">
             
             
 

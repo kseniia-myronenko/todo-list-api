@@ -7,6 +7,8 @@ RSpec.describe 'api/v1/tasks', type: :request do
     post('create task') do
       parameter name: 'project_id', in: :path, type: :string, description: 'project_id'
       parameter name: :name, in: :formData, type: :string, required: true
+      parameter name: :done, in: :formData, type: :boolean, required: false
+      parameter name: :deadline, in: :formData, type: :date, required: false
 
       consumes 'multipart/form-data'
       produces 'application/json'

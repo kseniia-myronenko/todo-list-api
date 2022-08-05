@@ -122,22 +122,21 @@ definitions:
                       minLength: 1
                     created_at:
                       type: string
+                      format: date-time
                       minLength: 1
                     updated_at:
                       type: string
+                      format: date-time
                       minLength: 1
                     done:
                       type: boolean
-                      not:
-                        type: 'null'
                     deadline:
                       type:
                       - 'null'
                       - string
+                      format: date
                     position:
                       type: integer
-                      not:
-                        type: 'null'
                   required:
                   - id
                   - name
@@ -199,16 +198,12 @@ definitions:
                 minLength: 1
               done:
                 type: boolean
-                not:
-                  type: 'null'
               deadline:
                 type:
                 - 'null'
                 - string
               position:
                 type: integer
-                not:
-                  type: 'null'
               comments:
                 type: array
                 items:
@@ -225,9 +220,11 @@ definitions:
                       minLength: 1
                     created_at:
                       type: string
+                      format: date-time
                       minLength: 1
                     updated_at:
                       type: string
+                      format: date-time
                       minLength: 1
                   required:
                   - id
@@ -302,19 +299,13 @@ definitions:
                         minLength: 1
                       size:
                         type: integer
-                        not:
-                          type: 'null'
                       mime_type:
                         type: string
                         minLength: 1
                       width:
                         type: integer
-                        not:
-                          type: 'null'
                       height:
                         type: integer
-                        not:
-                          type: 'null'
                     required:
                     - filename
                     - size
@@ -387,9 +378,11 @@ definitions:
                       minLength: 1
                     created_at:
                       type: string
+                      format: date-time
                       minLength: 1
                     updated_at:
                       type: string
+                      format: date-time
                       minLength: 1
                     image_data:
                       type: string
@@ -929,6 +922,14 @@ paths:
         in: formData
         type: string
         required: true
+      - name: done
+        in: formData
+        type: boolean
+        required: false
+      - name: deadline
+        in: formData
+        type: date
+        required: false
       consumes:
       - multipart/form-data
       produces:
