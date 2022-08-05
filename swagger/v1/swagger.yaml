@@ -179,80 +179,6 @@ definitions:
         - relationships
     required:
     - data
-  all_tasks:
-    type: object
-    properties:
-      data:
-        type: array
-        items:
-          type: object
-          properties:
-            id:
-              type: string
-              minLength: 1
-            type:
-              type: string
-              minLength: 1
-            attributes:
-              type: array
-              items:
-                type: object
-                properties:
-                  name:
-                    type: string
-                    minLength: 1
-                  done:
-                    type: boolean
-                    not:
-                      type: 'null'
-                  deadline:
-                    type:
-                    - 'null'
-                    - string
-                  position:
-                    type: integer
-                    not:
-                      type: 'null'
-                required:
-                - name
-                - done
-                - deadline
-                - position
-            relationships:
-              type: array
-              items:
-                type: object
-                properties:
-                  project:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        data:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: string
-                                minLength: 1
-                              type:
-                                type: string
-                                minLength: 1
-                            required:
-                            - id
-                            - type
-                      required:
-                      - data
-                required:
-                - project
-          required:
-          - id
-          - type
-          - attributes
-          - relationships
-    required:
-    - data
   single_task:
     type: object
     properties:
@@ -283,11 +209,38 @@ definitions:
                 type: integer
                 not:
                   type: 'null'
+              comments:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      minLength: 1
+                    content:
+                      type: string
+                      minLength: 1
+                    task_id:
+                      type: string
+                      minLength: 1
+                    created_at:
+                      type: string
+                      minLength: 1
+                    updated_at:
+                      type: string
+                      minLength: 1
+                  required:
+                  - id
+                  - content
+                  - task_id
+                  - created_at
+                  - updated_at
             required:
             - name
             - done
             - deadline
             - position
+            - comments
           relationships:
             type: object
             properties:

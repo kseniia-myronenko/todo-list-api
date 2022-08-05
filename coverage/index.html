@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-08-05T10:14:46+03:00">2022-08-05T10:14:46+03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-08-05T10:35:07+03:00">2022-08-05T10:35:07+03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -200,7 +200,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#94fdd0f7888ab6321aa087a4fb132137b1564391" class="src_link" title="spec/swagger_helper.rb">spec/swagger_helper.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">64</td>
+            <td class="cell--number">63</td>
             <td class="cell--number">5</td>
             <td class="cell--number">5</td>
             <td class="cell--number">0</td>
@@ -15609,7 +15609,7 @@
               
             
 
-            <code class="ruby">        all_tasks: Api::Schemas::Task::MANY_SCHEMA.json_schema.except(:$schema),</code>
+            <code class="ruby">        single_task: Api::Schemas::Task::SINGLE_SCHEMA.json_schema.except(:$schema),</code>
           </li>
         </div>
       
@@ -15622,7 +15622,7 @@
               
             
 
-            <code class="ruby">        single_task: Api::Schemas::Task::SINGLE_SCHEMA.json_schema.except(:$schema),</code>
+            <code class="ruby">        image: Api::Schemas::Image::SINGLE_SCHEMA.json_schema.except(:$schema),</code>
           </li>
         </div>
       
@@ -15635,7 +15635,7 @@
               
             
 
-            <code class="ruby">        image: Api::Schemas::Image::SINGLE_SCHEMA.json_schema.except(:$schema),</code>
+            <code class="ruby">        comment: Api::Schemas::Comment::SINGLE_SCHEMA.json_schema.except(:$schema)</code>
           </li>
         </div>
       
@@ -15648,7 +15648,7 @@
               
             
 
-            <code class="ruby">        comment: Api::Schemas::Comment::SINGLE_SCHEMA.json_schema.except(:$schema)</code>
+            <code class="ruby">      },</code>
           </li>
         </div>
       
@@ -15661,7 +15661,7 @@
               
             
 
-            <code class="ruby">      },</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -15674,7 +15674,7 @@
               
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      securityDefinitions: {</code>
           </li>
         </div>
       
@@ -15687,7 +15687,7 @@
               
             
 
-            <code class="ruby">      securityDefinitions: {</code>
+            <code class="ruby">        basic_auth: {</code>
           </li>
         </div>
       
@@ -15700,7 +15700,7 @@
               
             
 
-            <code class="ruby">        basic_auth: {</code>
+            <code class="ruby">          type: :basic,</code>
           </li>
         </div>
       
@@ -15713,7 +15713,7 @@
               
             
 
-            <code class="ruby">          type: :basic,</code>
+            <code class="ruby">          description: &#39;Session authorization&#39;,</code>
           </li>
         </div>
       
@@ -15726,7 +15726,7 @@
               
             
 
-            <code class="ruby">          description: &#39;Session authorization&#39;,</code>
+            <code class="ruby">          name: &#39;Authorization&#39;,</code>
           </li>
         </div>
       
@@ -15739,7 +15739,7 @@
               
             
 
-            <code class="ruby">          name: &#39;Authorization&#39;,</code>
+            <code class="ruby">          in: :header</code>
           </li>
         </div>
       
@@ -15752,7 +15752,7 @@
               
             
 
-            <code class="ruby">          in: :header</code>
+            <code class="ruby">        }</code>
           </li>
         </div>
       
@@ -15765,7 +15765,7 @@
               
             
 
-            <code class="ruby">        }</code>
+            <code class="ruby">      }</code>
           </li>
         </div>
       
@@ -15778,7 +15778,7 @@
               
             
 
-            <code class="ruby">      }</code>
+            <code class="ruby">    }</code>
           </li>
         </div>
       
@@ -15791,7 +15791,7 @@
               
             
 
-            <code class="ruby">    }</code>
+            <code class="ruby">  }</code>
           </li>
         </div>
       
@@ -15804,7 +15804,7 @@
               
             
 
-            <code class="ruby">  }</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -15817,7 +15817,7 @@
               
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  # Specify the format of the output Swagger file when running &#39;rswag:specs:swaggerize&#39;.</code>
           </li>
         </div>
       
@@ -15830,7 +15830,7 @@
               
             
 
-            <code class="ruby">  # Specify the format of the output Swagger file when running &#39;rswag:specs:swaggerize&#39;.</code>
+            <code class="ruby">  # The swagger_docs configuration option has the filename including format in</code>
           </li>
         </div>
       
@@ -15843,7 +15843,7 @@
               
             
 
-            <code class="ruby">  # The swagger_docs configuration option has the filename including format in</code>
+            <code class="ruby">  # the key, this may want to be changed to avoid putting yaml in json files.</code>
           </li>
         </div>
       
@@ -15856,25 +15856,12 @@
               
             
 
-            <code class="ruby">  # the key, this may want to be changed to avoid putting yaml in json files.</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="62">
-            
-            
-
-            
-              
-            
-
             <code class="ruby">  # Defaults to json. Accepts &#39;:json&#39; and &#39;:yaml&#39;.</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="63">
+          <li class="covered" data-hits="1" data-linenumber="62">
             <span class="hits">1</span>
             
 
@@ -15887,7 +15874,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="64">
+          <li class="never" data-hits="" data-linenumber="63">
             
             
 
