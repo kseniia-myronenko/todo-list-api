@@ -901,20 +901,17 @@ paths:
         in: formData
         type: string
         required: true
-        example: Username
         minimum: 3
         maximum: 50
       - name: password
         in: formData
         type: string
         required: true
-        example: Password7
         minimum: 8
       - name: password_confirmation
         in: formData
         type: string
         required: true
-        example: Password7
         minimum: 8
       responses:
         '201':
@@ -943,14 +940,12 @@ paths:
         in: formData
         type: string
         required: true
-        example: Username
         minimum: 3
         maximum: 50
       - name: password
         in: formData
         type: string
         required: true
-        example: Password7
         minimum: 8
       responses:
         '201':
