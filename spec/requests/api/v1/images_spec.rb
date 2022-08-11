@@ -8,7 +8,7 @@ RSpec.describe 'api/v1/images', type: :request do
       parameter name: 'project_id', in: :path, type: :string, description: 'project_id'
       parameter name: 'task_id', in: :path, type: :string, description: 'task_id'
       parameter name: 'comment_id', in: :path, type: :string, description: 'comment_id'
-      parameter name: :image, in: :formData, required: true, description: 'image'
+      parameter name: :image, type: :file, in: :formData, required: true, description: 'image'
 
       tags :images
       consumes 'multipart/form-data'
@@ -16,6 +16,8 @@ RSpec.describe 'api/v1/images', type: :request do
       security [basicAuth: []]
 
       context 'when authenticated' do
+        let(:Authorization) { basic_token(user) }
+
         before { authenticate(user) }
 
         context 'when valid params' do
@@ -67,6 +69,7 @@ RSpec.describe 'api/v1/images', type: :request do
       end
 
       context 'when unauthorised' do
+        let(:Authorization) { nil }
         let(:project_id) { create(:project, user:).id }
         let(:task_id) { create(:task, project_id:).id }
         let(:comment_id) { create(:comment, task_id:).id }
@@ -84,7 +87,7 @@ RSpec.describe 'api/v1/images', type: :request do
       parameter name: 'project_id', in: :path, type: :string, description: 'project_id'
       parameter name: 'task_id', in: :path, type: :string, description: 'task_id'
       parameter name: 'comment_id', in: :path, type: :string, description: 'comment_id'
-      parameter name: :image, in: :formData, required: true, description: 'image'
+      parameter name: :image, type: :file, in: :formData, required: true, description: 'image'
       parameter name: 'id', in: :path, type: :string, description: 'id'
 
       tags :images
@@ -93,6 +96,7 @@ RSpec.describe 'api/v1/images', type: :request do
       security [basicAuth: []]
 
       context 'when authenticated' do
+        let(:Authorization) { basic_token(user) }
         let(:project_id) { create(:project, user:).id }
         let(:task_id) { create(:task, project_id:).id }
         let(:comment_id) { create(:comment, task_id:).id }
@@ -147,6 +151,7 @@ RSpec.describe 'api/v1/images', type: :request do
       end
 
       context 'when unauthorised' do
+        let(:Authorization) { nil }
         let(:project_id) { create(:project, user:).id }
         let(:task_id) { create(:task, project_id:).id }
         let(:comment_id) { create(:comment, task_id:).id }

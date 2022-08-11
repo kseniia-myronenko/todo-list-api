@@ -10,6 +10,8 @@ RSpec.describe 'projects', type: :request do
       security [basicAuth: []]
 
       context 'when with zero projects' do
+        let(:Authorization) { basic_token(user) }
+
         before { authenticate(user) }
 
         response(200, 'successful') do
@@ -23,6 +25,7 @@ RSpec.describe 'projects', type: :request do
 
       context 'when with projects' do
         let!(:projects) { create_list(:project, 3, user:) }
+        let(:Authorization) { basic_token(user) }
 
         before { authenticate(user) }
 
@@ -40,6 +43,8 @@ RSpec.describe 'projects', type: :request do
       end
 
       context 'when unauthorized' do
+        let(:Authorization) { nil }
+
         response(401, 'unauthorized') do
           run_test!
         end
@@ -57,9 +62,10 @@ RSpec.describe 'projects', type: :request do
       parameter name: :name, in: :formData, type: :string, required: true
 
       context 'when valid params' do
-        before { authenticate(user) }
-
+        let(:Authorization) { basic_token(user) }
         let(:name) { 'Project name' }
+
+        before { authenticate(user) }
 
         response(201, 'created') do
           schema type: :object, '$ref': '#/definitions/single_project'
@@ -74,9 +80,10 @@ RSpec.describe 'projects', type: :request do
       end
 
       context 'when empty name' do
-        before { authenticate(user) }
-
+        let(:Authorization) { basic_token(user) }
         let(:name) { nil }
+
+        before { authenticate(user) }
 
         response(422, 'unprocessable_entity') do
           schema type: :object,
@@ -89,6 +96,7 @@ RSpec.describe 'projects', type: :request do
       end
 
       context 'when duplicated name' do
+        let(:Authorization) { basic_token(user) }
         let(:project) { create(:project, user:) }
         let(:name) { project.name }
 
@@ -105,6 +113,7 @@ RSpec.describe 'projects', type: :request do
       end
 
       context 'when unauthorized' do
+        let(:Authorization) { nil }
         let(:name) { 'Home tasks' }
 
         response(401, 'unauthorized') do
@@ -136,6 +145,8 @@ RSpec.describe 'projects', type: :request do
                 description: "Sorting current project's tasks by created_at asc or desc."
 
       context 'when authenticated' do
+        let(:Authorization) { basic_token(user) }
+
         before { authenticate(user) }
 
         response(200, 'successful') do
@@ -161,6 +172,7 @@ RSpec.describe 'projects', type: :request do
       context 'when sorting tasks with position asc/desc' do
         let(:id) { create(:project, user:).id }
         let!(:task_list) { create_list(:task, 3, project_id: id) }
+        let(:Authorization) { basic_token(user) }
 
         before { authenticate(user) }
 
@@ -194,6 +206,7 @@ RSpec.describe 'projects', type: :request do
       end
 
       context 'when sorting tasks with created_at' do
+        let(:Authorization) { basic_token(user) }
         let(:id) { create(:project, user:).id }
         let!(:task_list) { create_list(:task, 3, project_id: id) }
 
@@ -229,6 +242,7 @@ RSpec.describe 'projects', type: :request do
       end
 
       context 'when unauthorized' do
+        let(:Authorization) { nil }
         let(:id) { create(:project, user:).id }
 
         response(401, 'unauthorized') do
@@ -251,6 +265,7 @@ RSpec.describe 'projects', type: :request do
       context 'when valid params' do
         let(:id) { create(:project, user:).id }
         let(:name) { 'Work stuff' }
+        let(:Authorization) { basic_token(user) }
 
         before { authenticate(user) }
 
@@ -267,6 +282,7 @@ RSpec.describe 'projects', type: :request do
       end
 
       context 'when empty name' do
+        let(:Authorization) { basic_token(user) }
         let(:id) { create(:project, user:).id }
         let(:name) { nil }
 
@@ -283,6 +299,7 @@ RSpec.describe 'projects', type: :request do
       end
 
       context 'when duplicated name' do
+        let(:Authorization) { basic_token(user) }
         let(:project) { create(:project, user:) }
         let(:id) { create(:project, user:).id }
         let(:name) { project.name }
@@ -300,6 +317,7 @@ RSpec.describe 'projects', type: :request do
       end
 
       context 'when unauthorized' do
+        let(:Authorization) { nil }
         let(:id) { create(:project).id }
         let(:name) { 'Work stuff' }
 
@@ -318,6 +336,7 @@ RSpec.describe 'projects', type: :request do
       parameter name: :id, in: :path, type: :string, description: 'id'
 
       context 'when valid params' do
+        let(:Authorization) { basic_token(user) }
         let(:id) { create(:project, user:).id }
 
         before { authenticate(user) }
@@ -328,6 +347,7 @@ RSpec.describe 'projects', type: :request do
       end
 
       context 'when unauthorized' do
+        let(:Authorization) { nil }
         let(:id) { create(:project, user:).id }
 
         response(401, 'unauthorized') do

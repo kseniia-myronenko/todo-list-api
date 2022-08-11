@@ -7,6 +7,8 @@ RSpec.describe 'api/v1/tasks', type: :request do
     post('create task') do
       parameter name: 'project_id', in: :path, type: :string, description: 'project_id'
       parameter name: :name, in: :formData, type: :string, required: true
+      parameter name: :done, in: :formData, type: :boolean, required: false
+      parameter name: :deadline, in: :formData, type: :date, required: false
 
       consumes 'multipart/form-data'
       produces 'application/json'
@@ -14,6 +16,7 @@ RSpec.describe 'api/v1/tasks', type: :request do
       tags :tasks
 
       context 'when valid params' do
+        let(:Authorization) { basic_token(user) }
         let(:project_id) { create(:project, user:).id }
         let(:name) { 'Task name' }
 
@@ -32,6 +35,7 @@ RSpec.describe 'api/v1/tasks', type: :request do
       end
 
       context 'when empty name' do
+        let(:Authorization) { basic_token(user) }
         let(:project_id) { create(:project, user:).id }
         let(:name) { nil }
 
@@ -48,6 +52,7 @@ RSpec.describe 'api/v1/tasks', type: :request do
       end
 
       context 'when unauthorized' do
+        let(:Authorization) { nil }
         let(:project_id) { create(:project, user:).id }
         let(:name) { 'Task name' }
 
@@ -68,6 +73,8 @@ RSpec.describe 'api/v1/tasks', type: :request do
       parameter name: 'id', in: :path, type: :string, description: 'id'
 
       context 'when authenticated' do
+        let(:Authorization) { basic_token(user) }
+
         before { authenticate(user) }
 
         response(200, 'successful') do
@@ -93,6 +100,7 @@ RSpec.describe 'api/v1/tasks', type: :request do
       end
 
       context 'when unauthorized' do
+        let(:Authorization) { nil }
         let(:project_id) { create(:project, user:).id }
         let(:id) { create(:task, project_id:).id }
 
@@ -113,6 +121,7 @@ RSpec.describe 'api/v1/tasks', type: :request do
       tags :tasks
 
       context 'when valid params' do
+        let(:Authorization) { basic_token(user) }
         let(:project_id) { create(:project, user:).id }
         let(:id) { create(:task, project_id:).id }
         let(:name) { 'Updated task name' }
@@ -132,6 +141,7 @@ RSpec.describe 'api/v1/tasks', type: :request do
       end
 
       context 'when empty name' do
+        let(:Authorization) { basic_token(user) }
         let(:project_id) { create(:project, user:).id }
         let(:id) { create(:task, project_id:).id }
         let(:name) { nil }
@@ -149,6 +159,7 @@ RSpec.describe 'api/v1/tasks', type: :request do
       end
 
       context 'when unauthorized' do
+        let(:Authorization) { nil }
         let(:project_id) { create(:project, user:).id }
         let(:id) { create(:task, project_id:).id }
         let(:name) { 'Task name' }
@@ -168,6 +179,8 @@ RSpec.describe 'api/v1/tasks', type: :request do
       tags :tasks
 
       context 'when authenticated' do
+        let(:Authorization) { basic_token(user) }
+
         before { authenticate(user) }
 
         response(204, 'no_content') do
@@ -186,6 +199,7 @@ RSpec.describe 'api/v1/tasks', type: :request do
       end
 
       context 'when unauthorized' do
+        let(:Authorization) { nil }
         let(:project_id) { create(:project, user:).id }
         let(:id) { create(:task, project_id:).id }
 

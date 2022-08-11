@@ -9,6 +9,13 @@ module Api
           required(:done).filled(:bool)
           required(:deadline).maybe(:string)
           required(:position).filled(:integer)
+          required(:comments).array(:hash) do
+            required(:id).filled(:string)
+            required(:content).filled(:string)
+            required(:task_id).filled(:string)
+            required(:created_at).filled(:date_time)
+            required(:updated_at).filled(:date_time)
+          end
         end
         required(:relationships).hash do
           required(:project).hash do
@@ -18,10 +25,6 @@ module Api
             end
           end
         end
-      end
-
-      MANY_SCHEMA = Dry::Schema.JSON do
-        required(:data).array(TASK)
       end
 
       SINGLE_SCHEMA = Dry::Schema.JSON do

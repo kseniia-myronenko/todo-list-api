@@ -7,37 +7,32 @@ RSpec.describe 'api/v1/sessions', type: :request do
       produces 'application/json'
       tags :session
 
-      parameter name: :username, in: :formData, required: true, schema: {
-        type: :string, minimum: 3, maximum: 50
-      }
+      parameter name: :username, in: :formData, type: :string, required: true, minimum: 3, maximum: 50
+      parameter name: :password, in: :formData, type: :string, required: true, minimum: 8
 
-      parameter name: :password, in: :formData, required: true, schema: {
-        type: :string, minimum: 8
-      }
+      context 'when valid params' do
+        let(:user) { create(:user, password: Helpers::UserAuthHelper::PASSWORD) }
+        let(:username) { user.username }
+        let(:password) { Helpers::UserAuthHelper::PASSWORD }
 
-      # context 'when valid params' do
-      #   let(:user) { create(:user, password: Helpers::UserAuthHelper::PASSWORD) }
-      #   let(:username) { user.username }
-      #   let(:password) { Helpers::UserAuthHelper::PASSWORD }
+        response(201, 'created') do
+          schema type: :object, '$ref': '#/definitions/session_response'
 
-      #   response(201, 'created') do
-      #     run_test! do
-      #       expect(response.body).to match_response_schema(Api::Schemas::Session::MAIN)
-      #     end
-      #   end
-      # end
+          run_test! do
+            parsed_body = JSON.parse(response.body)
+            expect(parsed_body['user']).to eq(username)
+            expect(parsed_body['logged_in']).to be(true)
+            expect(parsed_body['message']).to eq(I18n.t('authentication.success.logged_in'))
+          end
+        end
+      end
 
       context 'when invalid username' do
         let(:user) { create(:user, password: Helpers::UserAuthHelper::PASSWORD) }
         let(:username) { "#{user.username}s" }
         let(:password) { Helpers::UserAuthHelper::PASSWORD }
 
-        response(401, 'unprocessable_entity') do
-          schema type: :object,
-                 properties: {
-                   errors: { type: :object }
-                 }
-
+        response(401, 'unauthorized') do
           run_test!
         end
       end
@@ -47,12 +42,7 @@ RSpec.describe 'api/v1/sessions', type: :request do
         let(:username) { user.username }
         let(:password) { 'invalid' }
 
-        response(401, 'unprocessable_entity') do
-          schema type: :object,
-                 properties: {
-                   errors: { type: :object }
-                 }
-
+        response(401, 'unauthorized') do
           run_test!
         end
       end
@@ -64,12 +54,10 @@ RSpec.describe 'api/v1/sessions', type: :request do
       tags :session
 
       response(200, 'successfull') do
-        schema type: :object,
-               properties: {
-                 message: { type: :string }
-               }
-
-        run_test!
+        run_test! do
+          parsed_body = JSON.parse(response.body)
+          expect(parsed_body['message']).to eq(I18n.t('authentication.success.logged_out'))
+        end
       end
     end
   end

@@ -26,10 +26,10 @@ module Api
             required(:id).filled(:string)
             required(:name).filled(:string)
             required(:project_id).filled(:string)
-            required(:created_at).filled(:string)
-            required(:updated_at).filled(:string)
+            required(:created_at).filled(:date_time)
+            required(:updated_at).filled(:date_time)
             required(:done).filled(:bool)
-            required(:deadline).maybe(:string)
+            required(:deadline).maybe(:date)
             required(:position).filled(:integer)
           end
         end

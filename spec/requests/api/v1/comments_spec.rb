@@ -7,7 +7,7 @@ RSpec.describe 'api/v1/comments', type: :request do
     post('create comment') do
       parameter name: 'project_id', in: :path, type: :string, description: 'project_id'
       parameter name: 'task_id', in: :path, type: :string, description: 'task_id'
-      parameter name: :content, in: :formData, required: true, description: 'text of the comment'
+      parameter name: :content, type: :text, in: :formData, required: true, description: 'text of the comment'
 
       tags :comments
       consumes 'multipart/form-data'
@@ -15,6 +15,8 @@ RSpec.describe 'api/v1/comments', type: :request do
       security [basicAuth: []]
 
       context 'when authenticated' do
+        let(:Authorization) { basic_token(user) }
+
         before { authenticate(user) }
 
         context 'when valid params' do
@@ -90,6 +92,7 @@ RSpec.describe 'api/v1/comments', type: :request do
       end
 
       context 'when unauthorised' do
+        let(:Authorization) { nil }
         let(:project_id) { create(:project, user:).id }
         let(:task_id) { create(:task, project_id:).id }
         let(:content) { 'Text of the comment.' }
@@ -112,6 +115,8 @@ RSpec.describe 'api/v1/comments', type: :request do
       security [basicAuth: []]
 
       context 'when authenticated' do
+        let(:Authorization) { basic_token(user) }
+
         before { authenticate(user) }
 
         context 'when valid params' do
@@ -142,6 +147,7 @@ RSpec.describe 'api/v1/comments', type: :request do
       end
 
       context 'when unauthorised' do
+        let(:Authorization) { nil }
         let(:project_id) { create(:project, user:).id }
         let(:task_id) { create(:task, project_id:).id }
         let(:id) { create(:comment, task_id:).id }
@@ -155,7 +161,7 @@ RSpec.describe 'api/v1/comments', type: :request do
     put('update comment') do
       parameter name: 'project_id', in: :path, type: :string, description: 'project_id'
       parameter name: 'task_id', in: :path, type: :string, description: 'task_id'
-      parameter name: :content, in: :formData, required: true, description: 'text of the comment'
+      parameter name: :content, type: :text, in: :formData, required: true, description: 'text of the comment'
       parameter name: 'id', in: :path, type: :string, description: 'id'
 
       tags :comments
@@ -164,6 +170,8 @@ RSpec.describe 'api/v1/comments', type: :request do
       security [basicAuth: []]
 
       context 'when authenticated' do
+        let(:Authorization) { basic_token(user) }
+
         before { authenticate(user) }
 
         context 'when valid params' do
@@ -198,8 +206,7 @@ RSpec.describe 'api/v1/comments', type: :request do
         context 'when long comment' do
           let(:project_id) { create(:project, user:).id }
           let(:task_id) { create(:task, project_id:).id }
-          let(:comment) { create(:comment, task_id:) }
-          let(:id) { comment.id }
+          let(:id) { create(:comment, task_id:).id }
           let(:content) { 'T' * (Comment::COMMENT_MAX_LENGTH + 1) }
 
           response(422, 'unprocessable_entity') do
@@ -215,8 +222,7 @@ RSpec.describe 'api/v1/comments', type: :request do
         context 'when short comment' do
           let(:project_id) { create(:project, user:).id }
           let(:task_id) { create(:task, project_id:).id }
-          let(:comment) { create(:comment, task_id:) }
-          let(:id) { comment.id }
+          let(:id) { create(:comment, task_id:).id }
           let(:content) { 'T' }
 
           response(422, 'unprocessable_entity') do
@@ -232,8 +238,7 @@ RSpec.describe 'api/v1/comments', type: :request do
         context 'when empty comment' do
           let(:project_id) { create(:project, user:).id }
           let(:task_id) { create(:task, project_id:).id }
-          let(:comment) { create(:comment, task_id:) }
-          let(:id) { comment.id }
+          let(:id) { create(:comment, task_id:).id }
           let(:content) { nil }
 
           response(422, 'unprocessable_entity') do
@@ -248,6 +253,7 @@ RSpec.describe 'api/v1/comments', type: :request do
       end
 
       context 'when unauthorised' do
+        let(:Authorization) { nil }
         let(:project_id) { create(:project, user:).id }
         let(:task_id) { create(:task, project_id:).id }
         let(:comment) { create(:comment, task_id:) }
@@ -270,6 +276,7 @@ RSpec.describe 'api/v1/comments', type: :request do
       security [basicAuth: []]
 
       context 'when authenticated' do
+        let(:Authorization) { basic_token(user) }
         let(:project_id) { create(:project, user:).id }
         let(:task_id) { create(:task, project_id:).id }
         let(:id) { create(:comment, task_id:).id }
@@ -282,6 +289,7 @@ RSpec.describe 'api/v1/comments', type: :request do
       end
 
       context 'when unauthorised' do
+        let(:Authorization) { nil }
         let(:project_id) { create(:project, user:).id }
         let(:task_id) { create(:task, project_id:).id }
         let(:id) { create(:comment, task_id:).id }
