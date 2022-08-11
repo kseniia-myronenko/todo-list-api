@@ -45,11 +45,9 @@ RSpec.configure do |config|
       },
 
       securityDefinitions: {
-        basic_auth: {
+        basicAuth: {
           type: :basic,
-          description: 'Session authorization',
-          name: 'Authorization',
-          in: :header
+          description: 'Session authentication'
         }
       }
     }

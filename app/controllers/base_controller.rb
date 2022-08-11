@@ -1,5 +1,6 @@
 class BaseController < ActionController::API
   include ActionController::Helpers
+  include ActionController::RequestForgeryProtection
 
   helper_method :current_user
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found

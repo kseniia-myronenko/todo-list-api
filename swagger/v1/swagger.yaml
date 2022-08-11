@@ -130,6 +130,8 @@ definitions:
                       minLength: 1
                     done:
                       type: boolean
+                      not:
+                        type: 'null'
                     deadline:
                       type:
                       - 'null'
@@ -137,6 +139,8 @@ definitions:
                       format: date
                     position:
                       type: integer
+                      not:
+                        type: 'null'
                   required:
                   - id
                   - name
@@ -198,12 +202,16 @@ definitions:
                 minLength: 1
               done:
                 type: boolean
+                not:
+                  type: 'null'
               deadline:
                 type:
                 - 'null'
                 - string
               position:
                 type: integer
+                not:
+                  type: 'null'
               comments:
                 type: array
                 items:
@@ -299,13 +307,19 @@ definitions:
                         minLength: 1
                       size:
                         type: integer
+                        not:
+                          type: 'null'
                       mime_type:
                         type: string
                         minLength: 1
                       width:
                         type: integer
+                        not:
+                          type: 'null'
                       height:
                         type: integer
+                        not:
+                          type: 'null'
                     required:
                     - filename
                     - size
@@ -426,11 +440,9 @@ definitions:
     required:
     - data
 securityDefinitions:
-  basic_auth:
+  basicAuth:
     type: basic
-    description: Session authorization
-    name: Authorization
-    in: header
+    description: Session authentication
 paths:
   "/api/v1/projects/{project_id}/tasks/{task_id}/comments":
     post:
@@ -608,7 +620,7 @@ paths:
         description: comment_id
         required: true
       - name: image
-        type: image
+        type: file
         in: formData
         required: true
         description: image
@@ -657,7 +669,7 @@ paths:
         description: comment_id
         required: true
       - name: image
-        type: image
+        type: file
         in: formData
         required: true
         description: image
