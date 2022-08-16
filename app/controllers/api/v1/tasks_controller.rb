@@ -1,7 +1,6 @@
 module Api
   module V1
     class TasksController < AuthorizedController
-      before_action :set_project
       before_action :set_task, except: %i[create]
 
       def show
@@ -9,7 +8,7 @@ module Api
       end
 
       def create
-        @task = @project.tasks.create(task_params)
+        @task = project.tasks.create(task_params)
 
         response = if @task.valid?
                      { json: Api::V1::TaskSerializer.new(@task), status: :created }
@@ -41,12 +40,12 @@ module Api
         params.permit(:name, :position, :done, :deadline)
       end
 
-      def set_project
-        @project = current_user.projects.find(params[:project_id])
+      def project
+        current_user.projects.find(params[:project_id])
       end
 
       def set_task
-        @task = @project.tasks.find(params[:id])
+        @task = project.tasks.find(params[:id])
       end
     end
   end

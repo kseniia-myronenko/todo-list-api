@@ -15,8 +15,14 @@ RSpec.describe User, type: :model do
     subject(:user) { build(:user) }
 
     it { is_expected.to validate_presence_of(:username) }
-    it { is_expected.to validate_uniqueness_of(:username).case_insensitive }
-    it { is_expected.to validate_presence_of(:password_digest) }
+
+    it do
+      expect(user).to validate_uniqueness_of(:username)
+        .case_insensitive
+        .with_message(I18n.t('activerecord.errors.models.user.attributes.username.already_exists'))
+    end
+
+    it { is_expected.to validate_presence_of(:password) }
 
     it do
       expect(user).to validate_length_of(:username)
@@ -24,7 +30,7 @@ RSpec.describe User, type: :model do
     end
 
     it do
-      expect(user).to validate_length_of(:password_digest)
+      expect(user).to validate_length_of(:password)
         .is_at_least(User::PASSWORD_MIN_LENGTH)
     end
 
