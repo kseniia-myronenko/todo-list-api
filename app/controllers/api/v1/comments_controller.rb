@@ -1,7 +1,6 @@
 module Api
   module V1
     class CommentsController < AuthorizedController
-      before_action :set_task
       before_action :set_comment, except: %i[create]
 
       def show
@@ -9,7 +8,7 @@ module Api
       end
 
       def create
-        @comment = @task.comments.create(comment_params)
+        @comment = task.comments.create(comment_params)
 
         response = if @comment.valid?
                      { json: Api::V1::CommentSerializer.new(@comment), status: :created }
@@ -45,12 +44,12 @@ module Api
         current_user.projects.find(params[:project_id])
       end
 
-      def set_task
-        @task = project.tasks.find(params[:task_id])
+      def task
+        project.tasks.find(params[:task_id])
       end
 
       def set_comment
-        @comment = @task.comments.find(params[:id])
+        @comment = task.comments.find(params[:id])
       end
     end
   end

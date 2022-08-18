@@ -1,10 +1,8 @@
 module Api
   module V1
     class ImagesController < AuthorizedController
-      before_action :set_comment
-
       def create
-        @image = @comment.images.create(image_params)
+        @image = comment.images.create(image_params)
 
         response = if @image.valid?
                      { json: Api::V1::ImageSerializer.new(@image), status: :created }
@@ -16,7 +14,7 @@ module Api
       end
 
       def update
-        @image = @comment.images.find(params[:id])
+        @image = comment.images.find(params[:id])
         response = if @image.update(image_params)
                      { json: Api::V1::ImageSerializer.new(@image), status: :ok }
                    else
@@ -40,8 +38,8 @@ module Api
         project.tasks.find(params[:task_id])
       end
 
-      def set_comment
-        @comment = task.comments.find(params[:comment_id])
+      def comment
+        task.comments.find(params[:comment_id])
       end
     end
   end
