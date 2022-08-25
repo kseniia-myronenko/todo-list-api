@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-08-16T14:22:22+03:00">2022-08-16T14:22:22+03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-08-25T17:16:14+03:00">2022-08-25T17:16:14+03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -568,7 +568,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#d9e3e377dd707682f00cbc31ad73d3771a5bf9c1" class="src_link" title="spec/models/user_spec.rb">spec/models/user_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">132</td>
+            <td class="cell--number">135</td>
             <td class="cell--number">71</td>
             <td class="cell--number">71</td>
             <td class="cell--number">0</td>
@@ -13676,7 +13676,7 @@
               
             
 
-            <code class="ruby">    it {</code>
+            <code class="ruby">    it do</code>
           </li>
         </div>
       
@@ -13689,7 +13689,7 @@
               
             
 
-            <code class="ruby"> expect(subject).to validate_uniqueness_of(:username).case_insensitive.with_message(I18n.t(&#39;activerecord.errors.models.user.attributes.username.already_exists&#39;)) }</code>
+            <code class="ruby">      expect(user).to validate_uniqueness_of(:username)</code>
           </li>
         </div>
       
@@ -13702,20 +13702,20 @@
               
             
 
-            <code class="ruby"></code>
+            <code class="ruby">        .case_insensitive</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="22">
-            <span class="hits">2</span>
+          <li class="never" data-hits="" data-linenumber="22">
+            
             
 
             
               
             
 
-            <code class="ruby">    it { is_expected.to validate_presence_of(:password) }</code>
+            <code class="ruby">        .with_message(I18n.t(&#39;activerecord.errors.models.user.attributes.username.already_exists&#39;))</code>
           </li>
         </div>
       
@@ -13728,33 +13728,33 @@
               
             
 
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="24">
+            
+            
+
+            
+              
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="24">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="25">
+            <span class="hits">2</span>
             
 
             
               
             
 
-            <code class="ruby">    it do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="25">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      expect(user).to validate_length_of(:username)</code>
+            <code class="ruby">    it { is_expected.to validate_presence_of(:password) }</code>
           </li>
         </div>
       
@@ -13767,38 +13767,12 @@
               
             
 
-            <code class="ruby">        .is_at_least(User::USERNAME_MIN_LENGTH).is_at_most(User::USERNAME_MAX_LENGTH)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="27">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="28">
-            
-            
-
-            
-              
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="29">
+          <li class="covered" data-hits="1" data-linenumber="27">
             <span class="hits">1</span>
             
 
@@ -13811,7 +13785,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="30">
+          <li class="covered" data-hits="1" data-linenumber="28">
             <span class="hits">1</span>
             
 
@@ -13819,7 +13793,33 @@
               
             
 
-            <code class="ruby">      expect(user).to validate_length_of(:password)</code>
+            <code class="ruby">      expect(user).to validate_length_of(:username)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="29">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">        .is_at_least(User::USERNAME_MIN_LENGTH).is_at_most(User::USERNAME_MAX_LENGTH)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="30">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -13832,12 +13832,51 @@
               
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="32">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">    it do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="33">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      expect(user).to validate_length_of(:password)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="34">
+            
+            
+
+            
+              
+            
+
             <code class="ruby">        .is_at_least(User::PASSWORD_MIN_LENGTH)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="32">
+          <li class="never" data-hits="" data-linenumber="35">
             
             
 
@@ -13850,7 +13889,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="33">
+          <li class="never" data-hits="" data-linenumber="36">
             
             
 
@@ -13863,7 +13902,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="34">
+          <li class="covered" data-hits="1" data-linenumber="37">
             <span class="hits">1</span>
             
 
@@ -13876,7 +13915,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="35">
+          <li class="covered" data-hits="1" data-linenumber="38">
             <span class="hits">1</span>
             
 
@@ -13889,7 +13928,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="36">
+          <li class="covered" data-hits="1" data-linenumber="39">
             <span class="hits">1</span>
             
 
@@ -13902,7 +13941,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="37">
+          <li class="never" data-hits="" data-linenumber="40">
             
             
 
@@ -13915,7 +13954,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="38">
+          <li class="never" data-hits="" data-linenumber="41">
             
             
 
@@ -13928,7 +13967,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="39">
+          <li class="covered" data-hits="1" data-linenumber="42">
             <span class="hits">1</span>
             
 
@@ -13941,7 +13980,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="40">
+          <li class="covered" data-hits="1" data-linenumber="43">
             <span class="hits">1</span>
             
 
@@ -13954,7 +13993,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="41">
+          <li class="covered" data-hits="1" data-linenumber="44">
             <span class="hits">1</span>
             
 
@@ -13967,7 +14006,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="42">
+          <li class="never" data-hits="" data-linenumber="45">
             
             
 
@@ -13980,7 +14019,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="43">
+          <li class="never" data-hits="" data-linenumber="46">
             
             
 
@@ -13989,45 +14028,6 @@
             
 
             <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="44">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="45">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">    context &#39;when username is empty&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="4" data-linenumber="46">
-            <span class="hits">4</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      subject(:user) { build(:user, :with_empty_username) }</code>
           </li>
         </div>
       
@@ -14053,20 +14053,20 @@
               
             
 
-            <code class="ruby">      it &#39;is invalid user&#39; do</code>
+            <code class="ruby">    context &#39;when username is empty&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="49">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="4" data-linenumber="49">
+            <span class="hits">4</span>
             
 
             
               
             
 
-            <code class="ruby">        expect(user).not_to be_valid</code>
+            <code class="ruby">      subject(:user) { build(:user, :with_empty_username) }</code>
           </li>
         </div>
       
@@ -14079,20 +14079,20 @@
               
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="51">
-            
+          <li class="covered" data-hits="1" data-linenumber="51">
+            <span class="hits">1</span>
             
 
             
               
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      it &#39;is invalid user&#39; do</code>
           </li>
         </div>
       
@@ -14105,12 +14105,51 @@
               
             
 
+            <code class="ruby">        expect(user).not_to be_valid</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="53">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="54">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="55">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
             <code class="ruby">      it &#39;does not save user into database&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="53">
+          <li class="covered" data-hits="1" data-linenumber="56">
             <span class="hits">1</span>
             
 
@@ -14123,7 +14162,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="54">
+          <li class="covered" data-hits="1" data-linenumber="57">
             <span class="hits">1</span>
             
 
@@ -14136,7 +14175,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="55">
+          <li class="never" data-hits="" data-linenumber="58">
             
             
 
@@ -14145,45 +14184,6 @@
             
 
             <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="56">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="57">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      it &#39;raises an error&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="58">
-            <span class="hits">2</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        expect { user.save! }.to raise_error(ActiveRecord::RecordInvalid)</code>
           </li>
         </div>
       
@@ -14196,12 +14196,51 @@
               
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="60">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      it &#39;raises an error&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="61">
+            <span class="hits">2</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        expect { user.save! }.to raise_error(ActiveRecord::RecordInvalid)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="62">
+            
+            
+
+            
+              
+            
+
             <code class="ruby">      end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="60">
+          <li class="never" data-hits="" data-linenumber="63">
             
             
 
@@ -14210,45 +14249,6 @@
             
 
             <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="61">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="62">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">    context &#39;when username is too long&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="4" data-linenumber="63">
-            <span class="hits">4</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      subject(:user) { build(:user, username: &#39;n&#39; * (User::USERNAME_MAX_LENGTH + 1)) }</code>
           </li>
         </div>
       
@@ -14274,20 +14274,20 @@
               
             
 
-            <code class="ruby">      it &#39;is invalid user&#39; do</code>
+            <code class="ruby">    context &#39;when username is too long&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="66">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="4" data-linenumber="66">
+            <span class="hits">4</span>
             
 
             
               
             
 
-            <code class="ruby">        expect(user).not_to be_valid</code>
+            <code class="ruby">      subject(:user) { build(:user, username: &#39;n&#39; * (User::USERNAME_MAX_LENGTH + 1)) }</code>
           </li>
         </div>
       
@@ -14300,20 +14300,20 @@
               
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="68">
-            
+          <li class="covered" data-hits="1" data-linenumber="68">
+            <span class="hits">1</span>
             
 
             
               
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      it &#39;is invalid user&#39; do</code>
           </li>
         </div>
       
@@ -14326,12 +14326,51 @@
               
             
 
+            <code class="ruby">        expect(user).not_to be_valid</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="70">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="71">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="72">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
             <code class="ruby">      it &#39;does not save user into database&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="70">
+          <li class="covered" data-hits="1" data-linenumber="73">
             <span class="hits">1</span>
             
 
@@ -14344,7 +14383,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="71">
+          <li class="covered" data-hits="1" data-linenumber="74">
             <span class="hits">1</span>
             
 
@@ -14357,7 +14396,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="72">
+          <li class="never" data-hits="" data-linenumber="75">
             
             
 
@@ -14366,45 +14405,6 @@
             
 
             <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="73">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="74">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      it &#39;raises an error&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="75">
-            <span class="hits">2</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        expect { user.save! }.to raise_error(ActiveRecord::RecordInvalid)</code>
           </li>
         </div>
       
@@ -14417,12 +14417,51 @@
               
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="77">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      it &#39;raises an error&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="78">
+            <span class="hits">2</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        expect { user.save! }.to raise_error(ActiveRecord::RecordInvalid)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="79">
+            
+            
+
+            
+              
+            
+
             <code class="ruby">      end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="77">
+          <li class="never" data-hits="" data-linenumber="80">
             
             
 
@@ -14431,45 +14470,6 @@
             
 
             <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="78">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="79">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">    context &#39;when username is too short&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="4" data-linenumber="80">
-            <span class="hits">4</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      subject(:user) { build(:user, username: &#39;na&#39;) }</code>
           </li>
         </div>
       
@@ -14495,20 +14495,20 @@
               
             
 
-            <code class="ruby">      it &#39;is invalid user&#39; do</code>
+            <code class="ruby">    context &#39;when username is too short&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="83">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="4" data-linenumber="83">
+            <span class="hits">4</span>
             
 
             
               
             
 
-            <code class="ruby">        expect(user).not_to be_valid</code>
+            <code class="ruby">      subject(:user) { build(:user, username: &#39;na&#39;) }</code>
           </li>
         </div>
       
@@ -14521,20 +14521,20 @@
               
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="85">
-            
+          <li class="covered" data-hits="1" data-linenumber="85">
+            <span class="hits">1</span>
             
 
             
               
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      it &#39;is invalid user&#39; do</code>
           </li>
         </div>
       
@@ -14547,12 +14547,51 @@
               
             
 
+            <code class="ruby">        expect(user).not_to be_valid</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="87">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="88">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="89">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
             <code class="ruby">      it &#39;does not save user into database&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="87">
+          <li class="covered" data-hits="1" data-linenumber="90">
             <span class="hits">1</span>
             
 
@@ -14565,7 +14604,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="88">
+          <li class="covered" data-hits="1" data-linenumber="91">
             <span class="hits">1</span>
             
 
@@ -14578,7 +14617,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="89">
+          <li class="never" data-hits="" data-linenumber="92">
             
             
 
@@ -14587,45 +14626,6 @@
             
 
             <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="90">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="91">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      it &#39;raises an error&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="92">
-            <span class="hits">2</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        expect { user.save! }.to raise_error(ActiveRecord::RecordInvalid)</code>
           </li>
         </div>
       
@@ -14638,12 +14638,51 @@
               
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="94">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      it &#39;raises an error&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="95">
+            <span class="hits">2</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        expect { user.save! }.to raise_error(ActiveRecord::RecordInvalid)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="96">
+            
+            
+
+            
+              
+            
+
             <code class="ruby">      end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="94">
+          <li class="never" data-hits="" data-linenumber="97">
             
             
 
@@ -14652,45 +14691,6 @@
             
 
             <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="95">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="96">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">    context &#39;when username is duplicated&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="4" data-linenumber="97">
-            <span class="hits">4</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      subject(:user) { create(:user) }</code>
           </li>
         </div>
       
@@ -14708,7 +14708,46 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="99">
+          <li class="covered" data-hits="1" data-linenumber="99">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">    context &#39;when username is duplicated&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="4" data-linenumber="100">
+            <span class="hits">4</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      subject(:user) { create(:user) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="101">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="4" data-linenumber="102">
             <span class="hits">4</span>
             
 
@@ -14721,7 +14760,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="100">
+          <li class="never" data-hits="" data-linenumber="103">
             
             
 
@@ -14734,7 +14773,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="101">
+          <li class="covered" data-hits="1" data-linenumber="104">
             <span class="hits">1</span>
             
 
@@ -14747,7 +14786,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="102">
+          <li class="covered" data-hits="1" data-linenumber="105">
             <span class="hits">1</span>
             
 
@@ -14760,7 +14799,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="103">
+          <li class="never" data-hits="" data-linenumber="106">
             
             
 
@@ -14773,7 +14812,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="104">
+          <li class="never" data-hits="" data-linenumber="107">
             
             
 
@@ -14786,7 +14825,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="105">
+          <li class="covered" data-hits="1" data-linenumber="108">
             <span class="hits">1</span>
             
 
@@ -14799,7 +14838,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="106">
+          <li class="covered" data-hits="1" data-linenumber="109">
             <span class="hits">1</span>
             
 
@@ -14812,7 +14851,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="107">
+          <li class="covered" data-hits="1" data-linenumber="110">
             <span class="hits">1</span>
             
 
@@ -14825,7 +14864,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="108">
+          <li class="never" data-hits="" data-linenumber="111">
             
             
 
@@ -14834,45 +14873,6 @@
             
 
             <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="109">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="110">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      it &#39;raises an error&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="111">
-            <span class="hits">2</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        expect { duplicated_user.save! }.to raise_error(ActiveRecord::RecordInvalid)</code>
           </li>
         </div>
       
@@ -14885,12 +14885,51 @@
               
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="113">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      it &#39;raises an error&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="114">
+            <span class="hits">2</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        expect { duplicated_user.save! }.to raise_error(ActiveRecord::RecordInvalid)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="115">
+            
+            
+
+            
+              
+            
+
             <code class="ruby">      end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="113">
+          <li class="never" data-hits="" data-linenumber="116">
             
             
 
@@ -14899,45 +14938,6 @@
             
 
             <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="114">
-            
-            
-
-            
-              
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="115">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">    context &#39;when password is empty&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="4" data-linenumber="116">
-            <span class="hits">4</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">      subject(:user) { build(:user, :with_empty_password) }</code>
           </li>
         </div>
       
@@ -14963,20 +14963,20 @@
               
             
 
-            <code class="ruby">      it &#39;is invalid user&#39; do</code>
+            <code class="ruby">    context &#39;when password is empty&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="119">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="4" data-linenumber="119">
+            <span class="hits">4</span>
             
 
             
               
             
 
-            <code class="ruby">        expect(user).not_to be_valid</code>
+            <code class="ruby">      subject(:user) { build(:user, :with_empty_password) }</code>
           </li>
         </div>
       
@@ -14989,20 +14989,20 @@
               
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="121">
-            
+          <li class="covered" data-hits="1" data-linenumber="121">
+            <span class="hits">1</span>
             
 
             
               
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      it &#39;is invalid user&#39; do</code>
           </li>
         </div>
       
@@ -15015,38 +15015,12 @@
               
             
 
-            <code class="ruby">      it &#39;does not save user into database&#39; do</code>
+            <code class="ruby">        expect(user).not_to be_valid</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="123">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        user.save</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="124">
-            <span class="hits">1</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        expect(described_class.count).to eq(0)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="125">
+          <li class="never" data-hits="" data-linenumber="123">
             
             
 
@@ -15059,7 +15033,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="126">
+          <li class="never" data-hits="" data-linenumber="124">
             
             
 
@@ -15072,6 +15046,32 @@
         </div>
       
         <div>
+          <li class="covered" data-hits="1" data-linenumber="125">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      it &#39;does not save user into database&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="126">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        user.save</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="covered" data-hits="1" data-linenumber="127">
             <span class="hits">1</span>
             
@@ -15080,25 +15080,12 @@
               
             
 
-            <code class="ruby">      it &#39;raises an error&#39; do</code>
+            <code class="ruby">        expect(described_class.count).to eq(0)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="128">
-            <span class="hits">2</span>
-            
-
-            
-              
-            
-
-            <code class="ruby">        expect { user.save! }.to raise_error(ActiveRecord::RecordInvalid)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="129">
+          <li class="never" data-hits="" data-linenumber="128">
             
             
 
@@ -15111,7 +15098,59 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="130">
+          <li class="never" data-hits="" data-linenumber="129">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="130">
+            <span class="hits">1</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">      it &#39;raises an error&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="131">
+            <span class="hits">2</span>
+            
+
+            
+              
+            
+
+            <code class="ruby">        expect { user.save! }.to raise_error(ActiveRecord::RecordInvalid)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="132">
+            
+            
+
+            
+              
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="133">
             
             
 
@@ -15124,7 +15163,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="131">
+          <li class="never" data-hits="" data-linenumber="134">
             
             
 
@@ -15137,7 +15176,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="132">
+          <li class="never" data-hits="" data-linenumber="135">
             
             
 
