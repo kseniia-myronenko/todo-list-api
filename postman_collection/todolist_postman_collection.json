@@ -31,7 +31,8 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/api/v1",
+							"raw": "http://localhost:3000/api/v1",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -85,7 +86,8 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/api/v1/login",
+							"raw": "http://localhost:3000/api/v1/login",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -140,7 +142,8 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/api/v1/signup",
+							"raw": "http://localhost:3000/api/v1/signup",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -175,7 +178,8 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/api/v1/logout",
+							"raw": "http://localhost:3000/api/v1/logout",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -225,7 +229,8 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/api/v1/projects",
+							"raw": "http://localhost:3000/api/v1/projects",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -453,7 +458,8 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/api/v1/projects/:project_id/tasks",
+							"raw": "http://localhost:3000/api/v1/projects/:project_id/tasks",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -496,7 +502,8 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/api/v1/projects/:project_id/tasks/:id",
+							"raw": "http://localhost:3000/api/v1/projects/:project_id/tasks/:id",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -667,7 +674,8 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/api/v1/projects/:project_id/tasks/:task_id/comments",
+							"raw": "http://localhost:3000/api/v1/projects/:project_id/tasks/:task_id/comments",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -821,7 +829,8 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/api/v1/projects/:project_id/tasks/:task_id/comments/:id",
+							"raw": "http://localhost:3000/api/v1/projects/:project_id/tasks/:task_id/comments/:id",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -919,7 +928,8 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/api/v1/projects/:project_id/tasks/:task_id/comments/:comment_id/images",
+							"raw": "http://localhost:3000/api/v1/projects/:project_id/tasks/:task_id/comments/:comment_id/images",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],

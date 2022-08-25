@@ -23,7 +23,6 @@
 bundle install<br>
 rails db:create<br>
 rails db:migrate<br>
-rails db:seed
 </pre>
 <li>Import Postman collection <code>todo-list-api/postman_collection/todolist_postman_collection.json</code></li>
 <li>Start server</li>
