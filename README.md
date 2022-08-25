@@ -7,6 +7,7 @@
 <img src="https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white" />
 <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" />
 </div><br>
+<p style="padding: 5px; border: 1px solid #fff;"><b>Rspec coverage: 100%</b></p>
 <p>This is API for simple productivity improvement tool. It lets users an ability to easy manage and control their own projects and tasks.</p>
 <h2>Configuration</h2>
 
@@ -22,7 +23,7 @@
 <pre>
 bundle install<br>
 rails db:create<br>
-rails db:migrate<br>
+rails db:migrate
 </pre>
 <li>Import Postman collection <code>todo-list-api/postman_collection/todolist_postman_collection.json</code></li>
 <li>Start server</li>
@@ -31,6 +32,7 @@ rails s
 </pre>
 <li>Before testing endpoints create session in Postman: <code>Sessions/Post session</code></li>
 <li>Check swagger documentation by visiting <code>http://localhost:3000/api-docs</code></li>
+<li>Run tests with <code>rspec</code> command in console</li>
 </ol>
 <h2>Use case</h2>
 <ol>
