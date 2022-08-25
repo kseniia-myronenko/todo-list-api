@@ -1,0 +1,995 @@
+{
+	"info": {
+		"_postman_id": "08fff29c-4948-41c9-843a-f3004c27cdbb",
+		"name": "Todo List",
+		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests a user can send?",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19641574"
+	},
+	"item": [
+		{
+			"name": "Home Page",
+			"item": [
+				{
+					"name": "GET homepage",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "Nickname272",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "TYhdhy&5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sessions",
+			"item": [
+				{
+					"name": "POST session",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "Nickname272",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "TYhdhy&5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "Nickname272",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password7&",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST registration",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "Nickname272",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "TYhdhy&5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "Nickname272",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password7&",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "password7&",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DESTROY session",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "Nickname272",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "TYhdhy&5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Projects",
+			"item": [
+				{
+					"name": "POST project",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "Nickname272",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "TYhdhy&5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "New project",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"projects"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Show project",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "Nickname272",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "TYhdhy&5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/projects/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								":id"
+							],
+							"query": [
+								{
+									"key": "position",
+									"value": "desc",
+									"disabled": true
+								},
+								{
+									"key": "position",
+									"value": "asc",
+									"disabled": true
+								},
+								{
+									"key": "created_at",
+									"value": "asc",
+									"disabled": true
+								},
+								{
+									"key": "created_at",
+									"value": "desc",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4acac41e-0196-467f-9de0-d38cfdb1433c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE project",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "Nickname272",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "TYhdhy&5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "New Name 10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/projects/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "26eff4ea-a583-4ebe-9c2c-125b1adb3c12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DESTROY project",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "Nickname272",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "TYhdhy&5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/projects/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "26eff4ea-a583-4ebe-9c2c-125b1adb3c12"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "POST task",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "Nickname272",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "TYhdhy&5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Make cleaning.",
+									"type": "text"
+								},
+								{
+									"key": "done",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "deadline",
+									"value": "2022-08-29",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/projects/:project_id/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								":project_id",
+								"tasks"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"value": "74a3c25e-33c4-4d18-9d90-29ab1ba929de"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Show task",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "Nickname272",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "TYhdhy&5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/projects/:project_id/tasks/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								":project_id",
+								"tasks",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"value": "74a3c25e-33c4-4d18-9d90-29ab1ba929de"
+								},
+								{
+									"key": "id",
+									"value": "f9233c31-dd48-4762-8e3f-30054dc3d99c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE task",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "Nickname272",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "TYhdhy&5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "New task name",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/projects/:project_id/tasks/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								":project_id",
+								"tasks",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"value": "45b06c93-6b0c-4e35-a21f-fcd2769e4af0"
+								},
+								{
+									"key": "id",
+									"value": "dca2d460-af78-4f25-84a9-dfe9597f0e7c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DESTROY task",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "Nickname272",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "TYhdhy&5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/projects/:project_id/tasks/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								":project_id",
+								"tasks",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"value": "4acac41e-0196-467f-9de0-d38cfdb1433c"
+								},
+								{
+									"key": "id",
+									"value": "231d1517-a022-4dbb-9763-0a32eb26b321"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "POST comment",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password7&",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Nickname272",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "content",
+									"value": "More comments",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/projects/:project_id/tasks/:task_id/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								":project_id",
+								"tasks",
+								":task_id",
+								"comments"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"value": "74a3c25e-33c4-4d18-9d90-29ab1ba929de"
+								},
+								{
+									"key": "task_id",
+									"value": "f9233c31-dd48-4762-8e3f-30054dc3d99c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE comment",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "Nickname272",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "TYhdhy&5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "content",
+									"value": "Oops, need to rewrite comment.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/projects/:project_id/tasks/:task_id/comments/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								":project_id",
+								"tasks",
+								":task_id",
+								"comments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"value": "45b06c93-6b0c-4e35-a21f-fcd2769e4af0"
+								},
+								{
+									"key": "task_id",
+									"value": "dca2d460-af78-4f25-84a9-dfe9597f0e7c"
+								},
+								{
+									"key": "id",
+									"value": "0a4ef0e7-8736-4dde-97e5-2c02c31c1806"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DESTROY comment",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "Nickname272",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "TYhdhy&5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/projects/:project_id/tasks/:task_id/comments/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								":project_id",
+								"tasks",
+								":task_id",
+								"comments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"value": "45b06c93-6b0c-4e35-a21f-fcd2769e4af0"
+								},
+								{
+									"key": "task_id",
+									"value": "dca2d460-af78-4f25-84a9-dfe9597f0e7c"
+								},
+								{
+									"key": "id",
+									"value": "0a4ef0e7-8736-4dde-97e5-2c02c31c1806"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Show comment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/projects/:project_id/tasks/:task_id/comments/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								":project_id",
+								"tasks",
+								":task_id",
+								"comments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"value": "f219431d-ae97-4de2-af28-4bb602c42902"
+								},
+								{
+									"key": "task_id",
+									"value": "64e188da-74fc-4d85-b173-a3ebb09b3a00"
+								},
+								{
+									"key": "id",
+									"value": "f6794197-8cad-492e-9462-ef33b1369f93"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Images",
+			"item": [
+				{
+					"name": "POST image",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "Nickname272",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "TYhdhy&5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"description": "valid jpeg image (you can find it in spec/fixtures/files)",
+									"type": "file",
+									"src": "/home/mint/Documents/ToDoList/todo-list-api/spec/fixtures/files/acceptable_size_image-2.png"
+								},
+								{
+									"key": "image",
+									"description": "valid png image (you can find it in spec/fixtures/files)",
+									"type": "file",
+									"src": "/home/mint/Documents/ToDoList/todo-list-api/spec/fixtures/files/acceptable_size_image-2.png",
+									"disabled": true
+								},
+								{
+									"key": "image",
+									"description": "invalid image more than 10 mb (you can find it in spec/fixtures/files)",
+									"type": "file",
+									"src": "/home/mint/Documents/ToDoList/todo-list-api/spec/fixtures/files/big_size_image.jpg",
+									"disabled": true
+								},
+								{
+									"key": "image",
+									"description": "invalid format - not an image (you can find it in spec/fixtures/files)",
+									"type": "file",
+									"src": "/home/mint/Documents/ToDoList/todo-list-api/spec/fixtures/files/not_image.doc",
+									"disabled": true
+								},
+								{
+									"key": "image",
+									"description": "invalid format - not an image (you can find it in spec/fixtures/files)",
+									"type": "file",
+									"src": "/home/mint/Documents/ToDoList/todo-list-api/spec/fixtures/files/not_image.pdf",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/projects/:project_id/tasks/:task_id/comments/:comment_id/images",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								":project_id",
+								"tasks",
+								":task_id",
+								"comments",
+								":comment_id",
+								"images"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"value": "74a3c25e-33c4-4d18-9d90-29ab1ba929de"
+								},
+								{
+									"key": "task_id",
+									"value": "f9233c31-dd48-4762-8e3f-30054dc3d99c"
+								},
+								{
+									"key": "comment_id",
+									"value": "44d7eee1-acbe-496d-a2ae-46acb3fc9272"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "http://localhost:3000/api/v1/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"login"
+					]
+				},
+				"description": "User authentication"
+			},
+			"response": []
+		}
+	]
+}

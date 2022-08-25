@@ -16,22 +16,40 @@ RSpec.configure do |config|
   # the root example_group in your specs, e.g. describe '...', swagger_doc: 'v2/swagger.json'
   config.swagger_docs = {
     'v1/swagger.yaml' => {
-      openapi: '3.0.1',
+      swagger: '2.0',
       info: {
-        title: 'API V1',
+        title: 'Todo-List API V1',
         version: 'v1'
       },
-      paths: {},
-      servers: [
-        {
-          url: 'https://{defaultHost}',
-          variables: {
-            defaultHost: {
-              default: 'www.example.com'
-            }
+      definitions: {
+        registration_response: {
+          type: :object,
+          properties: {
+            user: { type: :string, example: 'Username' },
+            message: { type: :string, example: 'You are successfully registered.' }
           }
+        },
+        session_response: {
+          type: :object,
+          properties: {
+            user: { type: :string, example: 'Username' },
+            logged_in: { type: :boolean, example: true },
+            message: { type: :string, example: 'Successfully logged in.' }
+          }
+        },
+        all_projects: Api::Schemas::Project::MANY_SCHEMA.json_schema.except(:$schema),
+        single_project: Api::Schemas::Project::SINGLE_SCHEMA.json_schema.except(:$schema),
+        single_task: Api::Schemas::Task::SINGLE_SCHEMA.json_schema.except(:$schema),
+        image: Api::Schemas::Image::SINGLE_SCHEMA.json_schema.except(:$schema),
+        comment: Api::Schemas::Comment::SINGLE_SCHEMA.json_schema.except(:$schema)
+      },
+
+      securityDefinitions: {
+        basicAuth: {
+          type: :basic,
+          description: 'Session authentication'
         }
-      ]
+      }
     }
   }
 

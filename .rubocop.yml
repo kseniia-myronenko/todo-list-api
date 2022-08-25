@@ -6,7 +6,6 @@ AllCops:
   Exclude:
     - db/schema.rb
     - bin/**/*
-    - node_modules/**/*
     - vendor/**/*
 
 require:
@@ -23,7 +22,7 @@ Style/SignalException:
 # Metrics Cops
 
 Metrics/BlockLength:
-  IgnoredMethods:
+  AllowedMethods:
     - context
     - it
     - describe
@@ -37,7 +36,6 @@ Metrics/BlockLength:
     - get
     - put
     - Dry::Schema.Params
-    - ActiveAdmin.register
 
 Metrics/ModuleLength:
   Max: 100
@@ -67,18 +65,12 @@ RSpec/VariableName:
   Exclude:
     - spec/requests/**/*
 
-RSpec/MultipleMemoizedHelpers:
-  Exclude:
-    - spec/requests/api/v1/playlists_spec.rb
-    - spec/requests/api/v1/sessions_spec.rb
-
-RSpec/MultipleExpectations:
-  Exclude:
-    - spec/requests/admin/**/*
-
 Lint/MissingSuper:
   Exclude:
-    - app/services/**/*
+    - app/service/**
 
 RSpec/NestedGroups:
   Max: 4
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 10
