@@ -19,7 +19,7 @@
 
 <h2>Run app</h2>
 <ol>
-<li>Setup gems, database & seeds:</li>
+<li>Setup gems & database:</li>
 <pre>
 bundle install<br>
 rails db:create<br>
