@@ -12,7 +12,7 @@
 <h2>Configuration</h2>
 
 <ol>
-<li><b>Ruby:</b> 3.1.0</li>
+<li><b>Ruby:</b> 3.1.2</li>
 <li><b>Rails:</b> ~> 7.0.3</li>
 <li><b>Database:</b> PostgreSQL</li>
 </ol>
