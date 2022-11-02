@@ -1,6 +1,6 @@
 require 'swagger_helper'
 
-RSpec.describe 'projects', type: :request do
+RSpec.describe 'projects' do
   let!(:user) { create(:user, password: Helpers::UserAuthHelper::PASSWORD) }
 
   path '/api/v1' do

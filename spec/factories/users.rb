@@ -1,14 +1,18 @@
 FactoryBot.define do
   factory :user do
-    username { FFaker::Internet.unique.user_name.ljust(User::USERNAME_MIN_LENGTH, 'a')[0...User::USERNAME_MAX_LENGTH] }
+    username do
+      FFaker::Internet.unique.user_name.ljust(UsersForms::BaseForm::USERNAME_MIN_LENGTH,
+                                              'a')[0...UsersForms::BaseForm::USERNAME_MAX_LENGTH]
+    end
     password { 'Password7&' }
+    password_confirmation { password }
 
     trait :with_empty_username do
       username { nil }
     end
 
     trait :with_empty_password do
-      password_digest { nil }
+      password { nil }
     end
   end
 end

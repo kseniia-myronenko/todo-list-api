@@ -1,6 +1,6 @@
 require 'swagger_helper'
 
-RSpec.describe 'api/v1/images', type: :request do
+RSpec.describe 'api/v1/images' do
   let!(:user) { create(:user, password: Helpers::UserAuthHelper::PASSWORD) }
 
   path '/api/v1/projects/{project_id}/tasks/{task_id}/comments/{comment_id}/images' do

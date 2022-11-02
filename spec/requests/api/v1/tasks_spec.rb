@@ -1,6 +1,6 @@
 require 'swagger_helper'
 
-RSpec.describe 'api/v1/tasks', type: :request do
+RSpec.describe 'api/v1/tasks' do
   let!(:user) { create(:user, password: Helpers::UserAuthHelper::PASSWORD) }
 
   path '/api/v1/projects/{project_id}/tasks' do
@@ -113,7 +113,7 @@ RSpec.describe 'api/v1/tasks', type: :request do
     put('update task') do
       parameter name: 'project_id', in: :path, type: :string, description: 'project_id'
       parameter name: 'id', in: :path, type: :string, description: 'id'
-      parameter name: :name, in: :formData, type: :string, required: true
+      parameter name: 'name', in: :formData, type: :string, required: true
 
       consumes 'multipart/form-data'
       produces 'application/json'
@@ -123,7 +123,8 @@ RSpec.describe 'api/v1/tasks', type: :request do
       context 'when valid params' do
         let(:Authorization) { basic_token(user) }
         let(:project_id) { create(:project, user:).id }
-        let(:id) { create(:task, project_id:).id }
+        let(:task) { create(:task, project_id:) }
+        let(:id) { task.id }
         let(:name) { 'Updated task name' }
 
         before { authenticate(user) }
@@ -133,7 +134,6 @@ RSpec.describe 'api/v1/tasks', type: :request do
 
           run_test! do
             parsed_body = JSON.parse(response.body)
-
             expect(response.body).to match_response_schema(Api::Schemas::Task::SINGLE_SCHEMA)
             expect(parsed_body['data']['attributes']['name']).to eq('Updated task name')
           end

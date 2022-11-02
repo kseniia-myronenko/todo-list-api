@@ -1,4 +1,4 @@
-RSpec.describe Comment, type: :model do
+RSpec.describe Comment do
   describe 'associations' do
     it { is_expected.to have_many(:images).dependent(:destroy) }
     it { is_expected.to belong_to(:task) }

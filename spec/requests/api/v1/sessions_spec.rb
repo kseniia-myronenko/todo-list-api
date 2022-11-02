@@ -1,6 +1,6 @@
 require 'swagger_helper'
 
-RSpec.describe 'api/v1/sessions', type: :request do
+RSpec.describe 'api/v1/sessions' do
   path '/api/v1/login' do
     post('create session') do
       consumes 'multipart/form-data'

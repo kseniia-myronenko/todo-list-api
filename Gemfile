@@ -15,6 +15,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootsnap', require: false
 
+gem 'dry-validation', '~> 1.9'
+
 gem 'image_processing', '~> 1.12', '>= 1.12.2'
 
 gem 'mini_magick', '~> 4.11'
@@ -32,6 +34,10 @@ gem 'puma', '~> 5.0'
 gem 'pg', '~> 1.1'
 
 gem 'rack-cors', '~> 1.1', '>= 1.1.1'
+
+gem 'reform', '~> 2.6.0'
+
+gem 'reform-rails', '~> 0.2.3'
 
 gem 'rspec-rails', '~> 6.0.0.rc1'
 
@@ -51,7 +57,7 @@ group :development, :test do
   gem 'bundler-audit', '~> 0.9.0'
   gem 'bundler-leak', '~> 0.3.0'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'dry-schema', '~> 1.9', '>= 1.9.3'
+  gem 'dry-schema', '~> 1.11', '>= 1.11.2'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'ffaker', '~> 2.21'
   gem 'rswag-specs', '~> 2.5', '>= 2.5.1'

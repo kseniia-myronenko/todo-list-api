@@ -1,6 +1,6 @@
 require 'swagger_helper'
 
-RSpec.describe 'api/v1/registrations', type: :request do
+RSpec.describe 'api/v1/registrations' do
   path '/api/v1/signup' do
     post('create account') do
       consumes 'multipart/form-data'

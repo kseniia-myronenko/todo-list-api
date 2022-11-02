@@ -1,36 +1,38 @@
 module Api
   module V1
     class TasksController < AuthorizedController
-      before_action :set_task, except: %i[create]
+      before_action :set_task, except: :create
 
       def show
-        render json: Api::V1::TaskSerializer.new(@task), status: :ok
+        render json: Api::V1::TaskSerializer.new(set_task.model), status: :ok
       end
 
       def create
-        @task = project.tasks.create(task_params)
+        task_form = TaskForm.new(project.tasks.new)
 
-        response = if @task.valid?
-                     { json: Api::V1::TaskSerializer.new(@task), status: :created }
+        response = if task_form.validate(task_params)
+                     task_form.save
+                     { json: Api::V1::TaskSerializer.new(task_form.model), status: :created }
                    else
-                     { json: { errors: @task.errors }, status: :unprocessable_entity }
+                     { json: { errors: task_form.errors }, status: :unprocessable_entity }
                    end
 
         render response
       end
 
       def update
-        response = if @task.update(task_params)
-                     { json: Api::V1::TaskSerializer.new(@task), status: :ok }
+        response = if set_task.validate(task_params)
+                     set_task.model.update(task_params)
+                     { json: Api::V1::TaskSerializer.new(set_task.model), status: :ok }
                    else
-                     { json: { errors: @task.errors }, status: :unprocessable_entity }
+                     { json: { errors: set_task.errors }, status: :unprocessable_entity }
                    end
 
         render response
       end
 
       def destroy
-        @task.destroy
+        set_task.model.destroy
         head :no_content
       end
 
@@ -45,7 +47,7 @@ module Api
       end
 
       def set_task
-        @task = project.tasks.find(params[:id])
+        TaskForm.new(project.tasks.find(params[:id]))
       end
     end
   end

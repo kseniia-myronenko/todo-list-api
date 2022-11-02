@@ -1,4 +1,4 @@
-RSpec.describe Image, type: :model do
+RSpec.describe Image do
   describe 'associations' do
     it { is_expected.to belong_to(:comment) }
   end
